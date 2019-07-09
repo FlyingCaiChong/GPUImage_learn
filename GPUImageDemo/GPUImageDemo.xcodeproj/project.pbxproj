@@ -17,6 +17,10 @@
 		B672A93E22D42BE10046BBFD /* GPUImageDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A93D22D42BE10046BBFD /* GPUImageDemoTests.m */; };
 		B672A94922D42BE10046BBFD /* GPUImageDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A94822D42BE10046BBFD /* GPUImageDemoUITests.m */; };
 		B672A95F22D436110046BBFD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A95E22D436110046BBFD /* MainViewController.m */; };
+		B672A97A22D469E20046BBFD /* BlendingModesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97322D469E10046BBFD /* BlendingModesViewController.m */; };
+		B672A97B22D469E20046BBFD /* ColorAdjustmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97622D469E20046BBFD /* ColorAdjustmentsViewController.m */; };
+		B672A97C22D469E20046BBFD /* VisualEffectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97722D469E20046BBFD /* VisualEffectsViewController.m */; };
+		B672A97D22D469E20046BBFD /* ImageProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97822D469E20046BBFD /* ImageProcessingViewController.m */; };
 		D2DBF37545DDF9CABAACDC70 /* libPods-GPUImageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E4BB2D080C885737A04108 /* libPods-GPUImageDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +62,15 @@
 		B672A94A22D42BE10046BBFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B672A95D22D436110046BBFD /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B672A95E22D436110046BBFD /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B672A97022D468500046BBFD /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B672A97222D469E10046BBFD /* VisualEffectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisualEffectsViewController.h; sourceTree = "<group>"; };
+		B672A97322D469E10046BBFD /* BlendingModesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlendingModesViewController.m; sourceTree = "<group>"; };
+		B672A97422D469E10046BBFD /* ImageProcessingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageProcessingViewController.h; sourceTree = "<group>"; };
+		B672A97522D469E10046BBFD /* BlendingModesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlendingModesViewController.h; sourceTree = "<group>"; };
+		B672A97622D469E20046BBFD /* ColorAdjustmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorAdjustmentsViewController.m; sourceTree = "<group>"; };
+		B672A97722D469E20046BBFD /* VisualEffectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisualEffectsViewController.m; sourceTree = "<group>"; };
+		B672A97822D469E20046BBFD /* ImageProcessingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageProcessingViewController.m; sourceTree = "<group>"; };
+		B672A97922D469E20046BBFD /* ColorAdjustmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorAdjustmentsViewController.h; sourceTree = "<group>"; };
 		C62185B671E1ADE88EA7CDF9 /* Pods-GPUImageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemo/Pods-GPUImageDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C62AD19B6257F9470BBF35A7 /* Pods-GPUImageDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoUITests/Pods-GPUImageDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D5911DF9EB61AFB8BC37E42C /* libPods-GPUImageDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +162,7 @@
 				B672A92F22D42BE10046BBFD /* LaunchScreen.storyboard */,
 				B672A93222D42BE10046BBFD /* Info.plist */,
 				B672A93322D42BE10046BBFD /* main.m */,
+				B672A97022D468500046BBFD /* PrefixHeader.pch */,
 			);
 			path = GPUImageDemo;
 			sourceTree = "<group>";
@@ -189,6 +203,14 @@
 			children = (
 				B672A95D22D436110046BBFD /* MainViewController.h */,
 				B672A95E22D436110046BBFD /* MainViewController.m */,
+				B672A97522D469E10046BBFD /* BlendingModesViewController.h */,
+				B672A97322D469E10046BBFD /* BlendingModesViewController.m */,
+				B672A97922D469E20046BBFD /* ColorAdjustmentsViewController.h */,
+				B672A97622D469E20046BBFD /* ColorAdjustmentsViewController.m */,
+				B672A97422D469E10046BBFD /* ImageProcessingViewController.h */,
+				B672A97822D469E20046BBFD /* ImageProcessingViewController.m */,
+				B672A97222D469E10046BBFD /* VisualEffectsViewController.h */,
+				B672A97722D469E20046BBFD /* VisualEffectsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +261,7 @@
 				B672A91D22D42BDC0046BBFD /* Sources */,
 				B672A91E22D42BDC0046BBFD /* Frameworks */,
 				B672A91F22D42BDC0046BBFD /* Resources */,
+				3330E6649D8B844DFBF57B7A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -357,6 +380,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3330E6649D8B844DFBF57B7A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GPUImageDemo/Pods-GPUImageDemo-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GPUImageDemo/Pods-GPUImageDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		48F120BD5FEE8BB414515307 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -430,9 +483,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B672A97D22D469E20046BBFD /* ImageProcessingViewController.m in Sources */,
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
 				B672A95F22D436110046BBFD /* MainViewController.m in Sources */,
+				B672A97A22D469E20046BBFD /* BlendingModesViewController.m in Sources */,
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
+				B672A97B22D469E20046BBFD /* ColorAdjustmentsViewController.m in Sources */,
+				B672A97C22D469E20046BBFD /* VisualEffectsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +595,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -591,7 +648,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -606,6 +663,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 356XMYTC6D;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = GPUImageDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -625,6 +683,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = GPUImageDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

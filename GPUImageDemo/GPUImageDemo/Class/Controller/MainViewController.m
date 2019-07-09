@@ -7,13 +7,17 @@
 //
 
 #import "MainViewController.h"
+#import "ColorAdjustmentsViewController.h"
+#import "ImageProcessingViewController.h"
+#import "VisualEffectsViewController.h"
+#import "BlendingModesViewController.h"
 
 static NSString *const kMainCellIdentifier = @"kMainCellIdentifier";
 
-static NSString *const kFilterCategoryColorAdjustments = @"Color adjustments";
+static NSString *const kFilterCategoryColorAdjustments = @"Color Adjustments";
 static NSString *const kFilterCategoryImageProcessing = @"Image Processing";
-static NSString *const kFilterCategoryBlendingModes = @"Blending modes";
-static NSString *const kFilterCategoryVisualEffects = @"Visual effects";
+static NSString *const kFilterCategoryBlendingModes = @"Blending Modes";
+static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 
 @interface MainViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -50,22 +54,29 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual effects";
 
 - (void)setupUI {
     [self.view addSubview:self.tableView];
-    
-    self.tableView.frame = self.view.bounds;
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        make.left.equalTo(self.view.mas_safeAreaLayoutGuideLeft);
+        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
+    }];
 }
 
 #pragma mark - <UITableViewDelegate, UITableViewDataSource>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     return self.dataList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     NSDictionary *dictInfo = self.dataList[section];
     NSArray *listArr = dictInfo[@"content"];
     return listArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMainCellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:kMainCellIdentifier];
@@ -80,12 +91,14 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual effects";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
     NSDictionary *info = self.dataList[section];
     NSString *sectionTitle = info[@"title"];
     return sectionTitle;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 0) {
         NSDictionary *info = self.dataList[indexPath.section];
         NSString *cellTitle = info[@"content"][indexPath.row];
@@ -95,14 +108,22 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual effects";
 
 #pragma mark - private
 - (void)filtersSectionJumpToVcWithCellTitle:(NSString *)title {
+    UIViewController *vc = nil;
     if ([title isEqualToString:kFilterCategoryColorAdjustments]) {
-        // TODO: jump to color adjustments vc
+        // jump to color adjustments vc
+        vc = [[ColorAdjustmentsViewController alloc] init];
     } else if ([title isEqualToString:kFilterCategoryImageProcessing]) {
-        // TODO: jump to image processing vc
+        // jump to image processing vc
+        vc = [[ImageProcessingViewController alloc] init];
     } else if ([title isEqualToString:kFilterCategoryBlendingModes]) {
-        // TODO: jump to blending modes vc
+        // jump to blending modes vc
+        vc = [[BlendingModesViewController alloc] init];
     } else if ([title isEqualToString:kFilterCategoryVisualEffects]) {
-        // TODO: jump to visual effects vc
+        // jump to visual effects vc
+        vc = [[VisualEffectsViewController alloc] init];
+    }
+    if (vc) {
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

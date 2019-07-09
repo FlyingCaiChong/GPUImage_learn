@@ -6,7 +6,7 @@ target 'GPUImageDemo' do
   # use_frameworks!
 
   # Pods for GPUImageDemo
-  # pod 'GPUImage'
+  pod 'GPUImage', :inhibit_warnings => true
   pod 'Masonry', :inhibit_warnings => true
   
   target 'GPUImageDemoTests' do
