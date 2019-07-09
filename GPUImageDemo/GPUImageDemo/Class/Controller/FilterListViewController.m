@@ -63,7 +63,10 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    FilterListItem *item = self.dataList[indexPath.row];
     ShowViewController *showVc = [[ShowViewController alloc] init];
+    showVc.item = item;
+    showVc.navigationItem.title = item.title;
     [self.navigationController pushViewController:showVc animated:YES];
 }
 

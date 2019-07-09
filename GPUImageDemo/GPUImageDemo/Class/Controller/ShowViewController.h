@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilterListItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ShowViewController : UIViewController
+
+@property (nonatomic, strong) FilterListItem *item;
 
 @end
 

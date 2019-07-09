@@ -7,6 +7,9 @@
 //
 
 #import "ShowViewController.h"
+#import "GPUImage.h"
+
+static NSString *const kImageNamed = @"img_test";
 
 @interface ShowViewController ()
 
@@ -15,6 +18,10 @@
 @property (nonatomic, strong) UIImageView *originImageView;
 @property (nonatomic, strong) UIImageView *processedImageView;
 @property (nonatomic, strong) UISlider *slider;
+
+// GPUImage
+@property (nonatomic, strong) GPUImagePicture *sourcePicture;
+@property (nonatomic, strong) GPUImageFilter *imageFilter;
 
 @end
 
@@ -25,6 +32,13 @@
     
     [self setupUI];
     [self layoutConstraints];
+    [self configFilter];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self render];
 }
 
 - (void)setupUI {
@@ -69,6 +83,18 @@
     }];
 }
 
+- (void)configFilter {
+    NSString *filterClassNamed = self.item.title;
+    self.imageFilter = (GPUImageFilter *)[[NSClassFromString(filterClassNamed) alloc] init];
+    [self.sourcePicture addTarget:self.imageFilter];
+    [self.imageFilter useNextFrameForImageCapture];
+}
+
+- (void)render {
+    [self.sourcePicture processImage];
+    self.processedImageView.image = [self.imageFilter imageFromCurrentFramebuffer];
+}
+
 #pragma mark - lazy
 - (UILabel *)originImageLabel {
     if (!_originImageLabel) {
@@ -91,7 +117,7 @@
 - (UIImageView *)originImageView {
     if (!_originImageView) {
         _originImageView = [[UIImageView alloc] init];
-        _originImageView.image = [UIImage imageNamed:@"img_test"];
+        _originImageView.image = [UIImage imageNamed:kImageNamed];
     }
     return _originImageView;
 }
@@ -99,7 +125,6 @@
 - (UIImageView *)processedImageView {
     if (!_processedImageView) {
         _processedImageView = [[UIImageView alloc] init];
-        _processedImageView.image = [UIImage imageNamed:@"img_test"];
     }
     return _processedImageView;
 }
@@ -110,5 +135,13 @@
     }
     return _slider;
 }
+
+- (GPUImagePicture *)sourcePicture {
+    if (!_sourcePicture) {
+        _sourcePicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:kImageNamed]];
+    }
+    return _sourcePicture;
+}
+
 
 @end

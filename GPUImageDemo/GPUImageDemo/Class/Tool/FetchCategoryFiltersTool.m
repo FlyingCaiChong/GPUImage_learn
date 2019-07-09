@@ -59,11 +59,11 @@
                  @"desc": @"Adjusts the hue of an image",
                  @"inherit": @"GPUImageFilter",
                  },
-             @{
-                 @"title": @"GPUImageVibranceFilter", // Deprecated
-                 @"desc": @"Adjusts the vibrance of an image",
-                 @"inherit": @"GPUImageFilter",
-                 },
+//             @{
+//                 @"title": @"GPUImageVibranceFilter", // Deprecated
+//                 @"desc": @"Adjusts the vibrance of an image",
+//                 @"inherit": @"GPUImageFilter",
+//                 },
              @{
                  @"title": @"GPUImageWhiteBalanceFilter",
                  @"desc": @"Adjusts the white balance of an image.",
@@ -79,11 +79,11 @@
                  @"desc": @"Adjusts the shadows and highlights of an image",
                  @"inherit": @"GPUImageFilter",
                  },
-             @{
-                 @"title": @"GPUImageHighlightShadowTintFilter", // Deprecated
-                 @"desc": @"Allows you to tint the shadows and highlights of an image independently using a color and intensity",
-                 @"inherit": @"GPUImageFilter",
-                 },
+//             @{
+//                 @"title": @"GPUImageHighlightShadowTintFilter", // Deprecated
+//                 @"desc": @"Allows you to tint the shadows and highlights of an image independently using a color and intensity",
+//                 @"inherit": @"GPUImageFilter",
+//                 },
              @{
                  @"title": @"GPUImageLookupFilter",
                  @"desc": @"Uses an RGB color lookup image to remap the colors in an image. First, use your favourite photo editing application to apply a filter to lookup.png from GPUImage/framework/Resources. For this to work properly each pixel color must not depend on other pixels (e.g. blur will not work). If you need a more complex filter you can create as many lookup tables as required. Once ready, use your new lookup.png file as a second input for GPUImageLookupFilter.",
@@ -104,11 +104,11 @@
                  @"desc": @"Another lookup-based color remapping filter. If you want to use this effect you have to add lookup_soft_elegance_1.png and lookup_soft_elegance_2.png from the GPUImage Resources folder to your application bundle.",
                  @"inherit": @"GPUImageFilterGroup",
                  },
-             @{
-                 @"title": @"GPUImageSkinToneFilter", // Deprecated
-                 @"desc": @"A skin-tone adjustment filter that affects a unique range of light skin-tone colors and adjusts the pink/green or pink/orange range accordingly. Default values are targetted at fair caucasian skin, but can be adjusted as required.",
-                 @"inherit": @"GPUImageFilter",
-                 },
+//             @{
+//                 @"title": @"GPUImageSkinToneFilter", // Deprecated
+//                 @"desc": @"A skin-tone adjustment filter that affects a unique range of light skin-tone colors and adjusts the pink/green or pink/orange range accordingly. Default values are targetted at fair caucasian skin, but can be adjusted as required.",
+//                 @"inherit": @"GPUImageFilter",
+//                 },
              @{
                  @"title": @"GPUImageColorInvertFilter",
                  @"desc": @"Inverts the colors of an image",
@@ -299,11 +299,11 @@
                  @"desc": @"Runs the Noble variant on the Harris corner detector. It behaves as described above for the Harris detector.",
                  @"inherit": @"GPUImageHarrisCornerDetectionFilter",
                  },
-             @{
-                 @"title": @"GPUImageShiTomasiCornerDetectionFilter", // Deprecated
-                 @"desc": @"Runs the Shi-Tomasi feature detector. It behaves as described above for the Harris detector.",
-                 @"inherit": @"GPUImageFilter",
-                 },
+//             @{
+//                 @"title": @"GPUImageShiTomasiCornerDetectionFilter", // Deprecated
+//                 @"desc": @"Runs the Shi-Tomasi feature detector. It behaves as described above for the Harris detector.",
+//                 @"inherit": @"GPUImageFilter",
+//                 },
              @{
                  @"title": @"GPUImageNonMaximumSuppressionFilter",
                  @"desc": @"Currently used only as part of the Harris corner detection filter, this will sample a 1-pixel box around each pixel and determine if the center pixel's red channel is the maximum in that area. If it is, it stays. If not, it is set to 0 for all color components.",
