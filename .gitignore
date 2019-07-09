@@ -16,6 +16,17 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+profile
+*.moved-aside
+DerivedData
+.idea/
+*.xcworkspace
+!default.xcworkspace
+
+#CocoaPods
+Pods
+!Podfile
+!Podfile.lock
 
 ## Other
 *.moved-aside
