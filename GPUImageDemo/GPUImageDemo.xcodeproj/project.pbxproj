@@ -10,6 +10,7 @@
 		63F2652DFD047186F79E9B36 /* libPods-GPUImageDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5911DF9EB61AFB8BC37E42C /* libPods-GPUImageDemoTests.a */; };
 		A53B6955BF51F62525546667 /* libPods-GPUImageDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243EFCECEFA2B34D5B597878 /* libPods-GPUImageDemoUITests.a */; };
 		B65F114222D47B32007D6A05 /* FilterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114122D47B32007D6A05 /* FilterListCell.m */; };
+		B65F114522D4890E007D6A05 /* FilterListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114422D4890E007D6A05 /* FilterListItem.m */; };
 		B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A92522D42BDC0046BBFD /* AppDelegate.m */; };
 		B672A92C22D42BDC0046BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B672A92A22D42BDC0046BBFD /* Main.storyboard */; };
 		B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B672A92D22D42BE10046BBFD /* Assets.xcassets */; };
@@ -47,6 +48,8 @@
 		B1754A13A20B4AD815F15AC9 /* Pods-GPUImageDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoTests/Pods-GPUImageDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B65F114022D47B32007D6A05 /* FilterListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterListCell.h; sourceTree = "<group>"; };
 		B65F114122D47B32007D6A05 /* FilterListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterListCell.m; sourceTree = "<group>"; };
+		B65F114322D4890E007D6A05 /* FilterListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterListItem.h; sourceTree = "<group>"; };
+		B65F114422D4890E007D6A05 /* FilterListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterListItem.m; sourceTree = "<group>"; };
 		B672A92122D42BDC0046BBFD /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B672A92422D42BDC0046BBFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B672A92522D42BDC0046BBFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -216,8 +219,8 @@
 		B672A95922D4343C0046BBFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B672A97E22D46DEE0046BBFD /* FetchCategoryFiltersTool.h */,
-				B672A97F22D46DEE0046BBFD /* FetchCategoryFiltersTool.m */,
+				B65F114322D4890E007D6A05 /* FilterListItem.h */,
+				B65F114422D4890E007D6A05 /* FilterListItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +235,8 @@
 		B672A95B22D4343C0046BBFD /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				B672A97E22D46DEE0046BBFD /* FetchCategoryFiltersTool.h */,
+				B672A97F22D46DEE0046BBFD /* FetchCategoryFiltersTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
 				B672A95F22D436110046BBFD /* MainViewController.m in Sources */,
 				B672A98022D46DEE0046BBFD /* FetchCategoryFiltersTool.m in Sources */,
+				B65F114522D4890E007D6A05 /* FilterListItem.m in Sources */,
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
 				B672A97B22D469E20046BBFD /* FilterListViewController.m in Sources */,
 				B65F114222D47B32007D6A05 /* FilterListCell.m in Sources */,

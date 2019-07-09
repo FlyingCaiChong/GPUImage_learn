@@ -9,6 +9,8 @@
 #import "MainViewController.h"
 #import "FilterListViewController.h"
 #import "FetchCategoryFiltersTool.h"
+#import "MJExtension.h"
+#import "FilterListItem.h"
 
 static NSString *const kMainCellIdentifier = @"kMainCellIdentifier";
 
@@ -109,13 +111,13 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 - (void)filtersSectionJumpToVcWithCellTitle:(NSString *)title {
     FilterListViewController *vc = [[FilterListViewController alloc] init];
     if ([title isEqualToString:kFilterCategoryColorAdjustments]) {
-        vc.dataList = [FetchCategoryFiltersTool colorAdjustmentsFilters];
+        vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool colorAdjustmentsFilters]];
     } else if ([title isEqualToString:kFilterCategoryImageProcessing]) {
-        vc.dataList = [FetchCategoryFiltersTool imageProcessingFilters];
+        vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool imageProcessingFilters]];
     } else if ([title isEqualToString:kFilterCategoryBlendingModes]) {
-        vc.dataList = [FetchCategoryFiltersTool blendingModesFilters];
+        vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool blendingModesFilters]];
     } else if ([title isEqualToString:kFilterCategoryVisualEffects]) {
-        vc.dataList = [FetchCategoryFiltersTool visualEffectsFilters];
+        vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool visualEffectsFilters]];
     }
     vc.navigationItem.title = title;
     [self.navigationController pushViewController:vc animated:YES];

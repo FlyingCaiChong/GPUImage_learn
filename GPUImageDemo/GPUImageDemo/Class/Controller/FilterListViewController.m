@@ -8,6 +8,7 @@
 
 #import "FilterListViewController.h"
 #import "FilterListCell.h"
+#import "FilterListItem.h"
 
 static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCellIdentifier";
 
@@ -50,10 +51,10 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
     
     FilterListCell *cell = [tableView dequeueReusableCellWithIdentifier:[FilterListCell cellIdentifier] forIndexPath:indexPath];
     
-    NSDictionary *info = self.dataList[indexPath.row];
-    [cell configTitle:info[@"title"]];
-    [cell configDesc:info[@"desc"]];
-    [cell configInherit:info[@"inherit"]];
+    FilterListItem *item = self.dataList[indexPath.row];
+    [cell configTitle:item.title];
+    [cell configDesc:item.desc];
+    [cell configInherit:item.inherit];
     
     return cell;
 }
