@@ -82,6 +82,15 @@
 
 - (void)configInherit:(NSString *)input {
     self.inputLabel.text = [NSString stringWithFormat:@"inherit: %@", input];
+    if ([input isEqualToString:@"GPUImageFilter"]) {
+        self.contentView.backgroundColor = [UIColor colorWithRed:00/255.0 green:230/255.0 blue:118/255.0 alpha:1.0];
+    } else if ([input isEqualToString:@"GPUImageFilterGroup"]) {
+        self.contentView.backgroundColor = [UIColor colorWithRed:198/255.0 green:255/255.0 blue:0/255.0 alpha:1.0];
+    } else if ([input isEqualToString:@"GPUImageTwoInputFilter"]) {
+        self.contentView.backgroundColor = [UIColor colorWithRed:00/255.0 green:176/255.0 blue:255/255.0 alpha:1.0];
+    } else {
+        self.contentView.backgroundColor = [UIColor colorWithRed:121/255.0 green:85/255.0 blue:72/255.0 alpha:1.0];
+    }
 }
 
 #pragma mark - lazy
