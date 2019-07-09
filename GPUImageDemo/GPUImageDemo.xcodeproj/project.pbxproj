@@ -17,10 +17,8 @@
 		B672A93E22D42BE10046BBFD /* GPUImageDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A93D22D42BE10046BBFD /* GPUImageDemoTests.m */; };
 		B672A94922D42BE10046BBFD /* GPUImageDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A94822D42BE10046BBFD /* GPUImageDemoUITests.m */; };
 		B672A95F22D436110046BBFD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A95E22D436110046BBFD /* MainViewController.m */; };
-		B672A97A22D469E20046BBFD /* BlendingModesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97322D469E10046BBFD /* BlendingModesViewController.m */; };
-		B672A97B22D469E20046BBFD /* ColorAdjustmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97622D469E20046BBFD /* ColorAdjustmentsViewController.m */; };
-		B672A97C22D469E20046BBFD /* VisualEffectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97722D469E20046BBFD /* VisualEffectsViewController.m */; };
-		B672A97D22D469E20046BBFD /* ImageProcessingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97822D469E20046BBFD /* ImageProcessingViewController.m */; };
+		B672A97B22D469E20046BBFD /* FilterListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97622D469E20046BBFD /* FilterListViewController.m */; };
+		B672A98022D46DEE0046BBFD /* FetchCategoryFiltersTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A97F22D46DEE0046BBFD /* FetchCategoryFiltersTool.m */; };
 		D2DBF37545DDF9CABAACDC70 /* libPods-GPUImageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E4BB2D080C885737A04108 /* libPods-GPUImageDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -63,14 +61,10 @@
 		B672A95D22D436110046BBFD /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B672A95E22D436110046BBFD /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B672A97022D468500046BBFD /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		B672A97222D469E10046BBFD /* VisualEffectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisualEffectsViewController.h; sourceTree = "<group>"; };
-		B672A97322D469E10046BBFD /* BlendingModesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlendingModesViewController.m; sourceTree = "<group>"; };
-		B672A97422D469E10046BBFD /* ImageProcessingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageProcessingViewController.h; sourceTree = "<group>"; };
-		B672A97522D469E10046BBFD /* BlendingModesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlendingModesViewController.h; sourceTree = "<group>"; };
-		B672A97622D469E20046BBFD /* ColorAdjustmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorAdjustmentsViewController.m; sourceTree = "<group>"; };
-		B672A97722D469E20046BBFD /* VisualEffectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisualEffectsViewController.m; sourceTree = "<group>"; };
-		B672A97822D469E20046BBFD /* ImageProcessingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageProcessingViewController.m; sourceTree = "<group>"; };
-		B672A97922D469E20046BBFD /* ColorAdjustmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorAdjustmentsViewController.h; sourceTree = "<group>"; };
+		B672A97622D469E20046BBFD /* FilterListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterListViewController.m; sourceTree = "<group>"; };
+		B672A97922D469E20046BBFD /* FilterListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterListViewController.h; sourceTree = "<group>"; };
+		B672A97E22D46DEE0046BBFD /* FetchCategoryFiltersTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FetchCategoryFiltersTool.h; sourceTree = "<group>"; };
+		B672A97F22D46DEE0046BBFD /* FetchCategoryFiltersTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FetchCategoryFiltersTool.m; sourceTree = "<group>"; };
 		C62185B671E1ADE88EA7CDF9 /* Pods-GPUImageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemo/Pods-GPUImageDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C62AD19B6257F9470BBF35A7 /* Pods-GPUImageDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoUITests/Pods-GPUImageDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D5911DF9EB61AFB8BC37E42C /* libPods-GPUImageDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,14 +197,8 @@
 			children = (
 				B672A95D22D436110046BBFD /* MainViewController.h */,
 				B672A95E22D436110046BBFD /* MainViewController.m */,
-				B672A97522D469E10046BBFD /* BlendingModesViewController.h */,
-				B672A97322D469E10046BBFD /* BlendingModesViewController.m */,
-				B672A97922D469E20046BBFD /* ColorAdjustmentsViewController.h */,
-				B672A97622D469E20046BBFD /* ColorAdjustmentsViewController.m */,
-				B672A97422D469E10046BBFD /* ImageProcessingViewController.h */,
-				B672A97822D469E20046BBFD /* ImageProcessingViewController.m */,
-				B672A97222D469E10046BBFD /* VisualEffectsViewController.h */,
-				B672A97722D469E20046BBFD /* VisualEffectsViewController.m */,
+				B672A97922D469E20046BBFD /* FilterListViewController.h */,
+				B672A97622D469E20046BBFD /* FilterListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,6 +213,8 @@
 		B672A95922D4343C0046BBFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B672A97E22D46DEE0046BBFD /* FetchCategoryFiltersTool.h */,
+				B672A97F22D46DEE0046BBFD /* FetchCategoryFiltersTool.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -483,13 +473,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B672A97D22D469E20046BBFD /* ImageProcessingViewController.m in Sources */,
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
 				B672A95F22D436110046BBFD /* MainViewController.m in Sources */,
-				B672A97A22D469E20046BBFD /* BlendingModesViewController.m in Sources */,
+				B672A98022D46DEE0046BBFD /* FetchCategoryFiltersTool.m in Sources */,
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
-				B672A97B22D469E20046BBFD /* ColorAdjustmentsViewController.m in Sources */,
-				B672A97C22D469E20046BBFD /* VisualEffectsViewController.m in Sources */,
+				B672A97B22D469E20046BBFD /* FilterListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

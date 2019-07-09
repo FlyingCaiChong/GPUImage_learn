@@ -1,5 +1,5 @@
 //
-//  BlendingModesViewController.h
+//  ColorAdjustmentsViewController.h
 //  GPUImageDemo
 //
 //  Created by iOS_Developer on 2019/7/9.
@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BlendingModesViewController : UIViewController
+@interface FilterListViewController : UIViewController
+
+@property (nonatomic, strong) NSArray *dataList;
 
 @end
 

@@ -7,10 +7,8 @@
 //
 
 #import "MainViewController.h"
-#import "ColorAdjustmentsViewController.h"
-#import "ImageProcessingViewController.h"
-#import "VisualEffectsViewController.h"
-#import "BlendingModesViewController.h"
+#import "FilterListViewController.h"
+#import "FetchCategoryFiltersTool.h"
 
 static NSString *const kMainCellIdentifier = @"kMainCellIdentifier";
 
@@ -98,6 +96,7 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
         NSDictionary *info = self.dataList[indexPath.section];
@@ -108,23 +107,18 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 
 #pragma mark - private
 - (void)filtersSectionJumpToVcWithCellTitle:(NSString *)title {
-    UIViewController *vc = nil;
+    FilterListViewController *vc = [[FilterListViewController alloc] init];
     if ([title isEqualToString:kFilterCategoryColorAdjustments]) {
-        // jump to color adjustments vc
-        vc = [[ColorAdjustmentsViewController alloc] init];
+        vc.dataList = [FetchCategoryFiltersTool colorAdjustmentsFilters];
     } else if ([title isEqualToString:kFilterCategoryImageProcessing]) {
-        // jump to image processing vc
-        vc = [[ImageProcessingViewController alloc] init];
+        vc.dataList = [FetchCategoryFiltersTool imageProcessingFilters];
     } else if ([title isEqualToString:kFilterCategoryBlendingModes]) {
-        // jump to blending modes vc
-        vc = [[BlendingModesViewController alloc] init];
+        vc.dataList = [FetchCategoryFiltersTool blendingModesFilters];
     } else if ([title isEqualToString:kFilterCategoryVisualEffects]) {
-        // jump to visual effects vc
-        vc = [[VisualEffectsViewController alloc] init];
+        vc.dataList = [FetchCategoryFiltersTool visualEffectsFilters];
     }
-    if (vc) {
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    vc.navigationItem.title = title;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - lazy
