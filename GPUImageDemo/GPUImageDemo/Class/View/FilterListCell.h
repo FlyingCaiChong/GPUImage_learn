@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)configTitle:(NSString *)title;
 - (void)configDesc:(NSString *)desc;
-- (void)configInput:(NSString *)input;
+- (void)configInherit:(NSString *)input;
 
 + (NSString *)cellIdentifier;
 

@@ -53,7 +53,7 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
     NSDictionary *info = self.dataList[indexPath.row];
     [cell configTitle:info[@"title"]];
     [cell configDesc:info[@"desc"]];
-    [cell configInput:info[@"input"]];
+    [cell configInherit:info[@"inherit"]];
     
     return cell;
 }

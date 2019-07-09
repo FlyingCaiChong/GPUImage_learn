@@ -80,8 +80,8 @@
     self.descLabel.text = desc;
 }
 
-- (void)configInput:(NSString *)input {
-    self.inputLabel.text = input;
+- (void)configInherit:(NSString *)input {
+    self.inputLabel.text = [NSString stringWithFormat:@"inherit: %@", input];
 }
 
 #pragma mark - lazy
