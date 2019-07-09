@@ -9,6 +9,7 @@
 #import "FilterListViewController.h"
 #import "FilterListCell.h"
 #import "FilterListItem.h"
+#import "ShowViewController.h"
 
 static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCellIdentifier";
 
@@ -62,6 +63,8 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    ShowViewController *showVc = [[ShowViewController alloc] init];
+    [self.navigationController pushViewController:showVc animated:YES];
 }
 
 #pragma mark - lazy

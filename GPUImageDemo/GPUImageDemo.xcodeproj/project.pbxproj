@@ -11,6 +11,7 @@
 		A53B6955BF51F62525546667 /* libPods-GPUImageDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243EFCECEFA2B34D5B597878 /* libPods-GPUImageDemoUITests.a */; };
 		B65F114222D47B32007D6A05 /* FilterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114122D47B32007D6A05 /* FilterListCell.m */; };
 		B65F114522D4890E007D6A05 /* FilterListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114422D4890E007D6A05 /* FilterListItem.m */; };
+		B65F114922D48D3D007D6A05 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114822D48D3D007D6A05 /* ShowViewController.m */; };
 		B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A92522D42BDC0046BBFD /* AppDelegate.m */; };
 		B672A92C22D42BDC0046BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B672A92A22D42BDC0046BBFD /* Main.storyboard */; };
 		B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B672A92D22D42BE10046BBFD /* Assets.xcassets */; };
@@ -50,6 +51,8 @@
 		B65F114122D47B32007D6A05 /* FilterListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterListCell.m; sourceTree = "<group>"; };
 		B65F114322D4890E007D6A05 /* FilterListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterListItem.h; sourceTree = "<group>"; };
 		B65F114422D4890E007D6A05 /* FilterListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterListItem.m; sourceTree = "<group>"; };
+		B65F114722D48D3D007D6A05 /* ShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
+		B65F114822D48D3D007D6A05 /* ShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
 		B672A92122D42BDC0046BBFD /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B672A92422D42BDC0046BBFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B672A92522D42BDC0046BBFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				B672A95E22D436110046BBFD /* MainViewController.m */,
 				B672A97922D469E20046BBFD /* FilterListViewController.h */,
 				B672A97622D469E20046BBFD /* FilterListViewController.m */,
+				B65F114722D48D3D007D6A05 /* ShowViewController.h */,
+				B65F114822D48D3D007D6A05 /* ShowViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
 				B672A97B22D469E20046BBFD /* FilterListViewController.m in Sources */,
 				B65F114222D47B32007D6A05 /* FilterListCell.m in Sources */,
+				B65F114922D48D3D007D6A05 /* ShowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
