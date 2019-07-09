@@ -22,6 +22,8 @@ DerivedData
 .idea/
 *.xcworkspace
 !default.xcworkspace
+*/.DS_Store
+*.DS_Store
 
 #CocoaPods
 Pods
