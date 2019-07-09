@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		63F2652DFD047186F79E9B36 /* libPods-GPUImageDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5911DF9EB61AFB8BC37E42C /* libPods-GPUImageDemoTests.a */; };
 		A53B6955BF51F62525546667 /* libPods-GPUImageDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243EFCECEFA2B34D5B597878 /* libPods-GPUImageDemoUITests.a */; };
+		B65F114222D47B32007D6A05 /* FilterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114122D47B32007D6A05 /* FilterListCell.m */; };
 		B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A92522D42BDC0046BBFD /* AppDelegate.m */; };
 		B672A92C22D42BDC0046BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B672A92A22D42BDC0046BBFD /* Main.storyboard */; };
 		B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B672A92D22D42BE10046BBFD /* Assets.xcassets */; };
@@ -44,6 +45,8 @@
 		4A8A5B9FF06ADFEBD6629F5C /* Pods-GPUImageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemo/Pods-GPUImageDemo.release.xcconfig"; sourceTree = "<group>"; };
 		74E4BB2D080C885737A04108 /* libPods-GPUImageDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1754A13A20B4AD815F15AC9 /* Pods-GPUImageDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoTests/Pods-GPUImageDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		B65F114022D47B32007D6A05 /* FilterListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterListCell.h; sourceTree = "<group>"; };
+		B65F114122D47B32007D6A05 /* FilterListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterListCell.m; sourceTree = "<group>"; };
 		B672A92122D42BDC0046BBFD /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B672A92422D42BDC0046BBFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B672A92522D42BDC0046BBFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 		B672A95C22D4343D0046BBFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B65F114022D47B32007D6A05 /* FilterListCell.h */,
+				B65F114122D47B32007D6A05 /* FilterListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				B672A98022D46DEE0046BBFD /* FetchCategoryFiltersTool.m in Sources */,
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
 				B672A97B22D469E20046BBFD /* FilterListViewController.m in Sources */,
+				B65F114222D47B32007D6A05 /* FilterListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

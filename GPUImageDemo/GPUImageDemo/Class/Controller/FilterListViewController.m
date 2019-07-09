@@ -7,14 +7,13 @@
 //
 
 #import "FilterListViewController.h"
-#import "FetchCategoryFiltersTool.h"
+#import "FilterListCell.h"
 
 static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCellIdentifier";
 
 @interface FilterListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-
 
 @end
 
@@ -23,7 +22,6 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self configDatas];
     [self setupUI];
 }
 
@@ -35,10 +33,6 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
         make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
         make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
     }];
-}
-
-- (void)configDatas {
-    self.dataList = [FetchCategoryFiltersTool colorAdjustmentsFilters];
 }
 
 #pragma mark - <UITableViewDelegate, UITableViewDataSource>
@@ -54,13 +48,12 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kColorAdjustmentsCellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:kColorAdjustmentsCellIdentifier];
-    }
+    FilterListCell *cell = [tableView dequeueReusableCellWithIdentifier:[FilterListCell cellIdentifier] forIndexPath:indexPath];
     
-    NSString *title = self.dataList[indexPath.row];
-    cell.textLabel.text = title;
+    NSDictionary *info = self.dataList[indexPath.row];
+    [cell configTitle:info[@"title"]];
+    [cell configDesc:info[@"desc"]];
+    [cell configInput:info[@"input"]];
     
     return cell;
 }
@@ -77,6 +70,7 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
+        [_tableView registerClass:[FilterListCell class] forCellReuseIdentifier:[FilterListCell cellIdentifier]];
     }
     return _tableView;
 }
