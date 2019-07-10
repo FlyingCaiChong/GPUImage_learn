@@ -9,7 +9,7 @@
 #import "FilterListViewController.h"
 #import "FilterListCell.h"
 #import "FilterListItem.h"
-#import "ShowViewController.h"
+#import "ShowViewController+Private.h"
 
 static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCellIdentifier";
 
