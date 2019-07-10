@@ -802,4 +802,15 @@
              ];
 }
 
++ (NSArray *)customFilters {
+    return @[
+                @{
+                     @"title": @"GPUImageCustom9SplitScreenFilter",
+                     @"desc": @"",
+                     @"inherit": @"GPUImageFilter",
+                     @"parametersNum": @0,
+                 },
+             ];
+}
+
 @end

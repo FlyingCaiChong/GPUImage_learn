@@ -12,12 +12,15 @@
 #import "MJExtension.h"
 #import "FilterListItem.h"
 
+
 static NSString *const kMainCellIdentifier = @"kMainCellIdentifier";
 
 static NSString *const kFilterCategoryColorAdjustments = @"Color Adjustments";
 static NSString *const kFilterCategoryImageProcessing = @"Image Processing";
 static NSString *const kFilterCategoryBlendingModes = @"Blending Modes";
 static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
+
+static NSString *const kCustomFilterSplit = @"Split";
 
 @interface MainViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -39,12 +42,17 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 - (void)configDatas {
     self.dataList = @[
                       @{
-                          @"title" : @"filters",
+                          @"title": @"GPUImage Filters",
                           @"content" : @[kFilterCategoryColorAdjustments,
                                          kFilterCategoryImageProcessing,
                                          kFilterCategoryBlendingModes,
                                          kFilterCategoryVisualEffects],
                         },
+                      @{
+                          @"title": @"Custom Filters",
+                          @"content": @[kCustomFilterSplit,
+                                  ],
+                          }
                     ];
 }
 
@@ -100,10 +108,12 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NSDictionary *info = self.dataList[indexPath.section];
+    NSString *cellTitle = info[@"content"][indexPath.row];
     if (indexPath.section == 0) {
-        NSDictionary *info = self.dataList[indexPath.section];
-        NSString *cellTitle = info[@"content"][indexPath.row];
         [self filtersSectionJumpToVcWithCellTitle:cellTitle];
+    } else if (indexPath.section == 1) {
+        [self customFiltersSectionJumpToVcWithCellTitle:cellTitle];
     }
 }
 
@@ -119,6 +129,13 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
     } else if ([title isEqualToString:kFilterCategoryVisualEffects]) {
         vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool visualEffectsFilters]];
     }
+    vc.navigationItem.title = title;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)customFiltersSectionJumpToVcWithCellTitle:(NSString *)title {
+    FilterListViewController *vc = [[FilterListViewController alloc] init];
+    vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool customFilters]];
     vc.navigationItem.title = title;
     [self.navigationController pushViewController:vc animated:YES];
 }

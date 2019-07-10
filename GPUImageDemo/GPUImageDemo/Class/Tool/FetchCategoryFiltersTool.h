@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray *)blendingModesFilters;
 + (NSArray *)visualEffectsFilters;
 
+#pragma mark - Custom Fitlers
++ (NSArray *)customFilters;
+
 @end
 
 NS_ASSUME_NONNULL_END
