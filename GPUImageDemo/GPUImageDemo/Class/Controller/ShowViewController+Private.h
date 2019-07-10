@@ -22,13 +22,32 @@ static NSString *const kImageNamed = @"img_test";
 @property (nonatomic, strong) UIImageView *originImageView;
 @property (nonatomic, strong) UIImageView *processedImageView;
 @property (nonatomic, strong) UISlider *slider;
+@property (nonatomic, strong) UILabel *sliderHintLabel;
 
 // GPUImage
 @property (nonatomic, strong) GPUImagePicture *sourcePicture;
 @property (nonatomic, strong) GPUImageFilter *imageFilter;
 
+#pragma mark - UI
 - (void)setupUI;
 - (void)layoutConstraints;
+- (void)configSliderRange;
+
+#pragma mark - GPUImage
+- (void)configFilter;
+- (void)render;
+
+#pragma mark - AdjustFilter
+#pragma mark - Color Adjustments
+- (void)configBrightness:(CGFloat)brightness;
+- (void)configExposure:(CGFloat)exposure;
+- (void)configContrast:(CGFloat)contrast;
+- (void)configSaturation:(CGFloat)saturation;
+- (void)configGamma:(CGFloat)gamma;
+- (void)configHue:(CGFloat)hue;
+- (void)configOpacity:(CGFloat)opacity;
+- (void)configThreshold:(CGFloat)threshold;
+
 
 @end
 

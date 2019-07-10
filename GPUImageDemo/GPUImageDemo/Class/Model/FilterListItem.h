@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *desc;
 // 滤镜所继承的类
 @property (nonatomic, strong) NSString *inherit;
+// 属性参数个数
+@property (nonatomic, strong) NSNumber *parametersNum;
 
 @end
 

@@ -21,6 +21,7 @@
     
     [self setupUI];
     [self layoutConstraints];
+    [self configSliderRange];
     [self configFilter];
 }
 
@@ -34,10 +35,10 @@
     NSString *filterClassNamed = self.item.title;
     self.imageFilter = (GPUImageFilter *)[[NSClassFromString(filterClassNamed) alloc] init];
     [self.sourcePicture addTarget:self.imageFilter];
-    [self.imageFilter useNextFrameForImageCapture];
 }
 
 - (void)render {
+    [self.imageFilter useNextFrameForImageCapture];
     [self.sourcePicture processImage];
     self.processedImageView.image = [self.imageFilter imageFromCurrentFramebuffer];
 }
