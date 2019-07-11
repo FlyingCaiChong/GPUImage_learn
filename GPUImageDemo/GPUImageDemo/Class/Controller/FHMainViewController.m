@@ -6,11 +6,11 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "MainViewController.h"
-#import "FilterListViewController.h"
-#import "FetchCategoryFiltersTool.h"
+#import "FHMainViewController.h"
+#import "FHFilterListViewController.h"
+#import "FHFetchCategoryFiltersTool.h"
 #import "MJExtension.h"
-#import "FilterListItem.h"
+#import "FHFilterListItem.h"
 
 
 static NSString *const kMainCellIdentifier = @"kMainCellIdentifier";
@@ -22,14 +22,14 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 
 static NSString *const kCustomFilterSplit = @"Custom";
 
-@interface MainViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface FHMainViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataList;
 
 @end
 
-@implementation MainViewController
+@implementation FHMainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -119,23 +119,23 @@ static NSString *const kCustomFilterSplit = @"Custom";
 
 #pragma mark - private
 - (void)filtersSectionJumpToVcWithCellTitle:(NSString *)title {
-    FilterListViewController *vc = [[FilterListViewController alloc] init];
+    FHFilterListViewController *vc = [[FHFilterListViewController alloc] init];
     if ([title isEqualToString:kFilterCategoryColorAdjustments]) {
-        vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool colorAdjustmentsFilters]];
+        vc.dataList = [FHFilterListItem mj_objectArrayWithKeyValuesArray:[FHFetchCategoryFiltersTool colorAdjustmentsFilters]];
     } else if ([title isEqualToString:kFilterCategoryImageProcessing]) {
-        vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool imageProcessingFilters]];
+        vc.dataList = [FHFilterListItem mj_objectArrayWithKeyValuesArray:[FHFetchCategoryFiltersTool imageProcessingFilters]];
     } else if ([title isEqualToString:kFilterCategoryBlendingModes]) {
-        vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool blendingModesFilters]];
+        vc.dataList = [FHFilterListItem mj_objectArrayWithKeyValuesArray:[FHFetchCategoryFiltersTool blendingModesFilters]];
     } else if ([title isEqualToString:kFilterCategoryVisualEffects]) {
-        vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool visualEffectsFilters]];
+        vc.dataList = [FHFilterListItem mj_objectArrayWithKeyValuesArray:[FHFetchCategoryFiltersTool visualEffectsFilters]];
     }
     vc.navigationItem.title = title;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)customFiltersSectionJumpToVcWithCellTitle:(NSString *)title {
-    FilterListViewController *vc = [[FilterListViewController alloc] init];
-    vc.dataList = [FilterListItem mj_objectArrayWithKeyValuesArray:[FetchCategoryFiltersTool customFilters]];
+    FHFilterListViewController *vc = [[FHFilterListViewController alloc] init];
+    vc.dataList = [FHFilterListItem mj_objectArrayWithKeyValuesArray:[FHFetchCategoryFiltersTool customFilters]];
     vc.navigationItem.title = title;
     [self.navigationController pushViewController:vc animated:YES];
 }

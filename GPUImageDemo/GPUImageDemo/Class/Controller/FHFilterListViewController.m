@@ -6,15 +6,15 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "FilterListViewController.h"
-#import "FilterListCell.h"
-#import "FilterListItem.h"
-#import "ShowViewController+Private.h"
-#import "ShowBlendViewController+Private.h"
+#import "FHFilterListViewController.h"
+#import "FHFilterListCell.h"
+#import "FHFilterListItem.h"
+#import "FHShowViewController+Private.h"
+#import "FHShowBlendViewController+Private.h"
 
 static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCellIdentifier";
 
-@interface FilterListViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface FHFilterListViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     BlendShowType _blendShowType;
     ShowType _showType;
@@ -23,7 +23,7 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
 
 @end
 
-@implementation FilterListViewController
+@implementation FHFilterListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,9 +82,9 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    FilterListCell *cell = [tableView dequeueReusableCellWithIdentifier:[FilterListCell cellIdentifier] forIndexPath:indexPath];
+    FHFilterListCell *cell = [tableView dequeueReusableCellWithIdentifier:[FHFilterListCell cellIdentifier] forIndexPath:indexPath];
     
-    FilterListItem *item = self.dataList[indexPath.row];
+    FHFilterListItem *item = self.dataList[indexPath.row];
     [cell configTitle:item.title];
     [cell configDesc:item.desc];
     [cell configInherit:item.inherit];
@@ -96,16 +96,16 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    FilterListItem *item = self.dataList[indexPath.row];
+    FHFilterListItem *item = self.dataList[indexPath.row];
     
     if ([self.navigationItem.title isEqualToString:@"Blending Modes"]) {
-        ShowBlendViewController *blendVc = [[ShowBlendViewController alloc] init];
+        FHShowBlendViewController *blendVc = [[FHShowBlendViewController alloc] init];
         blendVc.type = _blendShowType;
         blendVc.item = item;
         blendVc.navigationItem.title = item.title;
         [self.navigationController pushViewController:blendVc animated:YES];
     } else {
-        ShowViewController *showVc = [[ShowViewController alloc] init];
+        FHShowViewController *showVc = [[FHShowViewController alloc] init];
         showVc.type = _showType;
         showVc.item = item;
         showVc.navigationItem.title = item.title;
@@ -120,7 +120,7 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
-        [_tableView registerClass:[FilterListCell class] forCellReuseIdentifier:[FilterListCell cellIdentifier]];
+        [_tableView registerClass:[FHFilterListCell class] forCellReuseIdentifier:[FHFilterListCell cellIdentifier]];
     }
     return _tableView;
 }

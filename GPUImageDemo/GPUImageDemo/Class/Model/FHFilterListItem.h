@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FilterListItem : NSObject
+@interface FHFilterListItem : NSObject
 
 // 滤镜名称
 @property (nonatomic, strong) NSString *title;

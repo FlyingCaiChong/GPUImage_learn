@@ -6,15 +6,15 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowViewController.h"
+#import "FHShowViewController.h"
 #import "GPUImage.h"
-#import "ShowViewController+Private.h"
-#import "ShowViewController+UI.h"
+#import "FHShowViewController+Private.h"
+#import "FHShowViewController+UI.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincomplete-implementation"
 
-@implementation ShowViewController
+@implementation FHShowViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

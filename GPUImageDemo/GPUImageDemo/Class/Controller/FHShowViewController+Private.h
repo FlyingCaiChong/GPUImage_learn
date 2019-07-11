@@ -6,9 +6,9 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowViewController.h"
+#import "FHShowViewController.h"
 #import "GPUImage.h"
-#import "FilterListItem.h"
+#import "FHFilterListItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,9 +19,9 @@ typedef NS_ENUM(NSUInteger, ShowType) {
     ShowTypeCamera,
 };
 
-@interface ShowViewController ()
+@interface FHShowViewController ()
 
-@property (nonatomic, strong) FilterListItem *item;
+@property (nonatomic, strong) FHFilterListItem *item;
 @property (nonatomic, strong) UILabel *originImageLabel;
 @property (nonatomic, strong) UILabel *processedImageLabel;
 @property (nonatomic, strong) UIImageView *originImageView;

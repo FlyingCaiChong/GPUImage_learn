@@ -6,14 +6,14 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowViewController+AdjustFilter.h"
-#import "ShowViewController+Private.h"
+#import "FHShowViewController+AdjustFilter.h"
+#import "FHShowViewController+Private.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 #pragma clang diagnostic ignored "-Wundeclared-selector"
 
-@implementation ShowViewController (AdjustFilter)
+@implementation FHShowViewController (AdjustFilter)
 
 - (void)configBrightness:(CGFloat)brightness {
     GPUImageBrightnessFilter *filter = (GPUImageBrightnessFilter *)self.imageFilter;

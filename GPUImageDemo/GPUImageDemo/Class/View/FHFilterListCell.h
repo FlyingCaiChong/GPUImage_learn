@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FilterListCell : UITableViewCell
+@interface FHFilterListCell : UITableViewCell
 
 - (void)configTitle:(NSString *)title;
 - (void)configDesc:(NSString *)desc;

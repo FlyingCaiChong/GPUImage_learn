@@ -6,9 +6,9 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "FetchCategoryFiltersTool.h"
+#import "FHFetchCategoryFiltersTool.h"
 
-@implementation FetchCategoryFiltersTool
+@implementation FHFetchCategoryFiltersTool
 
 + (NSArray *)colorAdjustmentsFilters {
     return @[

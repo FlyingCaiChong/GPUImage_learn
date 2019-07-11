@@ -6,14 +6,14 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowViewController+UI.h"
-#import "ShowViewController+Private.h"
+#import "FHShowViewController+UI.h"
+#import "FHShowViewController+Private.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 #pragma clang diagnostic ignored "-Wundeclared-selector"
 
-@implementation ShowViewController (UI)
+@implementation FHShowViewController (UI)
 
 #pragma mark - Camera
 - (void)setupCameraUI {

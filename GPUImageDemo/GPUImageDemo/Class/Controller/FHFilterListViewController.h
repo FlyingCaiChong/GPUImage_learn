@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FilterListViewController : UIViewController
+@interface FHFilterListViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *dataList;
 

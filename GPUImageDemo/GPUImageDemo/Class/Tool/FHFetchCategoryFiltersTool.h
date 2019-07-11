@@ -10,8 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FetchCategoryFiltersTool : NSObject
+@interface FHFetchCategoryFiltersTool : NSObject
 
+#pragma mark - GPUImage filters category
 + (NSArray *)colorAdjustmentsFilters;
 + (NSArray *)imageProcessingFilters;
 + (NSArray *)blendingModesFilters;

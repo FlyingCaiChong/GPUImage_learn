@@ -6,9 +6,9 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowBlendViewController.h"
+#import "FHShowBlendViewController.h"
 #import "GPUImage.h"
-#import "FilterListItem.h"
+#import "FHFilterListItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,9 +20,9 @@ typedef NS_ENUM(NSUInteger, BlendShowType) {
     BlendShowTypeCamera,
 };
 
-@interface ShowBlendViewController ()
+@interface FHShowBlendViewController ()
 
-@property (nonatomic, strong) FilterListItem *item;
+@property (nonatomic, strong) FHFilterListItem *item;
 
 @property (nonatomic, strong) UIView *originContainerView;
 @property (nonatomic, strong) UIView *resultContainerView;

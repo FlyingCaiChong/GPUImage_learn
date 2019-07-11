@@ -6,11 +6,11 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowBlendViewController.h"
+#import "FHShowBlendViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ShowBlendViewController (AdjustFilter)
+@interface FHShowBlendViewController (AdjustFilter)
 
 @end
 

@@ -6,13 +6,13 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowBlendViewController+UI.h"
-#import "ShowBlendViewController+Private.h"
+#import "FHShowBlendViewController+UI.h"
+#import "FHShowBlendViewController+Private.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-@implementation ShowBlendViewController (UI)
+@implementation FHShowBlendViewController (UI)
 
 #pragma mark - Camera
 - (void)setupCameraUI {

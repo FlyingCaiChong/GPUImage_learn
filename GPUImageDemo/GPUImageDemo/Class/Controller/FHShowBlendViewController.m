@@ -6,17 +6,17 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowBlendViewController.h"
-#import "ShowBlendViewController+Private.h"
-#import "ShowBlendViewController+UI.h"
+#import "FHShowBlendViewController.h"
+#import "FHShowBlendViewController+Private.h"
+#import "FHShowBlendViewController+UI.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincomplete-implementation"
-@interface ShowBlendViewController ()
+@interface FHShowBlendViewController ()
 
 @end
 
-@implementation ShowBlendViewController
+@implementation FHShowBlendViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

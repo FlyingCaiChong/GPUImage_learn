@@ -6,13 +6,13 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "ShowBlendViewController+AdjustFilter.h"
-#import "ShowBlendViewController+Private.h"
+#import "FHShowBlendViewController+AdjustFilter.h"
+#import "FHShowBlendViewController+Private.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-@implementation ShowBlendViewController (AdjustFilter)
+@implementation FHShowBlendViewController (AdjustFilter)
 
 - (void)configThresholdSensitivity:(CGFloat)thresholdSensitivity {
     GPUImageChromaKeyBlendFilter *filter = (GPUImageChromaKeyBlendFilter *)self.blendImageFilter;

@@ -6,9 +6,9 @@
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "FilterListCell.h"
+#import "FHFilterListCell.h"
 
-@interface FilterListCell ()
+@interface FHFilterListCell ()
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *descLabel;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation FilterListCell
+@implementation FHFilterListCell
 
 + (NSString *)cellIdentifier {
     return NSStringFromClass(self);
