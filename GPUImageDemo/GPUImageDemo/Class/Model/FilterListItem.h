@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *inherit;
 // 属性参数个数
 @property (nonatomic, strong) NSNumber *parametersNum;
+// 翻译
+@property (nonatomic, strong) NSString *translate;
 
 @end
 
