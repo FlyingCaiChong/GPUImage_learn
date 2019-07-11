@@ -12,6 +12,8 @@
 		B65F114222D47B32007D6A05 /* FilterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114122D47B32007D6A05 /* FilterListCell.m */; };
 		B65F114522D4890E007D6A05 /* FilterListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114422D4890E007D6A05 /* FilterListItem.m */; };
 		B65F114922D48D3D007D6A05 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114822D48D3D007D6A05 /* ShowViewController.m */; };
+		B660BEA822D6C298009B58D0 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEA622D6C298009B58D0 /* GPUImageBeautifyFilter.m */; };
+		B660BEAB22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEAA22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m */; };
 		B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A92522D42BDC0046BBFD /* AppDelegate.m */; };
 		B672A92C22D42BDC0046BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B672A92A22D42BDC0046BBFD /* Main.storyboard */; };
 		B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B672A92D22D42BE10046BBFD /* Assets.xcassets */; };
@@ -57,6 +59,10 @@
 		B65F114422D4890E007D6A05 /* FilterListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterListItem.m; sourceTree = "<group>"; };
 		B65F114722D48D3D007D6A05 /* ShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
 		B65F114822D48D3D007D6A05 /* ShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
+		B660BEA622D6C298009B58D0 /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
+		B660BEA722D6C298009B58D0 /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
+		B660BEA922D6C5FC009B58D0 /* GPUImageBeautifyBFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyBFilter.h; sourceTree = "<group>"; };
+		B660BEAA22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyBFilter.m; sourceTree = "<group>"; };
 		B672A92122D42BDC0046BBFD /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B672A92422D42BDC0046BBFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B672A92522D42BDC0046BBFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -236,6 +242,10 @@
 			children = (
 				B68F0AE922D5930000675239 /* GPUImageCustom9SplitScreenFilter.h */,
 				B68F0AEA22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m */,
+				B660BEA722D6C298009B58D0 /* GPUImageBeautifyFilter.h */,
+				B660BEA622D6C298009B58D0 /* GPUImageBeautifyFilter.m */,
+				B660BEA922D6C5FC009B58D0 /* GPUImageBeautifyBFilter.h */,
+				B660BEAA22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -518,7 +528,9 @@
 				B65F114522D4890E007D6A05 /* FilterListItem.m in Sources */,
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
 				B672A97B22D469E20046BBFD /* FilterListViewController.m in Sources */,
+				B660BEA822D6C298009B58D0 /* GPUImageBeautifyFilter.m in Sources */,
 				B65F114222D47B32007D6A05 /* FilterListCell.m in Sources */,
+				B660BEAB22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m in Sources */,
 				B65F114922D48D3D007D6A05 /* ShowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

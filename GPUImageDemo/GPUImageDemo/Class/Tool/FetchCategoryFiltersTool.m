@@ -7,39 +7,37 @@
 //
 
 #import "FetchCategoryFiltersTool.h"
-/**
- input: 继承自 0:GPUImageFilterGroup 1:GPUImageFilter 2:GPUImageTwoInputFilter
- */
+
 @implementation FetchCategoryFiltersTool
 
 + (NSArray *)colorAdjustmentsFilters {
     return @[
              @{
-                 @"title": @"GPUImageBrightnessFilter",
+                 @"title": @"GPUImageBrightnessFilter", // 亮度
                  @"desc": @"Adjusts the brightness of the image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
                  },
              @{
-                 @"title": @"GPUImageExposureFilter",
+                 @"title": @"GPUImageExposureFilter", // 曝光度
                  @"desc": @"Adjusts the exposure of the image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
                  },
              @{
-                 @"title": @"GPUImageContrastFilter",
+                 @"title": @"GPUImageContrastFilter", // 对比度
                  @"desc": @"Adjusts the contrast of the image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
                  },
              @{
-                 @"title": @"GPUImageSaturationFilter",
+                 @"title": @"GPUImageSaturationFilter", // 饱和度
                  @"desc": @"Adjusts the saturation of an image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
                  },
              @{
-                 @"title": @"GPUImageGammaFilter",
+                 @"title": @"GPUImageGammaFilter", // 伽马
                  @"desc": @"Adjusts the gamma of an image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
@@ -810,6 +808,18 @@
                      @"inherit": @"GPUImageFilter",
                      @"parametersNum": @0,
                  },
+                @{
+                    @"title": @"GPUImageBeautifyFilter",
+                    @"desc": @"",
+                    @"inherit": @"GPUImageFilterGroup",
+                    @"parametersNum": @0,
+                    },
+                @{
+                    @"title": @"GPUImageBeautifyBFilter",
+                    @"desc": @"",
+                    @"inherit": @"GPUImageFilter",
+                    @"parametersNum": @3,
+                    },
              ];
 }
 

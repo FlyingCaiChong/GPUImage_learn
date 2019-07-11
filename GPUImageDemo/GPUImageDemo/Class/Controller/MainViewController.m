@@ -20,7 +20,7 @@ static NSString *const kFilterCategoryImageProcessing = @"Image Processing";
 static NSString *const kFilterCategoryBlendingModes = @"Blending Modes";
 static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 
-static NSString *const kCustomFilterSplit = @"Split";
+static NSString *const kCustomFilterSplit = @"Custom";
 
 @interface MainViewController ()<UITableViewDelegate, UITableViewDataSource>
 
