@@ -15,6 +15,26 @@
 
 @implementation ShowViewController (UI)
 
+#pragma mark - Camera
+- (void)setupCameraUI {
+    self.videoImageView = [[GPUImageView alloc] init];
+    [self.view addSubview:self.videoImageView];
+    
+    [self addSlider];
+}
+
+- (void)layoutCameraUIConstraints {
+    [self.videoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).mas_offset(0);
+        make.leading.equalTo(self.view);
+        make.trailing.equalTo(self.view);
+        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(0);
+    }];
+    
+    [self layoutSlider];
+}
+
+#pragma mark - Image
 - (void)setupUI {
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -63,6 +83,10 @@
         make.centerX.equalTo(self.processedImageView);
     }];
     
+    [self layoutSlider];
+}
+
+- (void)layoutSlider {
     if (self.slider) {
         [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.view).mas_offset(50);
@@ -191,7 +215,11 @@
         [self configThreshold:value];
         self.sliderHintLabel.text = [NSString stringWithFormat:@"threshold(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
     }
-    [self render];
+    
+    if (self.type == ShowTypeImage) {
+        
+        [self render];
+    }
 }
 
 @end

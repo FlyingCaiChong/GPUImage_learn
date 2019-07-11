@@ -24,17 +24,48 @@
     self.imageA = [UIImage imageNamed:kImageNamedA];
     self.imageB = [UIImage imageNamed:kImageNamedB];
     
-    [self setupUI];
-    [self layoutConstraints];
-    [self configSliderRange];
-    [self configFilters];
+    if (self.type == BlendShowTypeImage) {
+        
+        [self setupUI];
+        [self layoutConstraints];
+        [self configSliderRange];
+        [self configFilters];
+    } else {
+        
+        [self setupCameraUI];
+        [self layoutCameraUIConstraints];
+        [self configSliderRange];
+        [self configCameraFilter];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self render];
+    
+    if (self.type == BlendShowTypeImage) {
+        
+        [self render];
+    } else {
+        [self.navigationController.navigationBar setHidden:YES];
+        [self cameraRender];
+    }
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController.navigationBar setHidden:NO];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    if (self.type == BlendShowTypeImage) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+#pragma mark - Image
 - (void)configFilters {
     NSString *filterClassNamed = self.item.title;
     self.blendImageFilter = (GPUImageTwoInputFilter *)[[NSClassFromString(filterClassNamed) alloc] init];
@@ -51,6 +82,21 @@
     self.resultBlendImageView.image = [self.blendImageFilter imageFromCurrentFramebuffer];
 }
 
+#pragma mark - Camera
+- (void)configCameraFilter {
+    NSString *filterClassNamed = self.item.title;
+    self.blendImageFilter = (GPUImageTwoInputFilter *)[[NSClassFromString(filterClassNamed) alloc] init];
+    [self.stillCamera addTarget:self.blendImageFilter];
+    [self.sourcePictureB addTarget:self.blendImageFilter];
+    [self.blendImageFilter addTarget:self.videoImageView];
+}
+
+- (void)cameraRender {
+    [self.sourcePictureA forceProcessingAtSize:self.imageB.size];
+    [self.sourcePictureB processImage];
+    [self.stillCamera startCameraCapture];
+}
+
 #pragma mark - lazy
 - (GPUImagePicture *)sourcePictureA {
     if (!_sourcePictureA) {
@@ -64,6 +110,15 @@
         _sourcePictureB = [[GPUImagePicture alloc] initWithImage:self.imageB];
     }
     return _sourcePictureB;
+}
+
+- (GPUImageStillCamera *)stillCamera {
+    if (!_stillCamera) {
+        _stillCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:(AVCaptureDevicePositionFront)];
+        _stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
+        _stillCamera.horizontallyMirrorFrontFacingCamera = YES;
+    }
+    return _stillCamera;
 }
 
 @end

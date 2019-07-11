@@ -15,7 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 static NSString *const kImageNamedA = @"img_test";
 static NSString *const kImageNamedB = @"grass";
 
+typedef NS_ENUM(NSUInteger, BlendShowType) {
+    BlendShowTypeImage,
+    BlendShowTypeCamera,
+};
+
 @interface ShowBlendViewController ()
+
+@property (nonatomic, strong) FilterListItem *item;
 
 @property (nonatomic, strong) UIView *originContainerView;
 @property (nonatomic, strong) UIView *resultContainerView;
@@ -29,23 +36,30 @@ static NSString *const kImageNamedB = @"grass";
 @property (nonatomic, strong) UISlider *sliderB;
 @property (nonatomic, strong) UILabel *sliderAHintLabel;
 @property (nonatomic, strong) UILabel *sliderBHintLabel;
+@property (nonatomic, strong) GPUImageView *videoImageView;
 
-@property (nonatomic, strong) FilterListItem *item;
 
 @property (nonatomic, strong) GPUImagePicture *sourcePictureA;
 @property (nonatomic, strong) GPUImagePicture *sourcePictureB;
 @property (nonatomic, strong) GPUImageTwoInputFilter *blendImageFilter;
 @property (nonatomic, strong) UIImage *imageA;
 @property (nonatomic, strong) UIImage *imageB;
+@property (nonatomic, strong) GPUImageStillCamera *stillCamera;
+
+@property (nonatomic, assign) BlendShowType type;
 
 #pragma mark - UI
 - (void)setupUI;
 - (void)layoutConstraints;
 - (void)configSliderRange;
+- (void)setupCameraUI;
+- (void)layoutCameraUIConstraints;
 
 #pragma mark - Filter
 - (void)configFilters;
 - (void)render;
+- (void)configCameraFilter;
+- (void)cameraRender;
 
 #pragma mark - Adjust
 - (void)configThresholdSensitivity:(CGFloat)thresholdSensitivity;

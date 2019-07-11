@@ -14,6 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 static NSString *const kImageNamed = @"img_test";
 
+typedef NS_ENUM(NSUInteger, ShowType) {
+    ShowTypeImage,
+    ShowTypeCamera,
+};
+
 @interface ShowViewController ()
 
 @property (nonatomic, strong) FilterListItem *item;
@@ -23,19 +28,27 @@ static NSString *const kImageNamed = @"img_test";
 @property (nonatomic, strong) UIImageView *processedImageView;
 @property (nonatomic, strong) UISlider *slider;
 @property (nonatomic, strong) UILabel *sliderHintLabel;
+@property (nonatomic, strong) GPUImageView *videoImageView;
 
 // GPUImage
 @property (nonatomic, strong) GPUImagePicture *sourcePicture;
 @property (nonatomic, strong) GPUImageFilter *imageFilter;
+@property (nonatomic, strong) GPUImageStillCamera *stillCamera;
+
+@property (nonatomic, assign) ShowType type;
 
 #pragma mark - UI
 - (void)setupUI;
 - (void)layoutConstraints;
 - (void)configSliderRange;
+- (void)setupCameraUI;
+- (void)layoutCameraUIConstraints;
 
 #pragma mark - GPUImage
 - (void)configFilter;
 - (void)render;
+- (void)configCameraFilter;
+- (void)cameraRender;
 
 #pragma mark - AdjustFilter
 #pragma mark - Color Adjustments

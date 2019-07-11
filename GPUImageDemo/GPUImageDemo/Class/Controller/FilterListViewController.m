@@ -69,11 +69,13 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
     
     if ([self.navigationItem.title isEqualToString:@"Blending Modes"]) {
         ShowBlendViewController *blendVc = [[ShowBlendViewController alloc] init];
+        blendVc.type = BlendShowTypeCamera;
         blendVc.item = item;
         blendVc.navigationItem.title = item.title;
         [self.navigationController pushViewController:blendVc animated:YES];
     } else {
         ShowViewController *showVc = [[ShowViewController alloc] init];
+        showVc.type = ShowTypeCamera;
         showVc.item = item;
         showVc.navigationItem.title = item.title;
         [self.navigationController pushViewController:showVc animated:YES];

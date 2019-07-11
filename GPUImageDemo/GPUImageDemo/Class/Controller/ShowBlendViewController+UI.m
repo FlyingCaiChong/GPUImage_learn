@@ -14,6 +14,26 @@
 #pragma clang diagnostic ignored "-Wundeclared-selector"
 @implementation ShowBlendViewController (UI)
 
+#pragma mark - Camera
+- (void)setupCameraUI {
+    self.videoImageView = [[GPUImageView alloc] init];
+    [self.view addSubview:self.videoImageView];
+    
+    [self addSlider];
+}
+
+- (void)layoutCameraUIConstraints {
+    [self.videoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).mas_offset(0);
+        make.leading.equalTo(self.view);
+        make.trailing.equalTo(self.view);
+        make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).mas_offset(0);
+    }];
+    
+    [self layoutSlider];
+}
+
+#pragma mark - Image
 - (void)setupUI {
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -102,6 +122,10 @@
         make.bottom.equalTo(self.resultBlendImageView.mas_top).mas_offset(-15);
     }];
     
+    [self layoutSlider];
+}
+
+- (void)layoutSlider {
     if (self.sliderA) {
         [self.sliderA mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self.view).mas_offset(50);
@@ -155,7 +179,6 @@
     
     self.sliderAHintLabel = [[UILabel alloc] init];
     self.sliderAHintLabel.font = [UIFont systemFontOfSize:12];
-    self.sliderAHintLabel.text = @"aaaaaa";
     [self.view addSubview:self.sliderAHintLabel];
 }
 
@@ -167,7 +190,6 @@
     
     self.sliderBHintLabel = [[UILabel alloc] init];
     self.sliderBHintLabel.font = [UIFont systemFontOfSize:12];
-    self.sliderBHintLabel.text = @"bbbbbbb";
     [self.view addSubview:self.sliderBHintLabel];
 }
 
