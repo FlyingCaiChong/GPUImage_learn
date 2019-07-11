@@ -14,6 +14,8 @@
 		B65F114922D48D3D007D6A05 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114822D48D3D007D6A05 /* ShowViewController.m */; };
 		B660BEA822D6C298009B58D0 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEA622D6C298009B58D0 /* GPUImageBeautifyFilter.m */; };
 		B660BEAB22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEAA22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m */; };
+		B660BEB022D6DA6F009B58D0 /* ShowBlendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEAF22D6DA6F009B58D0 /* ShowBlendViewController.m */; };
+		B660BEB422D6DA93009B58D0 /* ShowBlendViewController+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEB322D6DA93009B58D0 /* ShowBlendViewController+UI.m */; };
 		B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A92522D42BDC0046BBFD /* AppDelegate.m */; };
 		B672A92C22D42BDC0046BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B672A92A22D42BDC0046BBFD /* Main.storyboard */; };
 		B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B672A92D22D42BE10046BBFD /* Assets.xcassets */; };
@@ -63,6 +65,11 @@
 		B660BEA722D6C298009B58D0 /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
 		B660BEA922D6C5FC009B58D0 /* GPUImageBeautifyBFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyBFilter.h; sourceTree = "<group>"; };
 		B660BEAA22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyBFilter.m; sourceTree = "<group>"; };
+		B660BEAE22D6DA6F009B58D0 /* ShowBlendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowBlendViewController.h; sourceTree = "<group>"; };
+		B660BEAF22D6DA6F009B58D0 /* ShowBlendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowBlendViewController.m; sourceTree = "<group>"; };
+		B660BEB122D6DA86009B58D0 /* ShowBlendViewController+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShowBlendViewController+Private.h"; sourceTree = "<group>"; };
+		B660BEB222D6DA93009B58D0 /* ShowBlendViewController+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShowBlendViewController+UI.h"; sourceTree = "<group>"; };
+		B660BEB322D6DA93009B58D0 /* ShowBlendViewController+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ShowBlendViewController+UI.m"; sourceTree = "<group>"; };
 		B672A92122D42BDC0046BBFD /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B672A92422D42BDC0046BBFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B672A92522D42BDC0046BBFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -233,6 +240,11 @@
 				B68F0AE122D572CA00675239 /* ShowViewController+UI.m */,
 				B68F0AE322D57A8200675239 /* ShowViewController+AdjustFilter.h */,
 				B68F0AE422D57A8200675239 /* ShowViewController+AdjustFilter.m */,
+				B660BEAE22D6DA6F009B58D0 /* ShowBlendViewController.h */,
+				B660BEAF22D6DA6F009B58D0 /* ShowBlendViewController.m */,
+				B660BEB122D6DA86009B58D0 /* ShowBlendViewController+Private.h */,
+				B660BEB222D6DA93009B58D0 /* ShowBlendViewController+UI.h */,
+				B660BEB322D6DA93009B58D0 /* ShowBlendViewController+UI.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -524,8 +536,10 @@
 				B672A95F22D436110046BBFD /* MainViewController.m in Sources */,
 				B68F0AE522D57A8200675239 /* ShowViewController+AdjustFilter.m in Sources */,
 				B68F0AE222D572CA00675239 /* ShowViewController+UI.m in Sources */,
+				B660BEB422D6DA93009B58D0 /* ShowBlendViewController+UI.m in Sources */,
 				B672A98022D46DEE0046BBFD /* FetchCategoryFiltersTool.m in Sources */,
 				B65F114522D4890E007D6A05 /* FilterListItem.m in Sources */,
+				B660BEB022D6DA6F009B58D0 /* ShowBlendViewController.m in Sources */,
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
 				B672A97B22D469E20046BBFD /* FilterListViewController.m in Sources */,
 				B660BEA822D6C298009B58D0 /* GPUImageBeautifyFilter.m in Sources */,

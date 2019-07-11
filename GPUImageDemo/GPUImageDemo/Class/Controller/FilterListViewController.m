@@ -10,6 +10,7 @@
 #import "FilterListCell.h"
 #import "FilterListItem.h"
 #import "ShowViewController+Private.h"
+#import "ShowBlendViewController+Private.h"
 
 static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCellIdentifier";
 
@@ -65,10 +66,18 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     FilterListItem *item = self.dataList[indexPath.row];
-    ShowViewController *showVc = [[ShowViewController alloc] init];
-    showVc.item = item;
-    showVc.navigationItem.title = item.title;
-    [self.navigationController pushViewController:showVc animated:YES];
+    
+    if ([self.navigationItem.title isEqualToString:@"Blending Modes"]) {
+        ShowBlendViewController *blendVc = [[ShowBlendViewController alloc] init];
+        blendVc.item = item;
+        blendVc.navigationItem.title = item.title;
+        [self.navigationController pushViewController:blendVc animated:YES];
+    } else {
+        ShowViewController *showVc = [[ShowViewController alloc] init];
+        showVc.item = item;
+        showVc.navigationItem.title = item.title;
+        [self.navigationController pushViewController:showVc animated:YES];
+    }
 }
 
 #pragma mark - lazy
