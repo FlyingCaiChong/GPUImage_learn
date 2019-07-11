@@ -56,6 +56,7 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
     [cell configTitle:item.title];
     [cell configDesc:item.desc];
     [cell configInherit:item.inherit];
+    [cell configTranslate:item.translate];
     
     return cell;
 }

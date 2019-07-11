@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *descLabel;
 @property (nonatomic, strong) UILabel *inputLabel;
+@property (nonatomic, strong) UILabel *translateLabel;
 
 @end
 
@@ -48,6 +49,7 @@
 - (void)setupUI {
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.descLabel];
+    [self.contentView addSubview:self.translateLabel];
     [self.contentView addSubview:self.inputLabel];
 }
 
@@ -64,10 +66,16 @@
         make.top.equalTo(self.titleLabel.mas_bottom).mas_offset(5);
     }];
     
-    [self.inputLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.translateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.titleLabel);
         make.trailing.equalTo(self.titleLabel);
         make.top.equalTo(self.descLabel.mas_bottom).mas_offset(5);
+    }];
+    
+    [self.inputLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.titleLabel);
+        make.trailing.equalTo(self.titleLabel);
+        make.top.equalTo(self.translateLabel.mas_bottom).mas_offset(5);
         make.bottom.equalTo(self.contentView).mas_offset(-10);
     }];
 }
@@ -78,6 +86,10 @@
 
 - (void)configDesc:(NSString *)desc {
     self.descLabel.text = desc;
+}
+
+- (void)configTranslate:(NSString *)translate {
+    self.translateLabel.text = translate;
 }
 
 - (void)configInherit:(NSString *)input {
@@ -111,6 +123,16 @@
         _descLabel.numberOfLines = 0;
     }
     return _descLabel;
+}
+
+- (UILabel *)translateLabel {
+    if (!_translateLabel) {
+        _translateLabel = [[UILabel alloc] init];
+        _translateLabel.textColor = [UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1.0];
+        _translateLabel.font = [UIFont systemFontOfSize:12];
+        _translateLabel.numberOfLines = 0;
+    }
+    return _translateLabel;
 }
 
 - (UILabel *)inputLabel {

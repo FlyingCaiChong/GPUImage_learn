@@ -526,7 +526,7 @@
                  @"desc": @"A helper class that generates lines which can overlay the scene. The color of these lines can be adjusted using -setLineColorRed:green:blue:",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
-                 @"translate": @"生成可以覆盖场景的线的辅助类。 可以使用-setLineColorRed调整这些线条的颜色：绿色：蓝色：",
+                 @"translate": @"生成可以覆盖场景的线的辅助类。 可以使用-setLineColorRed:green:blue:调整这些线条的颜色",
                  },
              @{
                  @"title": @"GPUImageMotionBlurFilter",
