@@ -13,35 +13,35 @@
 + (NSArray *)colorAdjustmentsFilters {
     return @[
              @{
-                 @"title": @"GPUImageBrightnessFilter", // 亮度
+                 @"title": @"GPUImageBrightnessFilter",
                  @"desc": @"Adjusts the brightness of the image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
                  @"translate": @"调整图像的亮度",
                  },
              @{
-                 @"title": @"GPUImageExposureFilter", // 曝光度
+                 @"title": @"GPUImageExposureFilter",
                  @"desc": @"Adjusts the exposure of the image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
                  @"translate": @"调整图像的曝光",
                  },
              @{
-                 @"title": @"GPUImageContrastFilter", // 对比度
+                 @"title": @"GPUImageContrastFilter",
                  @"desc": @"Adjusts the contrast of the image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
                  @"translate": @"调整图像的对比度",
                  },
              @{
-                 @"title": @"GPUImageSaturationFilter", // 饱和度
+                 @"title": @"GPUImageSaturationFilter",
                  @"desc": @"Adjusts the saturation of an image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
                  @"translate": @"调整图像的饱和度",
                  },
              @{
-                 @"title": @"GPUImageGammaFilter", // 伽马
+                 @"title": @"GPUImageGammaFilter",
                  @"desc": @"Adjusts the gamma of an image",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @1,
