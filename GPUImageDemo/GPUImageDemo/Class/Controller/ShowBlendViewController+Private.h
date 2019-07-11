@@ -25,6 +25,10 @@ static NSString *const kImageNamedB = @"grass";
 @property (nonatomic, strong) UIImageView *originImageBImageView;
 @property (nonatomic, strong) UILabel *resultBlendLabel;
 @property (nonatomic, strong) UIImageView *resultBlendImageView;
+@property (nonatomic, strong) UISlider *sliderA;
+@property (nonatomic, strong) UISlider *sliderB;
+@property (nonatomic, strong) UILabel *sliderAHintLabel;
+@property (nonatomic, strong) UILabel *sliderBHintLabel;
 
 @property (nonatomic, strong) FilterListItem *item;
 
@@ -37,10 +41,19 @@ static NSString *const kImageNamedB = @"grass";
 #pragma mark - UI
 - (void)setupUI;
 - (void)layoutConstraints;
+- (void)configSliderRange;
 
 #pragma mark - Filter
 - (void)configFilters;
 - (void)render;
+
+#pragma mark - Adjust
+- (void)configThresholdSensitivity:(CGFloat)thresholdSensitivity;
+- (void)configSmoothing:(CGFloat)smoothing;
+- (void)configDissolveMix:(CGFloat)mix;
+- (void)configAlphaMix:(CGFloat)mix;
+- (void)configPoissonMix:(CGFloat)mix;
+- (void)configPoissonNumIterations:(NSUInteger)numIterations;
 
 @end
 

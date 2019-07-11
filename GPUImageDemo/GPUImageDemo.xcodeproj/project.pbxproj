@@ -16,6 +16,7 @@
 		B660BEAB22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEAA22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m */; };
 		B660BEB022D6DA6F009B58D0 /* ShowBlendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEAF22D6DA6F009B58D0 /* ShowBlendViewController.m */; };
 		B660BEB422D6DA93009B58D0 /* ShowBlendViewController+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEB322D6DA93009B58D0 /* ShowBlendViewController+UI.m */; };
+		B660BEB722D6E7E1009B58D0 /* ShowBlendViewController+AdjustFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEB622D6E7E1009B58D0 /* ShowBlendViewController+AdjustFilter.m */; };
 		B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A92522D42BDC0046BBFD /* AppDelegate.m */; };
 		B672A92C22D42BDC0046BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B672A92A22D42BDC0046BBFD /* Main.storyboard */; };
 		B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B672A92D22D42BE10046BBFD /* Assets.xcassets */; };
@@ -70,6 +71,8 @@
 		B660BEB122D6DA86009B58D0 /* ShowBlendViewController+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShowBlendViewController+Private.h"; sourceTree = "<group>"; };
 		B660BEB222D6DA93009B58D0 /* ShowBlendViewController+UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShowBlendViewController+UI.h"; sourceTree = "<group>"; };
 		B660BEB322D6DA93009B58D0 /* ShowBlendViewController+UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ShowBlendViewController+UI.m"; sourceTree = "<group>"; };
+		B660BEB522D6E7E1009B58D0 /* ShowBlendViewController+AdjustFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShowBlendViewController+AdjustFilter.h"; sourceTree = "<group>"; };
+		B660BEB622D6E7E1009B58D0 /* ShowBlendViewController+AdjustFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ShowBlendViewController+AdjustFilter.m"; sourceTree = "<group>"; };
 		B672A92122D42BDC0046BBFD /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B672A92422D42BDC0046BBFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B672A92522D42BDC0046BBFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 				B660BEB122D6DA86009B58D0 /* ShowBlendViewController+Private.h */,
 				B660BEB222D6DA93009B58D0 /* ShowBlendViewController+UI.h */,
 				B660BEB322D6DA93009B58D0 /* ShowBlendViewController+UI.m */,
+				B660BEB522D6E7E1009B58D0 /* ShowBlendViewController+AdjustFilter.h */,
+				B660BEB622D6E7E1009B58D0 /* ShowBlendViewController+AdjustFilter.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 			files = (
 				B68F0AEB22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m in Sources */,
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
+				B660BEB722D6E7E1009B58D0 /* ShowBlendViewController+AdjustFilter.m in Sources */,
 				B672A95F22D436110046BBFD /* MainViewController.m in Sources */,
 				B68F0AE522D57A8200675239 /* ShowViewController+AdjustFilter.m in Sources */,
 				B68F0AE222D572CA00675239 /* ShowViewController+UI.m in Sources */,

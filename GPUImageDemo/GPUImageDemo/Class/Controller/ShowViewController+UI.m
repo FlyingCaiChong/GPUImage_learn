@@ -94,6 +94,7 @@
 
 - (void)addOneSlider {
     self.slider = [[UISlider alloc] init];
+    self.slider.continuous = NO;
     [self.slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.slider];
     

@@ -26,6 +26,7 @@
     
     [self setupUI];
     [self layoutConstraints];
+    [self configSliderRange];
     [self configFilters];
 }
 
