@@ -15,7 +15,10 @@
 static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCellIdentifier";
 
 @interface FilterListViewController ()<UITableViewDelegate, UITableViewDataSource>
-
+{
+    BlendShowType _blendShowType;
+    ShowType _showType;
+}
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -25,7 +28,12 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _showType = ShowTypeImage;
+    _blendShowType = BlendShowTypeImage;
+    
     [self setupUI];
+    [self initNavi];
 }
 
 - (void)setupUI {
@@ -36,6 +44,29 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
         make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
         make.right.equalTo(self.view.mas_safeAreaLayoutGuideRight);
     }];
+}
+
+- (void)initNavi {
+    [self setRightItemTitle:@"Image"];
+}
+
+- (void)rightItemClick {
+    NSString *itemTitle = self.navigationItem.rightBarButtonItem.title;
+    if ([itemTitle isEqualToString:@"Image"]) {
+        // Image -> Camera
+        [self setRightItemTitle:@"Camera"];
+        _showType = ShowTypeCamera;
+        _blendShowType = BlendShowTypeCamera;
+    } else {
+        // Camera -> Image
+        [self setRightItemTitle:@"Image"];
+        _showType = ShowTypeImage;
+        _blendShowType = BlendShowTypeImage;
+    }
+}
+
+- (void)setRightItemTitle:(NSString *)title {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:(UIBarButtonItemStylePlain) target:self action:@selector(rightItemClick)];
 }
 
 #pragma mark - <UITableViewDelegate, UITableViewDataSource>
@@ -69,13 +100,13 @@ static NSString *const kColorAdjustmentsCellIdentifier = @"kColorAdjustmentsCell
     
     if ([self.navigationItem.title isEqualToString:@"Blending Modes"]) {
         ShowBlendViewController *blendVc = [[ShowBlendViewController alloc] init];
-        blendVc.type = BlendShowTypeCamera;
+        blendVc.type = _blendShowType;
         blendVc.item = item;
         blendVc.navigationItem.title = item.title;
         [self.navigationController pushViewController:blendVc animated:YES];
     } else {
         ShowViewController *showVc = [[ShowViewController alloc] init];
-        showVc.type = ShowTypeCamera;
+        showVc.type = _showType;
         showVc.item = item;
         showVc.navigationItem.title = item.title;
         [self.navigationController pushViewController:showVc animated:YES];
