@@ -10,6 +10,7 @@
 #import "GPUImage.h"
 #import "FHFilterListItem.h"
 #import "GPUImageCustomGlitchFilter.h"
+#import "GPUImageCustomScaleFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -69,7 +70,8 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)configThreshold:(CGFloat)threshold;
 
 #pragma mark - Custom Filters
-- (void)configTime:(CGFloat)time;
+- (void)configGlitchTime:(CGFloat)time;
+- (void)configScaleTime:(CGFloat)time;
 
 @end
 

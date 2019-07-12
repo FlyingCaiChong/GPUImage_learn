@@ -55,8 +55,13 @@
     filter.threshold = threshold;
 }
 
-- (void)configTime:(CGFloat)time {
+- (void)configGlitchTime:(CGFloat)time {
     GPUImageCustomGlitchFilter *filter = (GPUImageCustomGlitchFilter *)self.imageFilter;
+    filter.time = time;
+}
+
+- (void)configScaleTime:(CGFloat)time {
+    GPUImageCustomScaleFilter *filter = (GPUImageCustomScaleFilter *)self.imageFilter;
     filter.time = time;
 }
 

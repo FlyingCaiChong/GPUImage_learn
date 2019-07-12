@@ -1,5 +1,5 @@
 //
-//  GPUImageCustomIllusoryFilter.h
+//  GPUImageCustomScaleFilter.h
 //  GPUImageDemo
 //
 //  Created by iOS_Developer on 2019/7/12.
@@ -9,8 +9,8 @@
 #import "GPUImageFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
-// 毛刺
-@interface GPUImageCustomGlitchFilter : GPUImageFilter
+
+@interface GPUImageCustomScaleFilter : GPUImageFilter
 {
     GLint timeUniform;
 }

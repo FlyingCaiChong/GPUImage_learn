@@ -95,7 +95,7 @@
 #pragma mark - Time Display
 - (void)configTimeDisplay {
     NSString *title = self.item.title;
-    if ([title isEqualToString:NSStringFromClass([GPUImageCustomGlitchFilter class])]) {
+    if ([title isEqualToString:NSStringFromClass([GPUImageCustomGlitchFilter class])] || [title isEqualToString:NSStringFromClass([GPUImageCustomScaleFilter class])]) {
         [self hiddenSlider];
         [self createTimer];
     }
@@ -111,13 +111,18 @@
 }
 
 - (void)timeAction {
+    
     if (self.startTimeInterval == 0) {
         self.startTimeInterval = self.displayLink.timestamp;
     }
+    
     CGFloat currentTime = self.displayLink.timestamp - self.startTimeInterval;
+    
     if ([self.imageFilter isKindOfClass:[GPUImageCustomGlitchFilter class]]) {
-        GPUImageCustomGlitchFilter *filter = (GPUImageCustomGlitchFilter *)self.imageFilter;
-        filter.time = currentTime;
+        [self configGlitchTime:currentTime];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomScaleFilter class]]) {
+        [self configScaleTime:currentTime];
     }
 }
 

@@ -11,6 +11,7 @@
 		A53B6955BF51F62525546667 /* libPods-GPUImageDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243EFCECEFA2B34D5B597878 /* libPods-GPUImageDemoUITests.a */; };
 		B650089222D8241B00D42CA5 /* shaderCustomGlitch.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B650089122D8241B00D42CA5 /* shaderCustomGlitch.fsh */; };
 		B650089522D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B650089422D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m */; };
+		B650089822D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B650089722D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m */; };
 		B65F114222D47B32007D6A05 /* FHFilterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114122D47B32007D6A05 /* FHFilterListCell.m */; };
 		B65F114522D4890E007D6A05 /* FHFilterListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114422D4890E007D6A05 /* FHFilterListItem.m */; };
 		B65F114922D48D3D007D6A05 /* FHShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114822D48D3D007D6A05 /* FHShowViewController.m */; };
@@ -61,6 +62,8 @@
 		B650089122D8241B00D42CA5 /* shaderCustomGlitch.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderCustomGlitch.fsh; sourceTree = "<group>"; };
 		B650089322D8245C00D42CA5 /* GPUImageCustomGlitchFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomGlitchFilter.h; sourceTree = "<group>"; };
 		B650089422D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomGlitchFilter.m; sourceTree = "<group>"; };
+		B650089622D82D1A00D42CA5 /* GPUImageCustomScaleFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomScaleFilter.h; sourceTree = "<group>"; };
+		B650089722D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomScaleFilter.m; sourceTree = "<group>"; };
 		B65F114022D47B32007D6A05 /* FHFilterListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHFilterListCell.h; sourceTree = "<group>"; };
 		B65F114122D47B32007D6A05 /* FHFilterListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHFilterListCell.m; sourceTree = "<group>"; };
 		B65F114322D4890E007D6A05 /* FHFilterListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHFilterListItem.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				B660BEAA22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m */,
 				B650089322D8245C00D42CA5 /* GPUImageCustomGlitchFilter.h */,
 				B650089422D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m */,
+				B650089622D82D1A00D42CA5 /* GPUImageCustomScaleFilter.h */,
+				B650089722D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -549,6 +554,7 @@
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
 				B660BEB722D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m in Sources */,
 				B650089522D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m in Sources */,
+				B650089822D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m in Sources */,
 				B672A95F22D436110046BBFD /* FHMainViewController.m in Sources */,
 				B68F0AE522D57A8200675239 /* FHShowViewController+AdjustFilter.m in Sources */,
 				B68F0AE222D572CA00675239 /* FHShowViewController+UI.m in Sources */,
