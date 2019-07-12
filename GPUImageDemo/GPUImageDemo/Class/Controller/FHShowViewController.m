@@ -42,6 +42,7 @@
         [self render];
     } else {
         [self.navigationController.navigationBar setHidden:YES];
+        [self configTimeDisplay];
         [self cameraRender];
     }
 }
@@ -51,6 +52,10 @@
     
     if (self.type == ShowTypeCamera) {
         [self.navigationController.navigationBar setHidden:NO];
+    }
+    
+    if (self.displayLink) {
+        [self.displayLink invalidate];
     }
 }
 
@@ -85,6 +90,35 @@
 
 - (void)cameraRender {
     [self.stillCamera startCameraCapture];
+}
+
+#pragma mark - Time Display
+- (void)configTimeDisplay {
+    NSString *title = self.item.title;
+    if ([title isEqualToString:NSStringFromClass([GPUImageCustomGlitchFilter class])]) {
+        [self hiddenSlider];
+        [self createTimer];
+    }
+}
+
+- (void)createTimer {
+    if (self.displayLink) {
+        [self.displayLink invalidate];
+    }
+    self.startTimeInterval = 0;
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timeAction)];
+    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)timeAction {
+    if (self.startTimeInterval == 0) {
+        self.startTimeInterval = self.displayLink.timestamp;
+    }
+    CGFloat currentTime = self.displayLink.timestamp - self.startTimeInterval;
+    if ([self.imageFilter isKindOfClass:[GPUImageCustomGlitchFilter class]]) {
+        GPUImageCustomGlitchFilter *filter = (GPUImageCustomGlitchFilter *)self.imageFilter;
+        filter.time = currentTime;
+    }
 }
 
 #pragma mark - lazy

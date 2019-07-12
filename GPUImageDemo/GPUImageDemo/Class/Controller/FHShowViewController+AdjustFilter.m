@@ -55,6 +55,11 @@
     filter.threshold = threshold;
 }
 
+- (void)configTime:(CGFloat)time {
+    GPUImageCustomGlitchFilter *filter = (GPUImageCustomGlitchFilter *)self.imageFilter;
+    filter.time = time;
+}
+
 @end
 
 #pragma clang diagnostic pop

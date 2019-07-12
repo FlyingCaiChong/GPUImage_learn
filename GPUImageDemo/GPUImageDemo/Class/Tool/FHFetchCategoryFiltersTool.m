@@ -935,6 +935,13 @@
                     @"parametersNum": @3,
                     @"translate": @"",
                     },
+                @{
+                    @"title": @"GPUImageCustomGlitchFilter",
+                    @"desc": @"",
+                    @"inherit": @"GPUImageFilter",
+                    @"parametersNum": @1,
+                    @"translate": @"",
+                    },
              ];
 }
 

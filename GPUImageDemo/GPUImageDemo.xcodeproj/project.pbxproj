@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		63F2652DFD047186F79E9B36 /* libPods-GPUImageDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5911DF9EB61AFB8BC37E42C /* libPods-GPUImageDemoTests.a */; };
 		A53B6955BF51F62525546667 /* libPods-GPUImageDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 243EFCECEFA2B34D5B597878 /* libPods-GPUImageDemoUITests.a */; };
+		B650089222D8241B00D42CA5 /* shaderCustomGlitch.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B650089122D8241B00D42CA5 /* shaderCustomGlitch.fsh */; };
+		B650089522D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B650089422D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m */; };
 		B65F114222D47B32007D6A05 /* FHFilterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114122D47B32007D6A05 /* FHFilterListCell.m */; };
 		B65F114522D4890E007D6A05 /* FHFilterListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114422D4890E007D6A05 /* FHFilterListItem.m */; };
 		B65F114922D48D3D007D6A05 /* FHShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114822D48D3D007D6A05 /* FHShowViewController.m */; };
@@ -56,6 +58,9 @@
 		4A8A5B9FF06ADFEBD6629F5C /* Pods-GPUImageDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemo/Pods-GPUImageDemo.release.xcconfig"; sourceTree = "<group>"; };
 		74E4BB2D080C885737A04108 /* libPods-GPUImageDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1754A13A20B4AD815F15AC9 /* Pods-GPUImageDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoTests/Pods-GPUImageDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		B650089122D8241B00D42CA5 /* shaderCustomGlitch.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderCustomGlitch.fsh; sourceTree = "<group>"; };
+		B650089322D8245C00D42CA5 /* GPUImageCustomGlitchFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomGlitchFilter.h; sourceTree = "<group>"; };
+		B650089422D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomGlitchFilter.m; sourceTree = "<group>"; };
 		B65F114022D47B32007D6A05 /* FHFilterListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHFilterListCell.h; sourceTree = "<group>"; };
 		B65F114122D47B32007D6A05 /* FHFilterListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHFilterListCell.m; sourceTree = "<group>"; };
 		B65F114322D4890E007D6A05 /* FHFilterListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHFilterListItem.h; sourceTree = "<group>"; };
@@ -263,6 +268,8 @@
 				B660BEA622D6C298009B58D0 /* GPUImageBeautifyFilter.m */,
 				B660BEA922D6C5FC009B58D0 /* GPUImageBeautifyBFilter.h */,
 				B660BEAA22D6C5FC009B58D0 /* GPUImageBeautifyBFilter.m */,
+				B650089322D8245C00D42CA5 /* GPUImageCustomGlitchFilter.h */,
+				B650089422D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -280,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				B68F0AEC22D5932600675239 /* ShaderCustom9SplitScreen.fsh */,
+				B650089122D8241B00D42CA5 /* shaderCustomGlitch.fsh */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -409,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B650089222D8241B00D42CA5 /* shaderCustomGlitch.fsh in Resources */,
 				B68F0AED22D5932600675239 /* ShaderCustom9SplitScreen.fsh in Resources */,
 				B672A93122D42BE10046BBFD /* LaunchScreen.storyboard in Resources */,
 				B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */,
@@ -539,6 +548,7 @@
 				B68F0AEB22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m in Sources */,
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
 				B660BEB722D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m in Sources */,
+				B650089522D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m in Sources */,
 				B672A95F22D436110046BBFD /* FHMainViewController.m in Sources */,
 				B68F0AE522D57A8200675239 /* FHShowViewController+AdjustFilter.m in Sources */,
 				B68F0AE222D572CA00675239 /* FHShowViewController+UI.m in Sources */,

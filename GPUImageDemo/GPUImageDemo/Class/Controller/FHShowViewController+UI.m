@@ -127,6 +127,16 @@
     [self.view addSubview:self.sliderHintLabel];
 }
 
+- (void)hiddenSlider {
+    self.slider.hidden = YES;
+    self.sliderHintLabel.hidden = YES;
+}
+
+- (void)showSlider {
+    self.slider.hidden = NO;
+    self.sliderHintLabel.hidden = NO;
+}
+
 - (void)configSliderRange {
     NSString *title = self.item.title;
     if ([title isEqualToString:NSStringFromClass([GPUImageBrightnessFilter class])]) {
@@ -177,6 +187,12 @@
         self.slider.value = 0.5;
         self.sliderHintLabel.text = [NSString stringWithFormat:@"hue(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
     }
+    else if ([title isEqualToString:NSStringFromClass([GPUImageCustomGlitchFilter class])]) {
+        self.slider.minimumValue = 0.0;
+        self.slider.maximumValue = 6;
+        self.slider.value = 0.0;
+        self.sliderHintLabel.text = [NSString stringWithFormat:@"time(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
+    }
 }
 
 - (void)sliderChanged:(UISlider *)slider {
@@ -214,6 +230,10 @@
     else if ([self.imageFilter isKindOfClass:[GPUImageLuminanceThresholdFilter class]]) {
         [self configThreshold:value];
         self.sliderHintLabel.text = [NSString stringWithFormat:@"threshold(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomGlitchFilter class]]) {
+        [self configTime:value];
+        self.sliderHintLabel.text = [NSString stringWithFormat:@"time(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
     }
     
     if (self.type == ShowTypeImage) {

@@ -9,6 +9,7 @@
 #import "FHShowViewController.h"
 #import "GPUImage.h"
 #import "FHFilterListItem.h"
+#import "GPUImageCustomGlitchFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -37,12 +38,18 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 
 @property (nonatomic, assign) ShowType type;
 
+// GPUImageCustomIllusoryFilter
+@property (nonatomic, strong) CADisplayLink *displayLink;
+@property (nonatomic, assign) NSTimeInterval startTimeInterval;
+
 #pragma mark - UI
 - (void)setupUI;
 - (void)layoutConstraints;
 - (void)configSliderRange;
 - (void)setupCameraUI;
 - (void)layoutCameraUIConstraints;
+- (void)hiddenSlider;
+- (void)showSlider;
 
 #pragma mark - GPUImage
 - (void)configFilter;
@@ -61,6 +68,8 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)configOpacity:(CGFloat)opacity;
 - (void)configThreshold:(CGFloat)threshold;
 
+#pragma mark - Custom Filters
+- (void)configTime:(CGFloat)time;
 
 @end
 
