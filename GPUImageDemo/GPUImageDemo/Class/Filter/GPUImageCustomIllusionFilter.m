@@ -1,18 +1,17 @@
 //
-//  GPUImageCustomShakeFilter.m
+//  GPUImageCustomIllusionFilter.m
 //  GPUImageDemo
 //
 //  Created by iOS_Developer on 2019/7/12.
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "GPUImageCustomShakeFilter.h"
+#import "GPUImageCustomIllusionFilter.h"
 
-@implementation GPUImageCustomShakeFilter
-
+@implementation GPUImageCustomIllusionFilter
 - (instancetype)init
 {
-    if (!(self = [super initWithFragmentShaderFromFile:@"ShaderCustomShake"])) {
+    if (!(self = [super initWithFragmentShaderFromFile:@"ShaderCustomIllusion"])) {
         return nil;
     }
     
@@ -27,5 +26,4 @@
     _time = time;
     [self setFloat:_time forUniform:timeUniform program:filterProgram];
 }
-
 @end

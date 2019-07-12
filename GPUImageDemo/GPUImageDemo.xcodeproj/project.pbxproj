@@ -14,6 +14,10 @@
 		B650089822D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B650089722D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m */; };
 		B650089A22D82FC700D42CA5 /* ShaderCustomShake.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B650089922D82FC700D42CA5 /* ShaderCustomShake.fsh */; };
 		B650089D22D8305800D42CA5 /* GPUImageCustomShakeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B650089C22D8305800D42CA5 /* GPUImageCustomShakeFilter.m */; };
+		B65008A022D833DB00D42CA5 /* GPUImageCustomFlashWhiteFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B650089F22D833DB00D42CA5 /* GPUImageCustomFlashWhiteFilter.m */; };
+		B65008A222D833F000D42CA5 /* ShaderCustomFlashWhite.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B65008A122D833F000D42CA5 /* ShaderCustomFlashWhite.fsh */; };
+		B65008A422D835E100D42CA5 /* ShaderCustomIllusion.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B65008A322D835E100D42CA5 /* ShaderCustomIllusion.fsh */; };
+		B65008A722D8363800D42CA5 /* GPUImageCustomIllusionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B65008A622D8363800D42CA5 /* GPUImageCustomIllusionFilter.m */; };
 		B65F114222D47B32007D6A05 /* FHFilterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114122D47B32007D6A05 /* FHFilterListCell.m */; };
 		B65F114522D4890E007D6A05 /* FHFilterListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114422D4890E007D6A05 /* FHFilterListItem.m */; };
 		B65F114922D48D3D007D6A05 /* FHShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65F114822D48D3D007D6A05 /* FHShowViewController.m */; };
@@ -69,6 +73,12 @@
 		B650089922D82FC700D42CA5 /* ShaderCustomShake.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderCustomShake.fsh; sourceTree = "<group>"; };
 		B650089B22D8305800D42CA5 /* GPUImageCustomShakeFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomShakeFilter.h; sourceTree = "<group>"; };
 		B650089C22D8305800D42CA5 /* GPUImageCustomShakeFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomShakeFilter.m; sourceTree = "<group>"; };
+		B650089E22D833DB00D42CA5 /* GPUImageCustomFlashWhiteFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomFlashWhiteFilter.h; sourceTree = "<group>"; };
+		B650089F22D833DB00D42CA5 /* GPUImageCustomFlashWhiteFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomFlashWhiteFilter.m; sourceTree = "<group>"; };
+		B65008A122D833F000D42CA5 /* ShaderCustomFlashWhite.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderCustomFlashWhite.fsh; sourceTree = "<group>"; };
+		B65008A322D835E100D42CA5 /* ShaderCustomIllusion.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderCustomIllusion.fsh; sourceTree = "<group>"; };
+		B65008A522D8363800D42CA5 /* GPUImageCustomIllusionFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomIllusionFilter.h; sourceTree = "<group>"; };
+		B65008A622D8363800D42CA5 /* GPUImageCustomIllusionFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomIllusionFilter.m; sourceTree = "<group>"; };
 		B65F114022D47B32007D6A05 /* FHFilterListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHFilterListCell.h; sourceTree = "<group>"; };
 		B65F114122D47B32007D6A05 /* FHFilterListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHFilterListCell.m; sourceTree = "<group>"; };
 		B65F114322D4890E007D6A05 /* FHFilterListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHFilterListItem.h; sourceTree = "<group>"; };
@@ -282,6 +292,10 @@
 				B650089722D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m */,
 				B650089B22D8305800D42CA5 /* GPUImageCustomShakeFilter.h */,
 				B650089C22D8305800D42CA5 /* GPUImageCustomShakeFilter.m */,
+				B650089E22D833DB00D42CA5 /* GPUImageCustomFlashWhiteFilter.h */,
+				B650089F22D833DB00D42CA5 /* GPUImageCustomFlashWhiteFilter.m */,
+				B65008A522D8363800D42CA5 /* GPUImageCustomIllusionFilter.h */,
+				B65008A622D8363800D42CA5 /* GPUImageCustomIllusionFilter.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -301,6 +315,8 @@
 				B68F0AEC22D5932600675239 /* ShaderCustom9SplitScreen.fsh */,
 				B650089122D8241B00D42CA5 /* ShaderCustomGlitch.fsh */,
 				B650089922D82FC700D42CA5 /* ShaderCustomShake.fsh */,
+				B65008A122D833F000D42CA5 /* ShaderCustomFlashWhite.fsh */,
+				B65008A322D835E100D42CA5 /* ShaderCustomIllusion.fsh */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -430,8 +446,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65008A422D835E100D42CA5 /* ShaderCustomIllusion.fsh in Resources */,
 				B650089222D8241B00D42CA5 /* ShaderCustomGlitch.fsh in Resources */,
 				B68F0AED22D5932600675239 /* ShaderCustom9SplitScreen.fsh in Resources */,
+				B65008A222D833F000D42CA5 /* ShaderCustomFlashWhite.fsh in Resources */,
 				B672A93122D42BE10046BBFD /* LaunchScreen.storyboard in Resources */,
 				B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */,
 				B650089A22D82FC700D42CA5 /* ShaderCustomShake.fsh in Resources */,
@@ -559,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B65008A022D833DB00D42CA5 /* GPUImageCustomFlashWhiteFilter.m in Sources */,
 				B68F0AEB22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m in Sources */,
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
 				B660BEB722D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m in Sources */,
@@ -573,6 +592,7 @@
 				B650089D22D8305800D42CA5 /* GPUImageCustomShakeFilter.m in Sources */,
 				B660BEB022D6DA6F009B58D0 /* FHShowBlendViewController.m in Sources */,
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
+				B65008A722D8363800D42CA5 /* GPUImageCustomIllusionFilter.m in Sources */,
 				B672A97B22D469E20046BBFD /* FHFilterListViewController.m in Sources */,
 				B660BEA822D6C298009B58D0 /* GPUImageBeautifyFilter.m in Sources */,
 				B65F114222D47B32007D6A05 /* FHFilterListCell.m in Sources */,

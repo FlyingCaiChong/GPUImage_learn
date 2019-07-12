@@ -956,6 +956,20 @@
                     @"parametersNum": @1,
                     @"translate": @"抖动效果",
                     },
+                @{
+                    @"title": @"GPUImageCustomFlashWhiteFilter",
+                    @"desc": @"",
+                    @"inherit": @"GPUImageFilter",
+                    @"parametersNum": @1,
+                    @"translate": @"闪白效果",
+                    },
+//                @{  // 此滤镜有问题，效果出不来
+//                    @"title": @"GPUImageCustomIllusionFilter",
+//                    @"desc": @"",
+//                    @"inherit": @"GPUImageFilter",
+//                    @"parametersNum": @1,
+//                    @"translate": @"闪白效果",
+//                    },
              ];
 }
 

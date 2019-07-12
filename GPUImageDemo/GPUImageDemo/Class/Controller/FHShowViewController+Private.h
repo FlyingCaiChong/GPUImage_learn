@@ -12,6 +12,8 @@
 #import "GPUImageCustomGlitchFilter.h"
 #import "GPUImageCustomScaleFilter.h"
 #import "GPUImageCustomShakeFilter.h"
+#import "GPUImageCustomFlashWhiteFilter.h"
+#import "GPUImageCustomIllusionFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -79,6 +81,8 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)configGlitchTime:(CGFloat)time;
 - (void)configScaleTime:(CGFloat)time;
 - (void)configShakeTime:(CGFloat)time;
+- (void)configFlashWhiteTime:(CGFloat)time;
+- (void)configIllusionTime:(CGFloat)time;
 
 @end
 

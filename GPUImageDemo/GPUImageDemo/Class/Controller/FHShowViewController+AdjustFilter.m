@@ -70,6 +70,16 @@
     filter.time = time;
 }
 
+- (void)configFlashWhiteTime:(CGFloat)time {
+    GPUImageCustomFlashWhiteFilter *filter = (GPUImageCustomFlashWhiteFilter *)self.imageFilter;
+    filter.time = time;
+}
+
+- (void)configIllusionTime:(CGFloat)time {
+    GPUImageCustomIllusionFilter *filter = (GPUImageCustomIllusionFilter *)self.imageFilter;
+    filter.time = time;
+}
+
 #pragma mark - Time Display
 - (void)configTimeDisplay {
     
@@ -107,6 +117,12 @@
     else if ([self.imageFilter isKindOfClass:[GPUImageCustomShakeFilter class]]) {
         [self configShakeTime:currentTime];
     }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomFlashWhiteFilter class]]) {
+        [self configFlashWhiteTime:currentTime];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomIllusionFilter class]]) {
+        [self configIllusionTime:currentTime];
+    }
 }
 
 - (BOOL)needCreateTimer {
@@ -115,6 +131,8 @@
                      NSStringFromClass([GPUImageCustomGlitchFilter class]),
                      NSStringFromClass([GPUImageCustomScaleFilter class]),
                      NSStringFromClass([GPUImageCustomShakeFilter class]),
+                     NSStringFromClass([GPUImageCustomFlashWhiteFilter class]),
+                     NSStringFromClass([GPUImageCustomIllusionFilter class]),
                      ];
     return [arr containsObject:self.item.title];
 }
