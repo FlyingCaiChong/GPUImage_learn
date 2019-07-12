@@ -1,18 +1,17 @@
 //
-//  GPUImageCustomIllusoryFilter.m
+//  GPUImageCustomShakeFilter.m
 //  GPUImageDemo
 //
 //  Created by iOS_Developer on 2019/7/12.
 //  Copyright © 2019年 iOS_Developer. All rights reserved.
 //
 
-#import "GPUImageCustomGlitchFilter.h"
+#import "GPUImageCustomShakeFilter.h"
 
-@implementation GPUImageCustomGlitchFilter
-
+@implementation GPUImageCustomShakeFilter
 - (instancetype)init
 {
-    if (!(self = [super initWithFragmentShaderFromFile:@"ShaderCustomGlitch"])) {
+    if (!(self = [super initWithFragmentShaderFromFile:@"ShaderCustomShake"])) {
         return nil;
     }
     

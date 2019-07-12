@@ -11,6 +11,7 @@
 #import "FHFilterListItem.h"
 #import "GPUImageCustomGlitchFilter.h"
 #import "GPUImageCustomScaleFilter.h"
+#import "GPUImageCustomShakeFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -58,6 +59,11 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)configCameraFilter;
 - (void)cameraRender;
 
+#pragma mark - Time Display
+- (void)configTimeDisplay;
+- (void)createTimer;
+- (void)timeAction;
+
 #pragma mark - AdjustFilter
 #pragma mark - Color Adjustments
 - (void)configBrightness:(CGFloat)brightness;
@@ -72,6 +78,7 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 #pragma mark - Custom Filters
 - (void)configGlitchTime:(CGFloat)time;
 - (void)configScaleTime:(CGFloat)time;
+- (void)configShakeTime:(CGFloat)time;
 
 @end
 

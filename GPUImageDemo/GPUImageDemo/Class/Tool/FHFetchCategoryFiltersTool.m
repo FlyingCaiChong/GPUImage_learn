@@ -947,7 +947,14 @@
                     @"desc": @"",
                     @"inherit": @"GPUImageFilter",
                     @"parametersNum": @1,
-                    @"translate": @"放大效果",
+                    @"translate": @"灵魂出窍效果",
+                    },
+                @{
+                    @"title": @"GPUImageCustomShakeFilter",
+                    @"desc": @"",
+                    @"inherit": @"GPUImageFilter",
+                    @"parametersNum": @1,
+                    @"translate": @"抖动效果",
                     },
              ];
 }

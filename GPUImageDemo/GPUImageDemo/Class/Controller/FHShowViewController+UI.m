@@ -199,6 +199,12 @@
         self.slider.value = 0.0;
         self.sliderHintLabel.text = [NSString stringWithFormat:@"time(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
     }
+    else if ([title isEqualToString:NSStringFromClass([GPUImageCustomShakeFilter class])]) {
+        self.slider.minimumValue = 0.0;
+        self.slider.maximumValue = 1.0;
+        self.slider.value = 0.0;
+        self.sliderHintLabel.text = [NSString stringWithFormat:@"time(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
+    }
 }
 
 - (void)sliderChanged:(UISlider *)slider {
@@ -243,6 +249,10 @@
     }
     else if ([self.imageFilter isKindOfClass:[GPUImageCustomScaleFilter class]]) {
         [self configScaleTime:value];
+        self.sliderHintLabel.text = [NSString stringWithFormat:@"time(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomShakeFilter class]]) {
+        [self configShakeTime:value];
         self.sliderHintLabel.text = [NSString stringWithFormat:@"time(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
     }
     

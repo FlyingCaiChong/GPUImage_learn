@@ -92,40 +92,6 @@
     [self.stillCamera startCameraCapture];
 }
 
-#pragma mark - Time Display
-- (void)configTimeDisplay {
-    NSString *title = self.item.title;
-    if ([title isEqualToString:NSStringFromClass([GPUImageCustomGlitchFilter class])] || [title isEqualToString:NSStringFromClass([GPUImageCustomScaleFilter class])]) {
-        [self hiddenSlider];
-        [self createTimer];
-    }
-}
-
-- (void)createTimer {
-    if (self.displayLink) {
-        [self.displayLink invalidate];
-    }
-    self.startTimeInterval = 0;
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timeAction)];
-    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-}
-
-- (void)timeAction {
-    
-    if (self.startTimeInterval == 0) {
-        self.startTimeInterval = self.displayLink.timestamp;
-    }
-    
-    CGFloat currentTime = self.displayLink.timestamp - self.startTimeInterval;
-    
-    if ([self.imageFilter isKindOfClass:[GPUImageCustomGlitchFilter class]]) {
-        [self configGlitchTime:currentTime];
-    }
-    else if ([self.imageFilter isKindOfClass:[GPUImageCustomScaleFilter class]]) {
-        [self configScaleTime:currentTime];
-    }
-}
-
 #pragma mark - lazy
 - (GPUImagePicture *)sourcePicture {
     if (!_sourcePicture) {

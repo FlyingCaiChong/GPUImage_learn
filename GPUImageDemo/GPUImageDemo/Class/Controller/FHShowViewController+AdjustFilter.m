@@ -65,6 +65,60 @@
     filter.time = time;
 }
 
+- (void)configShakeTime:(CGFloat)time {
+    GPUImageCustomShakeFilter *filter = (GPUImageCustomShakeFilter *)self.imageFilter;
+    filter.time = time;
+}
+
+#pragma mark - Time Display
+- (void)configTimeDisplay {
+    
+    if (![self needCreateTimer]) {
+        return;
+    }
+    
+    [self hiddenSlider];
+    [self createTimer];
+}
+
+- (void)createTimer {
+    if (self.displayLink) {
+        [self.displayLink invalidate];
+    }
+    self.startTimeInterval = 0;
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(timeAction)];
+    [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)timeAction {
+    
+    if (self.startTimeInterval == 0) {
+        self.startTimeInterval = self.displayLink.timestamp;
+    }
+    
+    CGFloat currentTime = self.displayLink.timestamp - self.startTimeInterval;
+    
+    if ([self.imageFilter isKindOfClass:[GPUImageCustomGlitchFilter class]]) {
+        [self configGlitchTime:currentTime];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomScaleFilter class]]) {
+        [self configScaleTime:currentTime];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomShakeFilter class]]) {
+        [self configShakeTime:currentTime];
+    }
+}
+
+- (BOOL)needCreateTimer {
+    
+    NSArray *arr = @[
+                     NSStringFromClass([GPUImageCustomGlitchFilter class]),
+                     NSStringFromClass([GPUImageCustomScaleFilter class]),
+                     NSStringFromClass([GPUImageCustomShakeFilter class]),
+                     ];
+    return [arr containsObject:self.item.title];
+}
+
 @end
 
 #pragma clang diagnostic pop
