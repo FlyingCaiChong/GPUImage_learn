@@ -16,6 +16,32 @@
 
 @implementation FHShowViewController
 
+- (void)testFeaturePointsFilterWithImage:(UIImage *)image {
+    if (![self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
+        return;
+    }
+    // 获取原图宽度
+    int imageWidth = (int)CGImageGetWidth(image.CGImage);
+    // 获取原图高度
+    int imageHeight = (int)CGImageGetHeight(image.CGImage);
+    
+    NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:image] copy];
+    NSLog(@"pointArr: %@", pointsArr);
+    int count = (int)(pointsArr.count * 2);
+    GLfloat points[count];
+    
+    for (int i = 0; i < pointsArr.count; i++) {
+        NSValue *pointValue = pointsArr[i];
+        CGPoint point = [pointValue CGPointValue];
+        points[2 * i] = point.x/(imageWidth * 1.0);
+        points[2 * i + 1] = point.y/(imageHeight * 1.0);
+    }
+    
+    // 准备数据
+    GPUImageCustomFeaturePointsFilter *filter = (GPUImageCustomFeaturePointsFilter *)self.imageFilter;
+    [filter setFloatArray:points length:count];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -81,11 +107,12 @@
 }
 
 - (void)imageRender {
-    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
+    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]] && ![self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
         [self render];
     } else {
         UIImage *tempImage = [UIImage imageNamed:kImageNamed];
         [self addMaskForCustomMaskFilterWithImage:tempImage];
+        [self testFeaturePointsFilterWithImage:tempImage];
         [self render];
     }
 }
@@ -105,18 +132,31 @@
 #pragma mark - GPUImageVideoCameraDelegate
 - (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     
-    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
+    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]] && ![self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
         return;
     }
+    
+    
     NSLog(@"--------------");
     CMSampleBufferRef picCopy; // 避免内存问题产生，此处Copy一份Buffer用作处理；
     CMSampleBufferCreateCopy(CFAllocatorGetDefault(), sampleBuffer, &picCopy);
     UIImage *tempImage = [UIImage imageFromSampleBuffer:(__bridge CMSampleBufferRef)(CFBridgingRelease(picCopy))];
     
-    [self addMaskForCustomMaskFilterWithImage:tempImage];
+    if ([self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
+        
+        [self addMaskForCustomMaskFilterWithImage:tempImage];
+    }
+    
+    if ([self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
+        
+        [self testFeaturePointsFilterWithImage:tempImage];
+    }
 }
 
 - (void)addMaskForCustomMaskFilterWithImage:(UIImage *)tempImage {
+    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
+        return;
+    }
     // 获取原图宽度
     int imageWidth = (int)CGImageGetWidth(tempImage.CGImage);
     // 获取原图高度

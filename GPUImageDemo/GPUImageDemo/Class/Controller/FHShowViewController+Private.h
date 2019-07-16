@@ -15,6 +15,7 @@
 #import "GPUImageCustomFlashWhiteFilter.h"
 #import "GPUImageCustomIllusionFilter.h"
 #import "GPUImageCustomMaskFilter.h"
+#import "GPUImageCustomFeaturePointsFilter.h"
 #import "SXSenseDetectTool.h"
 #import "UIImage+SXExtension.h"
 

@@ -91,6 +91,8 @@
 		B6D8573722DD65CE004AF34E /* UIImage+SXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D8573622DD65CE004AF34E /* UIImage+SXExtension.m */; };
 		B6D8573922DD7819004AF34E /* ShaderCustomMask.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B6D8573822DD7819004AF34E /* ShaderCustomMask.fsh */; };
 		B6D8573C22DD7954004AF34E /* GPUImageCustomMaskFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D8573B22DD7954004AF34E /* GPUImageCustomMaskFilter.m */; };
+		B6D8573F22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D8573E22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.m */; };
+		B6D8574122DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B6D8574022DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh */; };
 		D2DBF37545DDF9CABAACDC70 /* libPods-GPUImageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E4BB2D080C885737A04108 /* libPods-GPUImageDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -506,6 +508,9 @@
 		B6D8573822DD7819004AF34E /* ShaderCustomMask.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderCustomMask.fsh; sourceTree = "<group>"; };
 		B6D8573A22DD7954004AF34E /* GPUImageCustomMaskFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomMaskFilter.h; sourceTree = "<group>"; };
 		B6D8573B22DD7954004AF34E /* GPUImageCustomMaskFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomMaskFilter.m; sourceTree = "<group>"; };
+		B6D8573D22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomFeaturePointsFilter.h; sourceTree = "<group>"; };
+		B6D8573E22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomFeaturePointsFilter.m; sourceTree = "<group>"; };
+		B6D8574022DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderCustomFeaturePoints.fsh; sourceTree = "<group>"; };
 		C62185B671E1ADE88EA7CDF9 /* Pods-GPUImageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemo/Pods-GPUImageDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C62AD19B6257F9470BBF35A7 /* Pods-GPUImageDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoUITests/Pods-GPUImageDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D5911DF9EB61AFB8BC37E42C /* libPods-GPUImageDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -682,6 +687,8 @@
 				B65008A622D8363800D42CA5 /* GPUImageCustomIllusionFilter.m */,
 				B6D8573A22DD7954004AF34E /* GPUImageCustomMaskFilter.h */,
 				B6D8573B22DD7954004AF34E /* GPUImageCustomMaskFilter.m */,
+				B6D8573D22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.h */,
+				B6D8573E22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -704,6 +711,7 @@
 				B65008A122D833F000D42CA5 /* ShaderCustomFlashWhite.fsh */,
 				B65008A322D835E100D42CA5 /* ShaderCustomIllusion.fsh */,
 				B6D8573822DD7819004AF34E /* ShaderCustomMask.fsh */,
+				B6D8574022DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -1554,6 +1562,7 @@
 				B6D8572422DD655C004AF34E /* det1.param in Resources */,
 				B6D8571722DD655C004AF34E /* SparseCholesky in Resources */,
 				B6D8570B22DD655C004AF34E /* Geometry in Resources */,
+				B6D8574122DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh in Resources */,
 				B6D8571A22DD655C004AF34E /* SparseQR in Resources */,
 				B6D8570E22DD655C004AF34E /* Jacobi in Resources */,
 				B6D8570922DD655C004AF34E /* Eigen in Resources */,
@@ -1723,6 +1732,7 @@
 				B6D8572D22DD655C004AF34E /* mtcnn.cpp in Sources */,
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
 				B6D8573122DD655D004AF34E /* smile_score.cpp in Sources */,
+				B6D8573F22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.m in Sources */,
 				B660BEB722D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m in Sources */,
 				B650089522D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m in Sources */,
 				B6D8573C22DD7954004AF34E /* GPUImageCustomMaskFilter.m in Sources */,

@@ -982,6 +982,13 @@
                  @"parametersNum": @0,
                  @"translate": @"",
                  },
+             @{
+                 @"title": @"GPUImageCustomFeaturePointsFilter",
+                 @"desc": @"feature points",
+                 @"inherit": @"GPUImageFilter",
+                 @"parametersNum": @0,
+                 @"translate": @"",
+                 },
              ];
 }
 

@@ -117,7 +117,7 @@ static SXSenseDetectTool *instance = nil;
     return faces;
 }
 
-- (NSDictionary *)resultForDetectWithImage:(UIImage *)image {
+- (NSMutableArray *)resultForDetectWithImage:(UIImage *)image {
     
     UIImage *fixedImage = [image sx_fixOrientation];
     
@@ -155,6 +155,8 @@ static SXSenseDetectTool *instance = nil;
         return nil;
     }
     
+    free(imageData);
+    
     // 增加五官特征点数组
     NSMutableArray *pointArr = [NSMutableArray array];
     int numPoint = 127;
@@ -167,7 +169,7 @@ static SXSenseDetectTool *instance = nil;
     }
 //    printf("\n---------------\n");
     
-    return nil;
+    return pointArr;
 }
 
 @end

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 // 检测人脸五官结果
-- (NSDictionary *)resultForDetectWithImage:(UIImage *)image;
+- (NSMutableArray *)resultForDetectWithImage:(UIImage *)image;
 
 // 使用算法模型人脸识别获取人脸数目
 - (int)facesNumWithImage:(UIImage *)image;
