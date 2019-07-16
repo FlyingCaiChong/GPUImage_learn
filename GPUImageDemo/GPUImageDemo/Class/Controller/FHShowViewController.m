@@ -108,8 +108,10 @@
     if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
         return;
     }
-    
-    UIImage *tempImage = [UIImage imageFromSampleBuffer:sampleBuffer];
+    NSLog(@"--------------");
+    CMSampleBufferRef picCopy; // 避免内存问题产生，此处Copy一份Buffer用作处理；
+    CMSampleBufferCreateCopy(CFAllocatorGetDefault(), sampleBuffer, &picCopy);
+    UIImage *tempImage = [UIImage imageFromSampleBuffer:(__bridge CMSampleBufferRef)(CFBridgingRelease(picCopy))];
     
     [self addMaskForCustomMaskFilterWithImage:tempImage];
 }
@@ -117,7 +119,6 @@
 - (void)addMaskForCustomMaskFilterWithImage:(UIImage *)tempImage {
     // 获取原图宽度
     int imageWidth = (int)CGImageGetWidth(tempImage.CGImage);
-    
     // 获取原图高度
     int imageHeight = (int)CGImageGetHeight(tempImage.CGImage);
     
@@ -128,7 +129,6 @@
     }
     
     int faceNum = faces[0];
-    
     if (faceNum != 1) {
         return;
     }
@@ -138,6 +138,8 @@
     int right = faces[3];
     int bottom = faces[4];
     
+    NSLog(@"left: %d, top: %d, right: %d, bottom: %d, width: %d, height: %d", left, top, right, bottom, imageWidth, imageHeight);
+    
     CGFloat originX = left / (imageWidth * 1.0);
     CGFloat originY = top / (imageHeight * 1.0);
     
@@ -145,6 +147,7 @@
     CGFloat originH = (bottom - top) / (imageHeight * 1.0);
     CGRect mask = CGRectMake(originX, originY, originW, originH);
     
+    NSLog(@"x: %f, y: %f, w: %f, h: %f", originX, originY, originW, originH);
     NSLog(@"mask: %@", [NSValue valueWithCGRect:mask]);
     
     GPUImageCustomMaskFilter *maskFilter = (GPUImageCustomMaskFilter *)self.imageFilter;

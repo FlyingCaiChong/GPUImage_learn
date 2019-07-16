@@ -112,6 +112,8 @@ static SXSenseDetectTool *instance = nil;
     // 检测人脸, 人脸数量和位置返回在数组指针里
     int *faces = mtcnn->faceDetect(imageData, imageWidth, imageHeight, imageChannel);
     
+    free(imageData);
+    
     return faces;
 }
 
