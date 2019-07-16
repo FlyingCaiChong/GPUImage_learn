@@ -9,6 +9,7 @@
 #import "GPUImageCustomIllusionFilter.h"
 
 @implementation GPUImageCustomIllusionFilter
+
 - (instancetype)init
 {
     if (!(self = [super initWithFragmentShaderFromFile:@"ShaderCustomIllusion"])) {
@@ -26,4 +27,5 @@
     _time = time;
     [self setFloat:_time forUniform:timeUniform program:filterProgram];
 }
+
 @end

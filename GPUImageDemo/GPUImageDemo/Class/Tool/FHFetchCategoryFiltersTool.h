@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Custom Fitlers
 + (NSArray *)customFilters;
 
+#pragma mark - Makeup Demo
++ (NSArray *)makeupFilters;
+
 @end
 
 NS_ASSUME_NONNULL_END

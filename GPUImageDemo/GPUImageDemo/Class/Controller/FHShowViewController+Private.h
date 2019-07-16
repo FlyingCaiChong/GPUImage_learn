@@ -14,6 +14,9 @@
 #import "GPUImageCustomShakeFilter.h"
 #import "GPUImageCustomFlashWhiteFilter.h"
 #import "GPUImageCustomIllusionFilter.h"
+#import "GPUImageCustomMaskFilter.h"
+#import "SXSenseDetectTool.h"
+#import "UIImage+SXExtension.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +27,7 @@ typedef NS_ENUM(NSUInteger, ShowType) {
     ShowTypeCamera,
 };
 
-@interface FHShowViewController ()
+@interface FHShowViewController ()<GPUImageVideoCameraDelegate>
 
 @property (nonatomic, strong) FHFilterListItem *item;
 @property (nonatomic, strong) UILabel *originImageLabel;
@@ -45,6 +48,9 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 // GPUImageCustomIllusoryFilter
 @property (nonatomic, strong) CADisplayLink *displayLink;
 @property (nonatomic, assign) NSTimeInterval startTimeInterval;
+
+// Detect
+@property (nonatomic, strong) SXSenseDetectTool *detectTool;
 
 #pragma mark - UI
 - (void)setupUI;

@@ -973,4 +973,16 @@
              ];
 }
 
++ (NSArray *)makeupFilters {
+    return @[
+             @{
+                 @"title": @"GPUImageCustomMaskFilter",
+                 @"desc": @"makeup",
+                 @"inherit": @"GPUImageFilter",
+                 @"parametersNum": @0,
+                 @"translate": @"",
+                 },
+             ];
+}
+
 @end

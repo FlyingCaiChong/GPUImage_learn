@@ -39,7 +39,7 @@
     
     if (self.type == ShowTypeImage) {
         
-        [self render];
+        [self imageRender];
     } else {
         [self.navigationController.navigationBar setHidden:YES];
         [self configTimeDisplay];
@@ -80,6 +80,16 @@
     self.processedImageView.image = [self.imageFilter imageFromCurrentFramebuffer];
 }
 
+- (void)imageRender {
+    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
+        [self render];
+    } else {
+        UIImage *tempImage = [UIImage imageNamed:kImageNamed];
+        [self addMaskForCustomMaskFilterWithImage:tempImage];
+        [self render];
+    }
+}
+
 #pragma mark - Camera
 - (void)configCameraFilter {
     NSString *filterClassNamed = self.item.title;
@@ -90,6 +100,56 @@
 
 - (void)cameraRender {
     [self.stillCamera startCameraCapture];
+}
+
+#pragma mark - GPUImageVideoCameraDelegate
+- (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    
+    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
+        return;
+    }
+    
+    UIImage *tempImage = [UIImage imageFromSampleBuffer:sampleBuffer];
+    
+    [self addMaskForCustomMaskFilterWithImage:tempImage];
+}
+
+- (void)addMaskForCustomMaskFilterWithImage:(UIImage *)tempImage {
+    // 获取原图宽度
+    int imageWidth = (int)CGImageGetWidth(tempImage.CGImage);
+    
+    // 获取原图高度
+    int imageHeight = (int)CGImageGetHeight(tempImage.CGImage);
+    
+    int *faces = [self.detectTool testFacesForImage:tempImage];
+    
+    if (faces == NULL) {
+        return;
+    }
+    
+    int faceNum = faces[0];
+    
+    if (faceNum != 1) {
+        return;
+    }
+    
+    int left = faces[1];
+    int top = faces[2];
+    int right = faces[3];
+    int bottom = faces[4];
+    
+    CGFloat originX = left / (imageWidth * 1.0);
+    CGFloat originY = top / (imageHeight * 1.0);
+    
+    CGFloat originW = (right - left) / (imageWidth * 1.0);
+    CGFloat originH = (bottom - top) / (imageHeight * 1.0);
+    CGRect mask = CGRectMake(originX, originY, originW, originH);
+    
+    NSLog(@"mask: %@", [NSValue valueWithCGRect:mask]);
+    
+    GPUImageCustomMaskFilter *maskFilter = (GPUImageCustomMaskFilter *)self.imageFilter;
+    
+    maskFilter.mask = mask;
 }
 
 #pragma mark - lazy
@@ -105,8 +165,16 @@
         _stillCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:(AVCaptureDevicePositionFront)];
         _stillCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
         _stillCamera.horizontallyMirrorFrontFacingCamera = YES;
+        _stillCamera.delegate = self;
     }
     return _stillCamera;
+}
+
+- (SXSenseDetectTool *)detectTool {
+    if (!_detectTool) {
+        _detectTool = [SXSenseDetectTool sharedInstance];
+    }
+    return _detectTool;
 }
 
 @end

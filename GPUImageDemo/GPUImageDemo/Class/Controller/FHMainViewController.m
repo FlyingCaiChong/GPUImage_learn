@@ -11,7 +11,7 @@
 #import "FHFetchCategoryFiltersTool.h"
 #import "MJExtension.h"
 #import "FHFilterListItem.h"
-
+#import "FHMakeupViewController.h"
 
 static NSString *const kMainCellIdentifier = @"kMainCellIdentifier";
 
@@ -21,6 +21,8 @@ static NSString *const kFilterCategoryBlendingModes = @"Blending Modes";
 static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 
 static NSString *const kCustomFilterSplit = @"Custom";
+
+static NSString *const kMakeupDemoFilter = @"Makeup Demo";
 
 @interface FHMainViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -52,7 +54,12 @@ static NSString *const kCustomFilterSplit = @"Custom";
                           @"title": @"Custom Filters",
                           @"content": @[kCustomFilterSplit,
                                   ],
-                          }
+                          },
+                      @{
+                          @"title": @"Makeup Demo",
+                          @"content": @[kMakeupDemoFilter,
+                                      ],
+                        },
                     ];
 }
 
@@ -114,6 +121,8 @@ static NSString *const kCustomFilterSplit = @"Custom";
         [self filtersSectionJumpToVcWithCellTitle:cellTitle];
     } else if (indexPath.section == 1) {
         [self customFiltersSectionJumpToVcWithCellTitle:cellTitle];
+    } else if (indexPath.section == 2) {
+        [self jumpToMakeupVcWithCellTitle:cellTitle];
     }
 }
 
@@ -136,6 +145,13 @@ static NSString *const kCustomFilterSplit = @"Custom";
 - (void)customFiltersSectionJumpToVcWithCellTitle:(NSString *)title {
     FHFilterListViewController *vc = [[FHFilterListViewController alloc] init];
     vc.dataList = [FHFilterListItem mj_objectArrayWithKeyValuesArray:[FHFetchCategoryFiltersTool customFilters]];
+    vc.navigationItem.title = title;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)jumpToMakeupVcWithCellTitle:(NSString *)title {
+    FHFilterListViewController *vc = [[FHFilterListViewController alloc] init];
+    vc.dataList = [FHFilterListItem mj_objectArrayWithKeyValuesArray:[FHFetchCategoryFiltersTool makeupFilters]];
     vc.navigationItem.title = title;
     [self.navigationController pushViewController:vc animated:YES];
 }
