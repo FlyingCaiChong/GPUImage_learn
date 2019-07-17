@@ -93,6 +93,9 @@
     else if ([self.imageFilter isKindOfClass:[GPUImageCustomLandmarkFilter class]]) {
         [self handleDetectResultForLandmarkFilter:tempImage];
     }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomAddPointsFilter class]]) {
+        [self handleDetectResultForAddPointsFilter:tempImage];
+    }
     
     [self render];
 }
@@ -124,12 +127,16 @@
         [self handleDetectResultForMaskFilter:tempImage];
     }
     
-    if ([self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
         [self handleDetectResultForFeaturePointsFilter:tempImage];
     }
     
-    if ([self.imageFilter isKindOfClass:[GPUImageCustomLandmarkFilter class]]) {
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomLandmarkFilter class]]) {
         [self handleDetectResultForLandmarkFilter:tempImage];
+    }
+    
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomAddPointsFilter class]]) {
+        [self handleDetectResultForAddPointsFilter:tempImage];
     }
 }
 

@@ -17,6 +17,7 @@
 #import "GPUImageCustomMaskFilter.h"
 #import "GPUImageCustomFeaturePointsFilter.h"
 #import "GPUImageCustomLandmarkFilter.h"
+#import "GPUImageCustomAddPointsFilter.h"
 #import "SXSenseDetectTool.h"
 #import "UIImage+SXExtension.h"
 
@@ -97,6 +98,7 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)handleDetectResultForMaskFilter:(UIImage *)image;
 - (void)handleDetectResultForFeaturePointsFilter:(UIImage *)image;
 - (void)handleDetectResultForLandmarkFilter:(UIImage *)image;
+- (void)handleDetectResultForAddPointsFilter:(UIImage *)image;
 
 @end
 

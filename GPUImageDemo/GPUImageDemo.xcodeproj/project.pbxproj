@@ -95,6 +95,8 @@
 		B6D8574122DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B6D8574022DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh */; };
 		B6D8574422DDC526004AF34E /* GPUImageCustomLandmarkFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D8574322DDC526004AF34E /* GPUImageCustomLandmarkFilter.m */; };
 		B6F01D6622DEF460003F504A /* FHShowViewController+HandleDetectResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F01D6522DEF460003F504A /* FHShowViewController+HandleDetectResult.m */; };
+		B6F01D6922DEFAC7003F504A /* GPUImageCustomAddPointsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F01D6822DEFAC7003F504A /* GPUImageCustomAddPointsFilter.m */; };
+		B6F01D6C22DEFE91003F504A /* GPUImageCustomPointsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F01D6B22DEFE91003F504A /* GPUImageCustomPointsGenerator.m */; };
 		D2DBF37545DDF9CABAACDC70 /* libPods-GPUImageDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E4BB2D080C885737A04108 /* libPods-GPUImageDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -517,6 +519,10 @@
 		B6D8574322DDC526004AF34E /* GPUImageCustomLandmarkFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomLandmarkFilter.m; sourceTree = "<group>"; };
 		B6F01D6422DEF460003F504A /* FHShowViewController+HandleDetectResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FHShowViewController+HandleDetectResult.h"; sourceTree = "<group>"; };
 		B6F01D6522DEF460003F504A /* FHShowViewController+HandleDetectResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FHShowViewController+HandleDetectResult.m"; sourceTree = "<group>"; };
+		B6F01D6722DEFAC7003F504A /* GPUImageCustomAddPointsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomAddPointsFilter.h; sourceTree = "<group>"; };
+		B6F01D6822DEFAC7003F504A /* GPUImageCustomAddPointsFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomAddPointsFilter.m; sourceTree = "<group>"; };
+		B6F01D6A22DEFE91003F504A /* GPUImageCustomPointsGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomPointsGenerator.h; sourceTree = "<group>"; };
+		B6F01D6B22DEFE91003F504A /* GPUImageCustomPointsGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomPointsGenerator.m; sourceTree = "<group>"; };
 		C62185B671E1ADE88EA7CDF9 /* Pods-GPUImageDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemo/Pods-GPUImageDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C62AD19B6257F9470BBF35A7 /* Pods-GPUImageDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GPUImageDemoUITests/Pods-GPUImageDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D5911DF9EB61AFB8BC37E42C /* libPods-GPUImageDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -699,6 +705,10 @@
 				B6D8573E22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.m */,
 				B6D8574222DDC526004AF34E /* GPUImageCustomLandmarkFilter.h */,
 				B6D8574322DDC526004AF34E /* GPUImageCustomLandmarkFilter.m */,
+				B6F01D6722DEFAC7003F504A /* GPUImageCustomAddPointsFilter.h */,
+				B6F01D6822DEFAC7003F504A /* GPUImageCustomAddPointsFilter.m */,
+				B6F01D6A22DEFE91003F504A /* GPUImageCustomPointsGenerator.h */,
+				B6F01D6B22DEFE91003F504A /* GPUImageCustomPointsGenerator.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -1740,6 +1750,7 @@
 				B6D8573422DD6584004AF34E /* SXSenseDetectTool.mm in Sources */,
 				B6D8573722DD65CE004AF34E /* UIImage+SXExtension.m in Sources */,
 				B6D8572D22DD655C004AF34E /* mtcnn.cpp in Sources */,
+				B6F01D6C22DEFE91003F504A /* GPUImageCustomPointsGenerator.m in Sources */,
 				B672A93422D42BE10046BBFD /* main.m in Sources */,
 				B6D8573122DD655D004AF34E /* smile_score.cpp in Sources */,
 				B6D8573F22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.m in Sources */,
@@ -1751,6 +1762,7 @@
 				B672A95F22D436110046BBFD /* FHMainViewController.m in Sources */,
 				B68F0AE522D57A8200675239 /* FHShowViewController+AdjustFilter.m in Sources */,
 				B68F0AE222D572CA00675239 /* FHShowViewController+UI.m in Sources */,
+				B6F01D6922DEFAC7003F504A /* GPUImageCustomAddPointsFilter.m in Sources */,
 				B660BEB422D6DA93009B58D0 /* FHShowBlendViewController+UI.m in Sources */,
 				B672A98022D46DEE0046BBFD /* FHFetchCategoryFiltersTool.m in Sources */,
 				B6D8574422DDC526004AF34E /* GPUImageCustomLandmarkFilter.m in Sources */,
