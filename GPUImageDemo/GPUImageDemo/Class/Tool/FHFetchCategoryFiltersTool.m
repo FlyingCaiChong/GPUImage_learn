@@ -989,6 +989,13 @@
                  @"parametersNum": @0,
                  @"translate": @"",
                  },
+             @{
+                 @"title": @"GPUImageCustomLandmarkFilter",
+                 @"desc": @"landmark",
+                 @"inherit": @"GPUImageFilter",
+                 @"parametersNum": @0,
+                 @"translate": @"",
+                 },
              ];
 }
 

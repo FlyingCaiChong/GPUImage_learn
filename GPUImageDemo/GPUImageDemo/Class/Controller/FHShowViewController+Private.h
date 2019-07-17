@@ -16,6 +16,7 @@
 #import "GPUImageCustomIllusionFilter.h"
 #import "GPUImageCustomMaskFilter.h"
 #import "GPUImageCustomFeaturePointsFilter.h"
+#import "GPUImageCustomLandmarkFilter.h"
 #import "SXSenseDetectTool.h"
 #import "UIImage+SXExtension.h"
 
@@ -90,6 +91,12 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)configShakeTime:(CGFloat)time;
 - (void)configFlashWhiteTime:(CGFloat)time;
 - (void)configIllusionTime:(CGFloat)time;
+
+#pragma mark - Handle Detect Result
+- (BOOL)needHandleDetectResult;
+- (void)handleDetectResultForMaskFilter:(UIImage *)image;
+- (void)handleDetectResultForFeaturePointsFilter:(UIImage *)image;
+- (void)handleDetectResultForLandmarkFilter:(UIImage *)image;
 
 @end
 

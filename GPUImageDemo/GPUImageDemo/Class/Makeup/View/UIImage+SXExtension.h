@@ -99,4 +99,7 @@
 
 + (unsigned char *)convertUIImageToBitmapRGBA8:(UIImage *)image;
 
+// @see: https://github.com/celesius/ImageEffect.git
++ (UIImage *)imageFromSampleBuffer2:(CMSampleBufferRef)sampleBuffer;
+
 @end

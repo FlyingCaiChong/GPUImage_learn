@@ -16,32 +16,6 @@
 
 @implementation FHShowViewController
 
-- (void)testFeaturePointsFilterWithImage:(UIImage *)image {
-    if (![self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
-        return;
-    }
-    // 获取原图宽度
-    int imageWidth = (int)CGImageGetWidth(image.CGImage);
-    // 获取原图高度
-    int imageHeight = (int)CGImageGetHeight(image.CGImage);
-    
-    NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:image] copy];
-    NSLog(@"pointArr: %@", pointsArr);
-    int count = (int)(pointsArr.count * 2);
-    GLfloat points[count];
-    
-    for (int i = 0; i < pointsArr.count; i++) {
-        NSValue *pointValue = pointsArr[i];
-        CGPoint point = [pointValue CGPointValue];
-        points[2 * i] = point.x/(imageWidth * 1.0);
-        points[2 * i + 1] = point.y/(imageHeight * 1.0);
-    }
-    
-    // 准备数据
-    GPUImageCustomFeaturePointsFilter *filter = (GPUImageCustomFeaturePointsFilter *)self.imageFilter;
-    [filter setFloatArray:points length:count];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -107,14 +81,20 @@
 }
 
 - (void)imageRender {
-    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]] && ![self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
-        [self render];
-    } else {
-        UIImage *tempImage = [UIImage imageNamed:kImageNamed];
-        [self addMaskForCustomMaskFilterWithImage:tempImage];
-        [self testFeaturePointsFilterWithImage:tempImage];
-        [self render];
+    
+    UIImage *tempImage = [UIImage imageNamed:kImageNamed];
+    
+    if ([self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
+        [self handleDetectResultForMaskFilter:tempImage];
     }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
+        [self handleDetectResultForFeaturePointsFilter:tempImage];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomLandmarkFilter class]]) {
+        [self handleDetectResultForLandmarkFilter:tempImage];
+    }
+    
+    [self render];
 }
 
 #pragma mark - Camera
@@ -132,68 +112,28 @@
 #pragma mark - GPUImageVideoCameraDelegate
 - (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     
-    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]] && ![self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
+    if (![self needHandleDetectResult]) {
         return;
     }
     
-    
-    NSLog(@"--------------");
     CMSampleBufferRef picCopy; // 避免内存问题产生，此处Copy一份Buffer用作处理；
     CMSampleBufferCreateCopy(CFAllocatorGetDefault(), sampleBuffer, &picCopy);
     UIImage *tempImage = [UIImage imageFromSampleBuffer:(__bridge CMSampleBufferRef)(CFBridgingRelease(picCopy))];
     
     if ([self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
-        
-        [self addMaskForCustomMaskFilterWithImage:tempImage];
+        [self handleDetectResultForMaskFilter:tempImage];
     }
     
     if ([self.imageFilter isKindOfClass:[GPUImageCustomFeaturePointsFilter class]]) {
-        
-        [self testFeaturePointsFilterWithImage:tempImage];
+        [self handleDetectResultForFeaturePointsFilter:tempImage];
+    }
+    
+    if ([self.imageFilter isKindOfClass:[GPUImageCustomLandmarkFilter class]]) {
+        [self handleDetectResultForLandmarkFilter:tempImage];
     }
 }
 
-- (void)addMaskForCustomMaskFilterWithImage:(UIImage *)tempImage {
-    if (![self.imageFilter isKindOfClass:[GPUImageCustomMaskFilter class]]) {
-        return;
-    }
-    // 获取原图宽度
-    int imageWidth = (int)CGImageGetWidth(tempImage.CGImage);
-    // 获取原图高度
-    int imageHeight = (int)CGImageGetHeight(tempImage.CGImage);
-    
-    int *faces = [self.detectTool testFacesForImage:tempImage];
-    
-    if (faces == NULL) {
-        return;
-    }
-    
-    int faceNum = faces[0];
-    if (faceNum != 1) {
-        return;
-    }
-    
-    int left = faces[1];
-    int top = faces[2];
-    int right = faces[3];
-    int bottom = faces[4];
-    
-    NSLog(@"left: %d, top: %d, right: %d, bottom: %d, width: %d, height: %d", left, top, right, bottom, imageWidth, imageHeight);
-    
-    CGFloat originX = left / (imageWidth * 1.0);
-    CGFloat originY = top / (imageHeight * 1.0);
-    
-    CGFloat originW = (right - left) / (imageWidth * 1.0);
-    CGFloat originH = (bottom - top) / (imageHeight * 1.0);
-    CGRect mask = CGRectMake(originX, originY, originW, originH);
-    
-    NSLog(@"x: %f, y: %f, w: %f, h: %f", originX, originY, originW, originH);
-    NSLog(@"mask: %@", [NSValue valueWithCGRect:mask]);
-    
-    GPUImageCustomMaskFilter *maskFilter = (GPUImageCustomMaskFilter *)self.imageFilter;
-    
-    maskFilter.mask = mask;
-}
+
 
 #pragma mark - lazy
 - (GPUImagePicture *)sourcePicture {
