@@ -980,21 +980,21 @@
                  @"desc": @"makeup",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @0,
-                 @"translate": @"",
+                 @"translate": @"在人脸区域添加一个人脸遮罩框",
                  },
              @{
                  @"title": @"GPUImageCustomFeaturePointsFilter",
                  @"desc": @"feature points",
                  @"inherit": @"GPUImageFilter",
                  @"parametersNum": @0,
-                 @"translate": @"",
+                 @"translate": @"仅使用片段着色器，添加人脸特征点",
                  },
              @{
                  @"title": @"GPUImageCustomLandmarkFilter",
                  @"desc": @"landmark",
-                 @"inherit": @"GPUImageFilter",
+                 @"inherit": @"GPUImageFilterGroup",
                  @"parametersNum": @0,
-                 @"translate": @"",
+                 @"translate": @"利用GPUImageCrosshairGenerator, 将127个特征点作为顶点坐标，使用顶点着色器，添加人脸特征点，在特征点位置绘制十字线",
                  },
              ];
 }
