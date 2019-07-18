@@ -3,6 +3,7 @@
 #include "mtcnn.h"
 
 MTCNN * MTCNN::instance = nullptr;
+#if(TIMEOPEN==1)
 static unsigned long get_current_time(void)
 {
     struct timeval tv;
@@ -11,6 +12,7 @@ static unsigned long get_current_time(void)
 
     return (tv.tv_sec*1000000 + tv.tv_usec);
 }
+#endif
 
 bool cmpScore(Bbox lsh, Bbox rsh) 
 {
@@ -239,8 +241,8 @@ void MTCNN::nmsTwoBoxs(vector<Bbox>& boundingBox_, vector<Bbox>& previousBox_, c
     //std::cout << boundingBox_.size() << " ";
     for (std::vector<Bbox>::iterator ity = previousBox_.begin(); ity != previousBox_.end(); ity++) {
         for (std::vector<Bbox>::iterator itx = boundingBox_.begin(); itx != boundingBox_.end();) {
-            int i = itx - boundingBox_.begin();
-            int j = ity - previousBox_.begin();
+            int i = (int)(itx - boundingBox_.begin());
+            int j = (int)(ity - previousBox_.begin());
             maxX = std::max(boundingBox_.at(i).x1, previousBox_.at(j).x1);
             maxY = std::max(boundingBox_.at(i).y1, previousBox_.at(j).y1);
             minX = std::min(boundingBox_.at(i).x2, previousBox_.at(j).x2);
@@ -281,7 +283,7 @@ void MTCNN::nms(std::vector<Bbox> &boundingBox_, const float overlap_threshold, 
     std::vector<int> vPick;
     int nPick = 0;
     std::multimap<float, int> vScores;
-    const int num_boxes = boundingBox_.size();
+    const int num_boxes = (int)(boundingBox_.size());
 	vPick.resize(num_boxes);
 	for (int i = 0; i < num_boxes; ++i){
 		vScores.insert(std::pair<float, int>(boundingBox_[i].score, i));
@@ -422,7 +424,7 @@ void MTCNN::PNet(){
 
 void MTCNN::RNet(){
     secondBbox_.clear();
-    int count = 0;
+//    int count = 0;
     for(vector<Bbox>::iterator it=firstBbox_.begin(); it!=firstBbox_.end();it++){
         ncnn::Mat tempIm;
         copy_cut_border(img, tempIm, (*it).y1, img_h-(*it).y2, (*it).x1, img_w-(*it).x2);

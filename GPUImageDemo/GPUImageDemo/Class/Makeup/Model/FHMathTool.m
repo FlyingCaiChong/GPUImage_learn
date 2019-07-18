@@ -253,15 +253,55 @@
 }
 
 + (CGFloat)detForMatrix3:(GLKMatrix3)matrix {
+    /**
+     m00 m01 m02
+     m10 m11 m12
+     m20 m21 m22
+     D = m00 * (m11 * m22 - m21 * m12) - m10 * (m01 * m22 - m21 * m02) + m20 * (m01 * m12 - m11 * m02)
+     D = m00 * m11 * m22 +
+         m10 * m21 * m02 +
+         m20 * m01 * m12 -
+         m20 * m11 * m02 -
+         m10 * m01 * m22 -
+         m00 * m21 * m12
+    */
+    CGFloat D = 0;
+    D = matrix.m00 * matrix.m11 * matrix.m22 +
+        matrix.m10 * matrix.m21 * matrix.m02 +
+        matrix.m20 * matrix.m01 * matrix.m12 -
+        matrix.m20 * matrix.m11 * matrix.m02 -
+        matrix.m10 * matrix.m01 * matrix.m22 -
+        matrix.m00 * matrix.m21 * matrix.m12;
     
-    // FIXME: -- Determinant for matrix
-    return 0;
+    return D;
 }
 
 + (CGFloat)detForMatrix4:(GLKMatrix4)matrix {
     
-    // FIXME: -- Determinant for matrix
-    return 0;
+    /**
+     m00 m01 m02 m03
+     m10 m11 m12 m13
+     m20 m21 m22 m23
+     m30 m31 m32 m33
+     D = m00 * m11 * m22 * m33 +
+         m10 * m21 * m32 * m03 +
+         m20 * m31 * m02 * m13 +
+         m30 * m01 * m12 * m23 -
+         m30 * m21 * m12 * m03 -
+         m20 * m11 * m02 * m33 -
+         m10 * m01 * m32 * m23 -
+         m00 * m31 * m22 * m13
+     */
+    CGFloat D = 0;
+    D = matrix.m00 * matrix.m11 * matrix.m22 * matrix.m33 +
+        matrix.m10 * matrix.m21 * matrix.m32 * matrix.m03 +
+        matrix.m20 * matrix.m31 * matrix.m02 * matrix.m13 +
+        matrix.m30 * matrix.m01 * matrix.m12 * matrix.m23 -
+        matrix.m30 * matrix.m21 * matrix.m12 * matrix.m03 -
+        matrix.m20 * matrix.m11 * matrix.m02 * matrix.m33 -
+        matrix.m10 * matrix.m01 * matrix.m32 * matrix.m23 -
+        matrix.m00 * matrix.m31 * matrix.m22 * matrix.m13;
+    return D;
 }
 
 @end

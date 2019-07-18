@@ -40,4 +40,4 @@ private:
 
 };
 
-#endif __LANDMARK_H__
+#endif //__LANDMARK_H__

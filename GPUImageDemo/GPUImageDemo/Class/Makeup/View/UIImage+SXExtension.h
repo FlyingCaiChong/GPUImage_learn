@@ -102,4 +102,8 @@
 // @see: https://github.com/celesius/ImageEffect.git
 + (UIImage *)imageFromSampleBuffer2:(CMSampleBufferRef)sampleBuffer;
 
+
+// 获取图片的某个像素点的颜色值数组@[R, G, B]
++ (NSArray *)getRGBComponentsForImage:(UIImage *)image atPoint:(CGPoint)point;
+
 @end

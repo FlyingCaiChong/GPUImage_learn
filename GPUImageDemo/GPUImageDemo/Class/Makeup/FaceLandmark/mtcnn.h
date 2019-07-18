@@ -73,4 +73,4 @@ private://部分可调参数
 	
 };
 
-#endif __MTCNN_H__
+#endif //__MTCNN_H__

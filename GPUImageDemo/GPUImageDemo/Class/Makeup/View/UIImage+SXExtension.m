@@ -600,4 +600,46 @@
     return (image);
 }
 
++ (NSArray *)getRGBComponentsForImage:(UIImage *)image atPoint:(CGPoint)point {
+    
+    UIImage *pImage = [image sx_fixOrientation];
+    
+    CGImageRef imageRef = pImage.CGImage;
+    
+    /*
+     sizt_t是定义的一个可移植性的单位，在64位机器中为8字节，32位位4字节
+     */
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+    // 获取图片宽度像素
+    size_t imageWidth = CGImageGetWidth(imageRef);
+    // 获取图片高度像素
+    size_t imageHeight = CGImageGetHeight(imageRef);
+    // 获取每个颜色的比特数
+    size_t bitsPerComponent = CGImageGetBitsPerComponent(imageRef);
+    // 获取每个像素的总比特殊
+    size_t bitsPerPixel = CGImageGetBitsPerPixel(imageRef);
+#pragma clang diagnostic pop
+    // 每一行占用的字节数，注意这里的单位是字节
+    size_t bytesPerRow = CGImageGetBytesPerRow(imageRef);
+    
+    // 数据源提供者
+    CGDataProviderRef provider = CGImageGetDataProvider(imageRef);
+    
+    CFDataRef dataRef = CGDataProviderCopyData(provider);
+    
+    UInt8 *data = (UInt8 *)CFDataGetBytePtr(dataRef);
+    
+    NSUInteger x = point.x;
+    NSUInteger y = point.y;
+    
+    UInt8 *tmp = data + y * bytesPerRow + x * 4;
+    
+    NSUInteger red = *tmp;
+    NSUInteger green = *(tmp+1);
+    NSUInteger blue = *(tmp+2);
+    
+    return @[@(red), @(green), @(blue)];
+}
+
 @end
