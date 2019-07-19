@@ -135,12 +135,14 @@ static SXSenseDetectTool *instance = nil;
     // 检测人脸, 人脸数量和位置返回在数组指针里
     int *faces = mtcnn->faceDetect(imageData, imageWidth, imageHeight, imageChannel);
     if (faces == nullptr) {
+        free(imageData);
         return nil;
     }
     // 检测到的人脸数量
     int facesNum = faces[0];
     
     if (facesNum != 1) {
+        free(imageData);
         return nil;
     }
     
@@ -152,6 +154,7 @@ static SXSenseDetectTool *instance = nil;
     // 检测特征点
     int *points = landmark->detectSE(imageData, imageWidth, imageHeight, imageChannel, left, top, right, bottom);
     if (points == nullptr) {
+        free(imageData);
         return nil;
     }
     

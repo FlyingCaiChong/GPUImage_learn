@@ -16,7 +16,7 @@
  FIXME: --------
  存在以下问题待解决:
  1. 刚进来时如果没有人脸时，会出现白屏问题 ✅
- 2. 有人脸之后正常，但人脸移出屏幕外时，内存泄露
+ 2. 有人脸之后正常，但人脸移出屏幕外时，内存泄露 ✅
  3. 贴妆位置需优化
  */
 
@@ -295,23 +295,7 @@
     int imageWidth = (int)CGImageGetWidth(tempImage.CGImage);
     // 获取原图高度
     int imageHeight = (int)CGImageGetHeight(tempImage.CGImage);
-    int *faces = [self.detectTool testFacesForImage:tempImage];
-    
-    if (faces == NULL) {
-        // 解决白屏问题
-        GLfloat points[] = {0};
-        [self.lipstickFilter renderPointsFromArray:points count:0];
-        return;
-    }
-    
-    int faceNum = faces[0];
-    if (faceNum != 1) {
-        // 解决白屏问题
-        GLfloat points[] = {0};
-        [self.lipstickFilter renderPointsFromArray:points count:0];
-        return;
-    }
-    
+
     NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:tempImage] copy];
     
     if (nil == pointsArr) {
