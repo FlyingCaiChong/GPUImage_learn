@@ -639,6 +639,32 @@
     NSUInteger green = *(tmp+1);
     NSUInteger blue = *(tmp+2);
     
+    free(data);
+    
+    return @[@(red), @(green), @(blue)];
+}
+
++ (size_t)bytesPerRowForImage:(UIImage *)pImage {
+    UIImage *image = [pImage sx_fixOrientation];
+    
+    CGImageRef imageRef = image.CGImage;
+    
+    size_t bytesPerRow = CGImageGetBytesPerRow(imageRef);
+    
+    return bytesPerRow;
+}
+
++ (NSArray *)pointColorWithImageData:(unsigned char *)data point:(CGPoint)point bytesPerRow:(size_t)bytesPerRow {
+    
+    NSUInteger x = point.x;
+    NSUInteger y = point.y;
+    
+    unsigned char *tmp = data + y * bytesPerRow + x * 4;
+    
+    NSUInteger red = *tmp;
+    NSUInteger green = *(tmp+1);
+    NSUInteger blue = *(tmp+2);
+    
     return @[@(red), @(green), @(blue)];
 }
 

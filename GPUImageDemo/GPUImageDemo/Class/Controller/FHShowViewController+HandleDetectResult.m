@@ -145,7 +145,7 @@
     }
     
     GPUImageCustomAddPointsFilter *filter = (GPUImageCustomAddPointsFilter *)self.imageFilter;
-    [filter renderCrosshairsFromArray:points count:pointsArr.count];
+    [filter renderPointsFromArray:points count:pointsArr.count];
 }
 
 @end

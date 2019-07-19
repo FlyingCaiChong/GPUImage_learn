@@ -40,7 +40,7 @@
 		B68F0AE522D57A8200675239 /* FHShowViewController+AdjustFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B68F0AE422D57A8200675239 /* FHShowViewController+AdjustFilter.m */; };
 		B68F0AEB22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B68F0AEA22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m */; };
 		B68F0AED22D5932600675239 /* ShaderCustom9SplitScreen.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B68F0AEC22D5932600675239 /* ShaderCustom9SplitScreen.fsh */; };
-		B6D8559622DD6287004AF34E /* FHMakeupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D8559522DD6287004AF34E /* FHMakeupViewController.m */; };
+		B6D8559622DD6287004AF34E /* FHLipstickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D8559522DD6287004AF34E /* FHLipstickViewController.m */; };
 		B6D8570422DD655C004AF34E /* Cholesky in Resources */ = {isa = PBXBuildFile; fileRef = B6D8559A22DD655C004AF34E /* Cholesky */; };
 		B6D8570522DD655C004AF34E /* CholmodSupport in Resources */ = {isa = PBXBuildFile; fileRef = B6D8559B22DD655C004AF34E /* CholmodSupport */; };
 		B6D8570622DD655C004AF34E /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = B6D8559C22DD655C004AF34E /* CMakeLists.txt */; };
@@ -184,8 +184,8 @@
 		B68F0AE922D5930000675239 /* GPUImageCustom9SplitScreenFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustom9SplitScreenFilter.h; sourceTree = "<group>"; };
 		B68F0AEA22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustom9SplitScreenFilter.m; sourceTree = "<group>"; };
 		B68F0AEC22D5932600675239 /* ShaderCustom9SplitScreen.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderCustom9SplitScreen.fsh; sourceTree = "<group>"; };
-		B6D8559422DD6287004AF34E /* FHMakeupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHMakeupViewController.h; sourceTree = "<group>"; };
-		B6D8559522DD6287004AF34E /* FHMakeupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHMakeupViewController.m; sourceTree = "<group>"; };
+		B6D8559422DD6287004AF34E /* FHLipstickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHLipstickViewController.h; sourceTree = "<group>"; };
+		B6D8559522DD6287004AF34E /* FHLipstickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHLipstickViewController.m; sourceTree = "<group>"; };
 		B6D8559A22DD655C004AF34E /* Cholesky */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cholesky; sourceTree = "<group>"; };
 		B6D8559B22DD655C004AF34E /* CholmodSupport */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CholmodSupport; sourceTree = "<group>"; };
 		B6D8559C22DD655C004AF34E /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -777,8 +777,8 @@
 		B6D8559022DD6271004AF34E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B6D8559422DD6287004AF34E /* FHMakeupViewController.h */,
-				B6D8559522DD6287004AF34E /* FHMakeupViewController.m */,
+				B6D8559422DD6287004AF34E /* FHLipstickViewController.h */,
+				B6D8559522DD6287004AF34E /* FHLipstickViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1779,7 +1779,7 @@
 				B65F114522D4890E007D6A05 /* FHFilterListItem.m in Sources */,
 				B6F01D7222DF0975003F504A /* FHMathTool.m in Sources */,
 				B650089D22D8305800D42CA5 /* GPUImageCustomShakeFilter.m in Sources */,
-				B6D8559622DD6287004AF34E /* FHMakeupViewController.m in Sources */,
+				B6D8559622DD6287004AF34E /* FHLipstickViewController.m in Sources */,
 				B6F01D6F22DF010D003F504A /* GPUImageCustomLipstickGenerator.m in Sources */,
 				B660BEB022D6DA6F009B58D0 /* FHShowBlendViewController.m in Sources */,
 				B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */,
@@ -1988,7 +1988,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 356XMYTC6D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GPUImageDemo/Class/Makeup/FaceLandmark",
@@ -2001,7 +2001,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.waterelle.GPUImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -105,5 +105,7 @@
 
 // 获取图片的某个像素点的颜色值数组@[R, G, B]
 + (NSArray *)getRGBComponentsForImage:(UIImage *)image atPoint:(CGPoint)point;
++ (size_t)bytesPerRowForImage:(UIImage *)pImage;
++ (NSArray *)pointColorWithImageData:(unsigned char *)data point:(CGPoint)point bytesPerRow:(size_t)bytesPerRow;
 
 @end

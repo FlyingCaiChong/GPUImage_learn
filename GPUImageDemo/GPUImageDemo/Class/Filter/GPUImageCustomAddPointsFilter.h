@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 // Rendering
-- (void)renderCrosshairsFromArray:(GLfloat *)crosshairCoordinates count:(NSUInteger)numberOfCrosshairs;
+- (void)renderPointsFromArray:(GLfloat *)crosshairCoordinates count:(NSUInteger)numberOfCrosshairs;
 
 @end
 

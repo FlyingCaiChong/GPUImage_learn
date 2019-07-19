@@ -36,10 +36,10 @@
     return self;
 }
 
-- (void)renderCrosshairsFromArray:(GLfloat *)crosshairCoordinates count:(NSUInteger)numberOfCrosshairs {
+- (void)renderPointsFromArray:(GLfloat *)crosshairCoordinates count:(NSUInteger)numberOfCrosshairs {
     
     CMTime frameTime = CMTimeMake(0, 1);
-    [customPointsFilter renderCrosshairsFromArray:crosshairCoordinates count:numberOfCrosshairs frameTime:frameTime];
+    [customPointsFilter renderPointsFromArray:crosshairCoordinates count:numberOfCrosshairs frameTime:frameTime];
 }
 
 @end

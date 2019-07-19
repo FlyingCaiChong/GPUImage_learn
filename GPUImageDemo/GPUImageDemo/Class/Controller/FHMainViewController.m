@@ -11,7 +11,7 @@
 #import "FHFetchCategoryFiltersTool.h"
 #import "MJExtension.h"
 #import "FHFilterListItem.h"
-#import "FHMakeupViewController.h"
+#import "FHLipstickViewController.h"
 
 static NSString *const kMainCellIdentifier = @"kMainCellIdentifier";
 
@@ -23,6 +23,8 @@ static NSString *const kFilterCategoryVisualEffects = @"Visual Effects";
 static NSString *const kCustomFilterSplit = @"Custom";
 
 static NSString *const kMakeupDemoFilter = @"Makeup Demo";
+
+static NSString *const kLipstickDemoFilter = @"Lipstick Demo";
 
 @interface FHMainViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -60,6 +62,11 @@ static NSString *const kMakeupDemoFilter = @"Makeup Demo";
                           @"content": @[kMakeupDemoFilter,
                                       ],
                         },
+                      @{
+                          @"title": @"Demo",
+                          @"content": @[kLipstickDemoFilter,
+                                        ],
+                          },
                     ];
 }
 
@@ -123,6 +130,8 @@ static NSString *const kMakeupDemoFilter = @"Makeup Demo";
         [self customFiltersSectionJumpToVcWithCellTitle:cellTitle];
     } else if (indexPath.section == 2) {
         [self jumpToMakeupVcWithCellTitle:cellTitle];
+    } else if (indexPath.section == 3) {
+        [self jumpToLipstickDemo];
     }
 }
 
@@ -153,6 +162,11 @@ static NSString *const kMakeupDemoFilter = @"Makeup Demo";
     FHFilterListViewController *vc = [[FHFilterListViewController alloc] init];
     vc.dataList = [FHFilterListItem mj_objectArrayWithKeyValuesArray:[FHFetchCategoryFiltersTool makeupFilters]];
     vc.navigationItem.title = title;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)jumpToLipstickDemo {
+    FHLipstickViewController *vc = [[FHLipstickViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

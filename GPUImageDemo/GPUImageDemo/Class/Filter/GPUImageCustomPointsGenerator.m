@@ -55,7 +55,7 @@ NSString *const kGPUImageCustomPointsFragmentShaderString = SHADER_STRING
 #pragma mark -
 #pragma mark Rendering
 
-- (void)renderCrosshairsFromArray:(GLfloat *)crosshairCoordinates count:(NSUInteger)numberOfCrosshairs frameTime:(CMTime)frameTime;
+- (void)renderPointsFromArray:(GLfloat *)crosshairCoordinates count:(NSUInteger)numberOfCrosshairs frameTime:(CMTime)frameTime
 {
     if (self.preventRendering)
     {
@@ -85,7 +85,7 @@ NSString *const kGPUImageCustomPointsFragmentShaderString = SHADER_STRING
     });
 }
 
-- (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates;
+- (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates
 {
     // Prevent rendering of the frame by normal means
 }
