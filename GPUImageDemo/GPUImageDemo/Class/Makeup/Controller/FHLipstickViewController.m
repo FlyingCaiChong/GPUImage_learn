@@ -10,9 +10,8 @@
 #import "GPUImage.h"
 #import "SXSenseDetectTool.h"
 #import "UIImage+SXExtension.h"
-#import "GPUImageCustomLipstickGenerator.h"
 #import "FHMathTool.h"
-
+#import "GPUImageCustomLipstickFilter.h"
 /*
  FIXME: --------
  存在以下问题待解决:
@@ -20,6 +19,8 @@
  2. 有人脸之后正常，但人脸移出屏幕外时，内存泄露
  3. 贴妆位置需优化
  */
+
+#define kTestCamera 0
 
 @interface FHLipstickViewController ()<GPUImageVideoCameraDelegate>
 {
@@ -49,12 +50,11 @@
     NSArray *i_l_f;
 }
 @property (nonatomic, strong) GPUImagePicture *imagePicture;
-@property (nonatomic, strong) GPUImageAlphaBlendFilter *alphaBlendFilter;
-@property (nonatomic, strong) GPUImageCustomLipstickGenerator *lipstickGenerator;
 @property (nonatomic, strong) GPUImageView *videoImageView;
 @property (nonatomic, strong) UIImageView *showImageView;
 @property (nonatomic, strong) SXSenseDetectTool *detectTool;
 @property (nonatomic, strong) GPUImageStillCamera *stillCamera;
+@property (nonatomic, strong) GPUImageCustomLipstickFilter *lipstickFilter;
 
 @end
 
@@ -75,16 +75,19 @@
     i_u_r_points = [NSMutableArray arrayWithCapacity:6];
     i_l_points = [NSMutableArray arrayWithCapacity:8];
     
+#if kTestCamera
     [self setupCameraUI];
-    [self layoutCameraUIConstraints];
-//    [self setupFilter];
     [self setupCameraFilter];
+    [self cameraRender];
+#else
+    [self setupImageUI];
+    [self setupImageFilter];
+#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
-    [self cameraRender];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -96,13 +99,20 @@
     return YES;
 }
 
+- (void)setupImageUI {
+    self.showImageView = [[UIImageView alloc] init];
+    [self.view addSubview:self.showImageView];
+    [self layoutUIContraintsWithView:self.showImageView];
+}
+
 - (void)setupCameraUI {
     self.videoImageView = [[GPUImageView alloc] init];
     [self.view addSubview:self.videoImageView];
+    [self layoutUIContraintsWithView:self.videoImageView];
 }
 
-- (void)layoutCameraUIConstraints {
-    [self.videoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+- (void)layoutUIContraintsWithView:(UIView *)view {
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).mas_offset(0);
         make.leading.equalTo(self.view);
         make.trailing.equalTo(self.view);
@@ -110,13 +120,10 @@
     }];
 }
 
-- (void)setupFilter {
-    self.lipstickGenerator = [[GPUImageCustomLipstickGenerator alloc] init];
-    
-    self.alphaBlendFilter = [[GPUImageAlphaBlendFilter alloc] init];
-    [self.imagePicture addTarget:self.alphaBlendFilter];
-    [self.lipstickGenerator addTarget:self.alphaBlendFilter];
-    [self.alphaBlendFilter useNextFrameForImageCapture];
+- (void)setupImageFilter {
+    self.lipstickFilter = [[GPUImageCustomLipstickFilter alloc] init];
+    [self.imagePicture addTarget:self.lipstickFilter];
+    [self.lipstickFilter useNextFrameForImageCapture];
     
     UIImage *image = [UIImage imageNamed:@"img_test"];
     // 获取原图宽度
@@ -142,7 +149,7 @@
     
     [self.imagePicture processImage];
     
-    self.showImageView.image = [self.alphaBlendFilter imageFromCurrentFramebuffer];
+    self.showImageView.image = [self.lipstickFilter imageFromCurrentFramebuffer];
 }
 
 - (void)handleLipstickWithPointsArr:(NSArray *)pointsArr width:(int)width height:(int)height image:(UIImage *)image {
@@ -256,22 +263,18 @@
     texelWidthOffset = 1.0 / width;
     texelHeightOffset = 1.0 / height;
     
-    [self.lipstickGenerator forceProcessingAtSize:CGSizeMake(width, height)];
-    self.lipstickGenerator.texelWidthOffset = texelWidthOffset;
-    self.lipstickGenerator.texelHeightOffset = texelHeightOffset;
-    [self.lipstickGenerator setColorRed:offsetColorR green:offsetColorG blue:offsetColorB];
+    [self.lipstickFilter forceProcessingAtSize:CGSizeMake(width, height)];
+    self.lipstickFilter.texelWidthOffset = texelWidthOffset;
+    self.lipstickFilter.texelHeightOffset = texelHeightOffset;
+    [self.lipstickFilter setColorRed:offsetColorR green:offsetColorG blue:offsetColorB];
     free(data);
-    CMTime frameTime = CMTimeMake(0, 1);
-    [self.lipstickGenerator renderLipstickFromArray:mVertices count:xList.count frameTime:frameTime];
+    [self.lipstickFilter renderPointsFromArray:mVertices count:xList.count];
 }
 
 - (void)setupCameraFilter {
-    self.lipstickGenerator = [[GPUImageCustomLipstickGenerator alloc] init];
-    self.alphaBlendFilter = [[GPUImageAlphaBlendFilter alloc] init];
-    [self.stillCamera addTarget:self.alphaBlendFilter];
-    [self.lipstickGenerator addTarget:self.alphaBlendFilter];
-    [self.lipstickGenerator forceProcessingAtSize:CGSizeMake(720, 1280)];
-    [self.alphaBlendFilter addTarget:self.videoImageView];
+    self.lipstickFilter = [[GPUImageCustomLipstickFilter alloc] init];
+    [self.stillCamera addTarget:self.lipstickFilter];
+    [self.lipstickFilter addTarget:self.videoImageView];
 }
 
 - (void)cameraRender {
