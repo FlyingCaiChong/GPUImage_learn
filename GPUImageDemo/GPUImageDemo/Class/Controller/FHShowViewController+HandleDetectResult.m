@@ -79,6 +79,17 @@
     // 获取原图高度
     int imageHeight = (int)CGImageGetHeight(image.CGImage);
     
+    int *faces = [self.detectTool testFacesForImage:image];
+    
+    if (faces == NULL) {
+        return;
+    }
+    
+    int faceNum = faces[0];
+    if (faceNum != 1) {
+        return;
+    }
+    
     NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:image] copy];
     NSLog(@"pointArr: %@", pointsArr);
     int count = (int)(pointsArr.count * 2);
@@ -101,10 +112,28 @@
         return;
     }
     
+    GPUImageCustomLandmarkFilter *filter = (GPUImageCustomLandmarkFilter *)self.imageFilter;
     // 获取原图宽度
     int imageWidth = (int)CGImageGetWidth(image.CGImage);
     // 获取原图高度
     int imageHeight = (int)CGImageGetHeight(image.CGImage);
+    
+    int *faces = [self.detectTool testFacesForImage:image];
+    
+    if (faces == NULL) {
+        // 解决白屏问题
+        GLfloat points[] = {0};
+        [filter renderCrosshairsFromArray:points count:0];
+        return;
+    }
+    
+    int faceNum = faces[0];
+    if (faceNum != 1) {
+        // 解决白屏问题
+        GLfloat points[] = {0};
+        [filter renderCrosshairsFromArray:points count:0];
+        return;
+    }
     
     NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:image] copy];
     NSLog(@"pointArr: %@", pointsArr);
@@ -118,7 +147,6 @@
         points[2 * i + 1] = point.y/(imageHeight * 1.0);
     }
     
-    GPUImageCustomLandmarkFilter *filter = (GPUImageCustomLandmarkFilter *)self.imageFilter;
     [filter renderCrosshairsFromArray:points count:pointsArr.count];
 }
 
@@ -126,11 +154,29 @@
     if (![self.imageFilter isKindOfClass:[GPUImageCustomAddPointsFilter class]]) {
         return;
     }
+    GPUImageCustomAddPointsFilter *filter = (GPUImageCustomAddPointsFilter *)self.imageFilter;
     
     // 获取原图宽度
     int imageWidth = (int)CGImageGetWidth(image.CGImage);
     // 获取原图高度
     int imageHeight = (int)CGImageGetHeight(image.CGImage);
+    
+    int *faces = [self.detectTool testFacesForImage:image];
+    
+    if (faces == NULL) {
+        // 解决白屏问题
+        GLfloat points[] = {0};
+        [filter renderPointsFromArray:points count:0];
+        return;
+    }
+    
+    int faceNum = faces[0];
+    if (faceNum != 1) {
+        // 解决白屏问题
+        GLfloat points[] = {0};
+        [filter renderPointsFromArray:points count:0];
+        return;
+    }
     
     NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:image] copy];
 //    NSLog(@"pointArr: %@", pointsArr);
@@ -144,7 +190,6 @@
         points[2 * i + 1] = point.y/(imageHeight * 1.0);
     }
     
-    GPUImageCustomAddPointsFilter *filter = (GPUImageCustomAddPointsFilter *)self.imageFilter;
     [filter renderPointsFromArray:points count:pointsArr.count];
 }
 

@@ -295,6 +295,22 @@
     int imageWidth = (int)CGImageGetWidth(tempImage.CGImage);
     // 获取原图高度
     int imageHeight = (int)CGImageGetHeight(tempImage.CGImage);
+    int *faces = [self.detectTool testFacesForImage:tempImage];
+    
+    if (faces == NULL) {
+        // 解决白屏问题
+        GLfloat points[] = {0};
+        [self.lipstickFilter renderPointsFromArray:points count:0];
+        return;
+    }
+    
+    int faceNum = faces[0];
+    if (faceNum != 1) {
+        // 解决白屏问题
+        GLfloat points[] = {0};
+        [self.lipstickFilter renderPointsFromArray:points count:0];
+        return;
+    }
     
     NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:tempImage] copy];
     
