@@ -15,12 +15,12 @@
 /*
  FIXME: --------
  存在以下问题待解决:
- 1. 刚进来时如果没有人脸时，会出现白屏问题
+ 1. 刚进来时如果没有人脸时，会出现白屏问题 ✅
  2. 有人脸之后正常，但人脸移出屏幕外时，内存泄露
  3. 贴妆位置需优化
  */
 
-#define kTestCamera 0
+#define kTestCamera 1
 
 @interface FHLipstickViewController ()<GPUImageVideoCameraDelegate>
 {
@@ -62,6 +62,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     r = 255; g = 0; b = 0;
     xList = [NSMutableArray array];
@@ -78,7 +79,6 @@
 #if kTestCamera
     [self setupCameraUI];
     [self setupCameraFilter];
-    [self cameraRender];
 #else
     [self setupImageUI];
     [self setupImageFilter];
@@ -88,6 +88,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setHidden:YES];
+    
+#if kTestCamera
+    [self cameraRender];
+#endif
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -239,10 +243,10 @@
     for (int i = 0; i < xList.count; i++) {
         @autoreleasepool {
             CGPoint point = CGPointMake([yList[i] intValue], [xList[i] intValue]);
-            if (point.y > height || point.y < 0) {
+            if (point.y >= height-1 || point.y < 0) {
                 break;
             }
-            if (point.x > width || point.x < 0) {
+            if (point.x >= width-1 || point.x < 0) {
                 break;
             }
             NSArray *rgb = [UIImage pointColorWithImageData:data point:point bytesPerRow:bytesPerRow];
@@ -295,6 +299,8 @@
     NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:tempImage] copy];
     
     if (nil == pointsArr) {
+        GLfloat points[] = {0};
+        [self.lipstickFilter renderPointsFromArray:points count:0];
         return;
     }
     
