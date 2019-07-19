@@ -16,6 +16,8 @@
 
 #import "Masonry.h"
 
+static NSString *const kImageNamed = @"img_test";
+
 #endif
 
 #endif /* PrefixHeader_pch */

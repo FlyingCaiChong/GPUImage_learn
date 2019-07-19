@@ -23,8 +23,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static NSString *const kImageNamed = @"img_test";
-
 typedef NS_ENUM(NSUInteger, ShowType) {
     ShowTypeImage,
     ShowTypeCamera,

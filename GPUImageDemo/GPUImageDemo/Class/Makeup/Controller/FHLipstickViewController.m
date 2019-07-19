@@ -12,6 +12,7 @@
 #import "UIImage+SXExtension.h"
 #import "FHMathTool.h"
 #import "GPUImageCustomLipstickFilter.h"
+#import "GPUImageCustomAddPointsFilter.h"
 /*
  FIXME: --------
  存在以下问题待解决:
@@ -20,7 +21,7 @@
  3. 贴妆位置需优化
  */
 
-#define kTestCamera 1
+#define kTestCamera 0
 
 @interface FHLipstickViewController ()<GPUImageVideoCameraDelegate>
 {
@@ -55,6 +56,7 @@
 @property (nonatomic, strong) SXSenseDetectTool *detectTool;
 @property (nonatomic, strong) GPUImageStillCamera *stillCamera;
 @property (nonatomic, strong) GPUImageCustomLipstickFilter *lipstickFilter;
+@property (nonatomic, strong) GPUImageCustomAddPointsFilter *addPointsFilter;
 
 @end
 
@@ -126,18 +128,18 @@
 
 - (void)setupImageFilter {
     self.lipstickFilter = [[GPUImageCustomLipstickFilter alloc] init];
+    self.addPointsFilter = [[GPUImageCustomAddPointsFilter alloc] init];
     [self.imagePicture addTarget:self.lipstickFilter];
-    [self.lipstickFilter useNextFrameForImageCapture];
+    [self.lipstickFilter addTarget:self.addPointsFilter];
+    [self.addPointsFilter useNextFrameForImageCapture];
     
-    UIImage *image = [UIImage imageNamed:@"img_test"];
+    UIImage *image = [UIImage imageNamed:kImageNamed];
     // 获取原图宽度
     int imageWidth = (int)CGImageGetWidth(image.CGImage);
     // 获取原图高度
     int imageHeight = (int)CGImageGetHeight(image.CGImage);
 
     NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:image] copy];
-    NSLog(@"pointArr: %@", pointsArr);
-    
     
     int count = (int)(pointsArr.count * 2);
     GLfloat points[count];
@@ -149,11 +151,12 @@
         points[2 * i + 1] = point.y/(imageHeight * 1.0);
     }
     
+    [self.addPointsFilter renderPointsFromArray:points count:pointsArr.count];
     [self handleLipstickWithPointsArr:pointsArr width:imageWidth height:imageHeight image:image];
     
     [self.imagePicture processImage];
     
-    self.showImageView.image = [self.lipstickFilter imageFromCurrentFramebuffer];
+    self.showImageView.image = [self.addPointsFilter imageFromCurrentFramebuffer];
 }
 
 - (void)handleLipstickWithPointsArr:(NSArray *)pointsArr width:(int)width height:(int)height image:(UIImage *)image {
@@ -324,7 +327,7 @@
 
 - (GPUImagePicture *)imagePicture {
     if (!_imagePicture) {
-        _imagePicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"img_test"]];
+        _imagePicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:kImageNamed]];
     }
     return _imagePicture;
 }
