@@ -31,6 +31,7 @@ NSString *const kGPUImageCustomLipstickVertexShaderString = SHADER_STRING
      if (y > 1.0) {
          y = 1.0;
      }
+     
      textureCoordinate = vec2(coordinate.x, y);
      
      vec2 singleStepOffset = vec2(texelWidthOffset, texelHeightOffset);

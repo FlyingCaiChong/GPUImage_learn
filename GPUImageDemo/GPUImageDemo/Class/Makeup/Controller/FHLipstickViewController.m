@@ -19,9 +19,10 @@
  1. 刚进来时如果没有人脸时，会出现白屏问题 ✅
  2. 有人脸之后正常，但人脸移出屏幕外时，内存泄露 ✅
  3. 贴妆位置需优化
+ 4. 人脸左右倾斜一定幅度时会出现问题
  */
 
-#define kTestCamera 0
+#define kTestCamera 1
 
 @interface FHLipstickViewController ()<GPUImageVideoCameraDelegate>
 {

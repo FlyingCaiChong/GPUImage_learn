@@ -115,6 +115,8 @@
 #pragma mark - GPUImageVideoCameraDelegate
 - (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     
+    [self detectBrightnessWithSampleBuffer:sampleBuffer];
+    
     if (![self needHandleDetectResult]) {
         return;
     }
@@ -140,7 +142,15 @@
     }
 }
 
-
+- (void)detectBrightnessWithSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    
+    CFDictionaryRef metadataDict = CMCopyDictionaryOfAttachments(NULL, sampleBuffer, kCMAttachmentMode_ShouldPropagate);
+    NSDictionary *metadata =  [[NSMutableDictionary alloc] initWithDictionary:(__bridge NSDictionary *)metadataDict];
+    CFRelease(metadataDict);
+    NSDictionary *exifMetadata = [[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary] mutableCopy];
+    float brightnessValue = [[exifMetadata objectForKey:(NSString *)kCGImagePropertyExifBrightnessValue] floatValue];
+    NSLog(@"brightness: %f", brightnessValue);
+}
 
 #pragma mark - lazy
 - (GPUImagePicture *)sourcePicture {

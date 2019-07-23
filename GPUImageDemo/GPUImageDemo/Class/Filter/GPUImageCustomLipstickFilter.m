@@ -49,7 +49,8 @@
 }
 
 - (void)renderPointsFromArray:(GLfloat *)points count:(NSUInteger)numberOfPoints {
-    CMTime frameTime = CMTimeMake(0, 1);
+    // iOS默认输出的视频帧率为30帧/秒
+    CMTime frameTime = CMTimeMake(1, 30);
     [lipstickGenerator renderLipstickFromArray:points count:numberOfPoints frameTime:frameTime];
 }
 
