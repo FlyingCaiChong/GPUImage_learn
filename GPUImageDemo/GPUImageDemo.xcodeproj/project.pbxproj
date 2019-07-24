@@ -40,6 +40,17 @@
 		B68F0AE522D57A8200675239 /* FHShowViewController+AdjustFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B68F0AE422D57A8200675239 /* FHShowViewController+AdjustFilter.m */; };
 		B68F0AEB22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B68F0AEA22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m */; };
 		B68F0AED22D5932600675239 /* ShaderCustom9SplitScreen.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B68F0AEC22D5932600675239 /* ShaderCustom9SplitScreen.fsh */; };
+		B6AE224D22E838D100FB2EC7 /* ShaderCustomFaceChange.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B6AE224C22E838D100FB2EC7 /* ShaderCustomFaceChange.fsh */; };
+		B6AE225C22E853B600FB2EC7 /* libMGFacepp-0.5.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6AE225322E853B600FB2EC7 /* libMGFacepp-0.5.2.a */; };
+		B6AE225D22E853B600FB2EC7 /* megviifacepp_0_5_2_model in Resources */ = {isa = PBXBuildFile; fileRef = B6AE225422E853B600FB2EC7 /* megviifacepp_0_5_2_model */; };
+		B6AE226222E853E100FB2EC7 /* libMGLicMgrSDK-0.3.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6AE225F22E853E100FB2EC7 /* libMGLicMgrSDK-0.3.1.a */; };
+		B6AE226722E853F700FB2EC7 /* MGFaceLicenseHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AE226522E853F700FB2EC7 /* MGFaceLicenseHandle.m */; };
+		B6AE226B22E8541900FB2EC7 /* 106_points_position.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6AE226822E8541900FB2EC7 /* 106_points_position.jpg */; };
+		B6AE226C22E8541900FB2EC7 /* 81_points_position.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6AE226922E8541900FB2EC7 /* 81_points_position.jpg */; };
+		B6AE226D22E8541900FB2EC7 /* 101_points_position.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6AE226A22E8541900FB2EC7 /* 101_points_position.jpg */; };
+		B6AE227122E8542200FB2EC7 /* iOS_人脸检测_联网授权FAQ.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6AE226E22E8542100FB2EC7 /* iOS_人脸检测_联网授权FAQ.pdf */; };
+		B6AE227222E8542200FB2EC7 /* iOS_人脸检测_联网授权V3_集成文档.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6AE226F22E8542200FB2EC7 /* iOS_人脸检测_联网授权V3_集成文档.pdf */; };
+		B6AE227322E8542200FB2EC7 /* iOS_人脸检测_联网授权V3版_运行Demo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B6AE227022E8542200FB2EC7 /* iOS_人脸检测_联网授权V3版_运行Demo.pdf */; };
 		B6C9D02622E1654D0060B812 /* GPUImageCustomLipstickFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C9D02522E1654D0060B812 /* GPUImageCustomLipstickFilter.m */; };
 		B6D8559622DD6287004AF34E /* FHLipstickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D8559522DD6287004AF34E /* FHLipstickViewController.m */; };
 		B6D8570422DD655C004AF34E /* Cholesky in Resources */ = {isa = PBXBuildFile; fileRef = B6D8559A22DD655C004AF34E /* Cholesky */; };
@@ -185,6 +196,28 @@
 		B68F0AE922D5930000675239 /* GPUImageCustom9SplitScreenFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustom9SplitScreenFilter.h; sourceTree = "<group>"; };
 		B68F0AEA22D5930000675239 /* GPUImageCustom9SplitScreenFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustom9SplitScreenFilter.m; sourceTree = "<group>"; };
 		B68F0AEC22D5932600675239 /* ShaderCustom9SplitScreen.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderCustom9SplitScreen.fsh; sourceTree = "<group>"; };
+		B6AE224C22E838D100FB2EC7 /* ShaderCustomFaceChange.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = ShaderCustomFaceChange.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		B6AE225322E853B600FB2EC7 /* libMGFacepp-0.5.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMGFacepp-0.5.2.a"; sourceTree = "<group>"; };
+		B6AE225422E853B600FB2EC7 /* megviifacepp_0_5_2_model */ = {isa = PBXFileReference; lastKnownFileType = file; path = megviifacepp_0_5_2_model; sourceTree = "<group>"; };
+		B6AE225522E853B600FB2EC7 /* MGAlgorithmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGAlgorithmInfo.h; sourceTree = "<group>"; };
+		B6AE225622E853B600FB2EC7 /* MGDetectRectInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGDetectRectInfo.h; sourceTree = "<group>"; };
+		B6AE225722E853B600FB2EC7 /* MGFaceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGFaceInfo.h; sourceTree = "<group>"; };
+		B6AE225822E853B600FB2EC7 /* MGFacepp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGFacepp.h; sourceTree = "<group>"; };
+		B6AE225922E853B600FB2EC7 /* MGFaceppCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGFaceppCommon.h; sourceTree = "<group>"; };
+		B6AE225A22E853B600FB2EC7 /* MGFaceppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGFaceppConfig.h; sourceTree = "<group>"; };
+		B6AE225B22E853B600FB2EC7 /* MGImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGImageData.h; sourceTree = "<group>"; };
+		B6AE225F22E853E100FB2EC7 /* libMGLicMgrSDK-0.3.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMGLicMgrSDK-0.3.1.a"; sourceTree = "<group>"; };
+		B6AE226022E853E100FB2EC7 /* MGLicenseCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLicenseCommon.h; sourceTree = "<group>"; };
+		B6AE226122E853E100FB2EC7 /* MGLicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLicenseManager.h; sourceTree = "<group>"; };
+		B6AE226422E853F700FB2EC7 /* MGFaceLicenseHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGFaceLicenseHandle.h; sourceTree = "<group>"; };
+		B6AE226522E853F700FB2EC7 /* MGFaceLicenseHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGFaceLicenseHandle.m; sourceTree = "<group>"; };
+		B6AE226622E853F700FB2EC7 /* MGNetAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGNetAccount.h; sourceTree = "<group>"; };
+		B6AE226822E8541900FB2EC7 /* 106_points_position.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 106_points_position.jpg; sourceTree = "<group>"; };
+		B6AE226922E8541900FB2EC7 /* 81_points_position.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 81_points_position.jpg; sourceTree = "<group>"; };
+		B6AE226A22E8541900FB2EC7 /* 101_points_position.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 101_points_position.jpg; sourceTree = "<group>"; };
+		B6AE226E22E8542100FB2EC7 /* iOS_人脸检测_联网授权FAQ.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS_人脸检测_联网授权FAQ.pdf"; sourceTree = "<group>"; };
+		B6AE226F22E8542200FB2EC7 /* iOS_人脸检测_联网授权V3_集成文档.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS_人脸检测_联网授权V3_集成文档.pdf"; sourceTree = "<group>"; };
+		B6AE227022E8542200FB2EC7 /* iOS_人脸检测_联网授权V3版_运行Demo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS_人脸检测_联网授权V3版_运行Demo.pdf"; sourceTree = "<group>"; };
 		B6C9D02422E1654D0060B812 /* GPUImageCustomLipstickFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomLipstickFilter.h; sourceTree = "<group>"; };
 		B6C9D02522E1654D0060B812 /* GPUImageCustomLipstickFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomLipstickFilter.m; sourceTree = "<group>"; };
 		B6D8559422DD6287004AF34E /* FHLipstickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHLipstickViewController.h; sourceTree = "<group>"; };
@@ -544,8 +577,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6AE225C22E853B600FB2EC7 /* libMGFacepp-0.5.2.a in Frameworks */,
 				B6D8572F22DD655D004AF34E /* openmp.framework in Frameworks */,
 				D2DBF37545DDF9CABAACDC70 /* libPods-GPUImageDemo.a in Frameworks */,
+				B6AE226222E853E100FB2EC7 /* libMGLicMgrSDK-0.3.1.a in Frameworks */,
 				B6D8572E22DD655C004AF34E /* ncnn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +652,7 @@
 		B672A92322D42BDC0046BBFD /* GPUImageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B6AE225122E8539600FB2EC7 /* Facepp */,
 				B672A95622D4343C0046BBFD /* Class */,
 				B672A92422D42BDC0046BBFD /* AppDelegate.h */,
 				B672A92522D42BDC0046BBFD /* AppDelegate.m */,
@@ -745,6 +781,7 @@
 				B65008A322D835E100D42CA5 /* ShaderCustomIllusion.fsh */,
 				B6D8573822DD7819004AF34E /* ShaderCustomMask.fsh */,
 				B6D8574022DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh */,
+				B6AE224C22E838D100FB2EC7 /* ShaderCustomFaceChange.fsh */,
 			);
 			path = Shader;
 			sourceTree = "<group>";
@@ -765,6 +802,58 @@
 				B65F114122D47B32007D6A05 /* FHFilterListCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B6AE225122E8539600FB2EC7 /* Facepp */ = {
+			isa = PBXGroup;
+			children = (
+				B6AE226E22E8542100FB2EC7 /* iOS_人脸检测_联网授权FAQ.pdf */,
+				B6AE226F22E8542200FB2EC7 /* iOS_人脸检测_联网授权V3_集成文档.pdf */,
+				B6AE227022E8542200FB2EC7 /* iOS_人脸检测_联网授权V3版_运行Demo.pdf */,
+				B6AE226922E8541900FB2EC7 /* 81_points_position.jpg */,
+				B6AE226A22E8541900FB2EC7 /* 101_points_position.jpg */,
+				B6AE226822E8541900FB2EC7 /* 106_points_position.jpg */,
+				B6AE226322E853F700FB2EC7 /* MGLicenseManagerHelper */,
+				B6AE225E22E853E100FB2EC7 /* MegviiLicMgr-iOS-SDK */,
+				B6AE225222E853B600FB2EC7 /* iOS_SDK */,
+			);
+			path = Facepp;
+			sourceTree = "<group>";
+		};
+		B6AE225222E853B600FB2EC7 /* iOS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				B6AE225322E853B600FB2EC7 /* libMGFacepp-0.5.2.a */,
+				B6AE225422E853B600FB2EC7 /* megviifacepp_0_5_2_model */,
+				B6AE225522E853B600FB2EC7 /* MGAlgorithmInfo.h */,
+				B6AE225622E853B600FB2EC7 /* MGDetectRectInfo.h */,
+				B6AE225722E853B600FB2EC7 /* MGFaceInfo.h */,
+				B6AE225822E853B600FB2EC7 /* MGFacepp.h */,
+				B6AE225922E853B600FB2EC7 /* MGFaceppCommon.h */,
+				B6AE225A22E853B600FB2EC7 /* MGFaceppConfig.h */,
+				B6AE225B22E853B600FB2EC7 /* MGImageData.h */,
+			);
+			path = iOS_SDK;
+			sourceTree = "<group>";
+		};
+		B6AE225E22E853E100FB2EC7 /* MegviiLicMgr-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				B6AE225F22E853E100FB2EC7 /* libMGLicMgrSDK-0.3.1.a */,
+				B6AE226022E853E100FB2EC7 /* MGLicenseCommon.h */,
+				B6AE226122E853E100FB2EC7 /* MGLicenseManager.h */,
+			);
+			path = "MegviiLicMgr-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		B6AE226322E853F700FB2EC7 /* MGLicenseManagerHelper */ = {
+			isa = PBXGroup;
+			children = (
+				B6AE226422E853F700FB2EC7 /* MGFaceLicenseHandle.h */,
+				B6AE226522E853F700FB2EC7 /* MGFaceLicenseHandle.m */,
+				B6AE226622E853F700FB2EC7 /* MGNetAccount.h */,
+			);
+			path = MGLicenseManagerHelper;
 			sourceTree = "<group>";
 		};
 		B6D8558F22DD6271004AF34E /* Makeup */ = {
@@ -1593,8 +1682,11 @@
 				B6D8571122DD655C004AF34E /* OrderingMethods in Resources */,
 				B6D8573022DD655D004AF34E /* README.txt in Resources */,
 				B650089222D8241B00D42CA5 /* ShaderCustomGlitch.fsh in Resources */,
+				B6AE226C22E8541900FB2EC7 /* 81_points_position.jpg in Resources */,
 				B68F0AED22D5932600675239 /* ShaderCustom9SplitScreen.fsh in Resources */,
 				B6D8572422DD655C004AF34E /* det1.param in Resources */,
+				B6AE227222E8542200FB2EC7 /* iOS_人脸检测_联网授权V3_集成文档.pdf in Resources */,
+				B6AE226B22E8541900FB2EC7 /* 106_points_position.jpg in Resources */,
 				B6D8571722DD655C004AF34E /* SparseCholesky in Resources */,
 				B6D8570B22DD655C004AF34E /* Geometry in Resources */,
 				B6D8574122DDAB3A004AF34E /* ShaderCustomFeaturePoints.fsh in Resources */,
@@ -1619,23 +1711,28 @@
 				B6D8573922DD7819004AF34E /* ShaderCustomMask.fsh in Resources */,
 				B6D8572B22DD655C004AF34E /* shufflenetv2_150w.model in Resources */,
 				B6D8572722DD655C004AF34E /* det3.bin in Resources */,
+				B6AE224D22E838D100FB2EC7 /* ShaderCustomFaceChange.fsh in Resources */,
 				B6D8570522DD655C004AF34E /* CholmodSupport in Resources */,
 				B6D8572622DD655C004AF34E /* det2.param in Resources */,
+				B6AE225D22E853B600FB2EC7 /* megviifacepp_0_5_2_model in Resources */,
 				B6D8572022DD655C004AF34E /* SVD in Resources */,
 				B6D8571F22DD655C004AF34E /* SuperLUSupport in Resources */,
 				B6D8570822DD655C004AF34E /* Dense in Resources */,
 				B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */,
 				B6D8570F22DD655C004AF34E /* LU in Resources */,
 				B650089A22D82FC700D42CA5 /* ShaderCustomShake.fsh in Resources */,
+				B6AE227322E8542200FB2EC7 /* iOS_人脸检测_联网授权V3版_运行Demo.pdf in Resources */,
 				B6D8571322DD655C004AF34E /* PaStiXSupport in Resources */,
 				B6D8571622DD655C004AF34E /* Sparse in Resources */,
 				B6D8571222DD655C004AF34E /* PardisoSupport in Resources */,
+				B6AE226D22E8541900FB2EC7 /* 101_points_position.jpg in Resources */,
 				B6D8571822DD655C004AF34E /* SparseCore in Resources */,
 				B6D8572C22DD655C004AF34E /* shufflenetv2_150w.weights in Resources */,
 				B6D8572322DD655C004AF34E /* det1.bin in Resources */,
 				B6D8571D22DD655C004AF34E /* StdList in Resources */,
 				B6D8570422DD655C004AF34E /* Cholesky in Resources */,
 				B6D8570D22DD655C004AF34E /* IterativeLinearSolvers in Resources */,
+				B6AE227122E8542200FB2EC7 /* iOS_人脸检测_联网授权FAQ.pdf in Resources */,
 				B672A92C22D42BDC0046BBFD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1772,6 +1869,7 @@
 				B6F01D6622DEF460003F504A /* FHShowViewController+HandleDetectResult.m in Sources */,
 				B660BEB722D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m in Sources */,
 				B650089522D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m in Sources */,
+				B6AE226722E853F700FB2EC7 /* MGFaceLicenseHandle.m in Sources */,
 				B6D8573C22DD7954004AF34E /* GPUImageCustomMaskFilter.m in Sources */,
 				B650089822D82D1A00D42CA5 /* GPUImageCustomScaleFilter.m in Sources */,
 				B672A95F22D436110046BBFD /* FHMainViewController.m in Sources */,
@@ -1981,6 +2079,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GPUImageDemo/Facepp/iOS_SDK",
+					"$(PROJECT_DIR)/GPUImageDemo/Facepp/MegviiLicMgr-iOS-SDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.waterelle.GPUImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
@@ -2004,6 +2107,11 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GPUImageDemo/Facepp/iOS_SDK",
+					"$(PROJECT_DIR)/GPUImageDemo/Facepp/MegviiLicMgr-iOS-SDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.waterelle.GPUImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
