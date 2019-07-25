@@ -11,7 +11,7 @@ uniform float eye_param;
 uniform float nose_param;
 
 uniform vec2 resolution;
-uniform int hasFaceBool;
+uniform int haveFaceBool;
 
 uniform mediump vec2 locArray[127];
 
@@ -74,7 +74,7 @@ vec2 adjust_eye(vec2 coord, float eye_dist, vec2 dir_up, vec2 dir_right, float a
     
     float res_ratio = resolution.x / resolution.y;
     
-    vec2 newCoord = vec2(coord.x * res_ratio, coor.y);
+    vec2 newCoord = vec2(coord.x * res_ratio, coord.y);
     
     vec2 eyea = vec2(locArray[98].x * res_ratio, locArray[98].y);
     vec2 eyeb = vec2(locArray[103].x * res_ratio, locArray[103].y);

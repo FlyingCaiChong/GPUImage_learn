@@ -18,8 +18,11 @@
 #import "GPUImageCustomFeaturePointsFilter.h"
 #import "GPUImageCustomLandmarkFilter.h"
 #import "GPUImageCustomAddPointsFilter.h"
+#import "GPUImageCustomFaceChangeFilter.h"
 #import "SXSenseDetectTool.h"
 #import "UIImage+SXExtension.h"
+#import "MGFaceLicenseHandle.h"
+#import "MGFacepp.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,6 +32,11 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 };
 
 @interface FHShowViewController ()<GPUImageVideoCameraDelegate>
+
+// face++的sdk是否授权可用
+@property (nonatomic, assign) BOOL faceServiceEnable;
+@property (nonatomic, strong) MGFacepp *markManager;
+
 
 @property (nonatomic, strong) FHFilterListItem *item;
 @property (nonatomic, strong) UILabel *originImageLabel;
@@ -90,6 +98,7 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)configShakeTime:(CGFloat)time;
 - (void)configFlashWhiteTime:(CGFloat)time;
 - (void)configIllusionTime:(CGFloat)time;
+- (void)configEyeParam:(CGFloat)eyeParam;
 
 #pragma mark - Handle Detect Result
 - (BOOL)needHandleDetectResult;
@@ -97,6 +106,7 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)handleDetectResultForFeaturePointsFilter:(UIImage *)image;
 - (void)handleDetectResultForLandmarkFilter:(UIImage *)image;
 - (void)handleDetectResultForAddPointsFilter:(UIImage *)image;
+- (void)handleDetectResultForFaceChangeFilter:(UIImage *)image;
 
 @end
 

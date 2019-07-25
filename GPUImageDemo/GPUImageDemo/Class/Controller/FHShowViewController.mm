@@ -11,6 +11,8 @@
 #import "FHShowViewController+Private.h"
 #import "FHShowViewController+UI.h"
 
+#define testFacepp 0
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincomplete-implementation"
 
@@ -18,6 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    __weak __typeof(self) weakSelf = self;
+    [self checkFaceServiceBlock:^(BOOL results) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        strongSelf.faceServiceEnable = results;
+        if (results) {
+            [self configFaceMarkManager];
+        }
+    }];
     
     if (self.type == ShowTypeImage) {
         
@@ -67,6 +78,91 @@
     }
 }
 
+#pragma mark - Face++
+- (void)checkFaceServiceBlock:(void(^)(BOOL results))block{
+    
+    /** 进行联网授权版本判断，联网授权就需要进行网络授权 */
+    BOOL needLicense = [MGFaceLicenseHandle getNeedNetLicense];
+    if (needLicense) {
+        [MGFaceLicenseHandle licenseForNetwokrFinish:^(bool License, NSDate *sdkDate) {
+            if (!License) {
+                NSLog(@"联网授权失败 ！！！");
+                if (block) {
+                    block(NO);
+                }
+            } else {
+                NSLog(@"联网授权成功");
+                if (block) {
+                    block(YES);
+                }
+            }
+        }];
+        
+    } else {
+        NSLog(@"SDK 为非联网授权版本！");
+        if (block) {
+            block(NO);
+        }
+    }
+}
+
+- (void)configFaceMarkManager{
+    
+    NSString *modelPath = [[NSBundle mainBundle] pathForResource:KMGFACEMODELNAME ofType:@""];
+    NSData *modelData = [NSData dataWithContentsOfFile:modelPath];
+    
+    int maxFaceCount = 0;
+    int faceSize = 100;
+    int internal = 40;
+    
+    MGDetectROI detectROI = MGDetectROIMake(0, 0, 0, 0);
+    
+    self.markManager = [[MGFacepp alloc] initWithModel:modelData
+                                          maxFaceCount:maxFaceCount
+                                         faceppSetting:^(MGFaceppConfig *config) {
+                                             config.minFaceSize = faceSize;
+                                             config.interval = internal;
+                                             config.orientation = 90;
+                                             config.detectionMode = MGFppDetectionModeTrackingFast;
+                                             config.detectROI = detectROI;
+                                             config.pixelFormatType = PixelFormatTypeRGBA;
+                                         }];
+    
+}
+
+- (void)testFaceppDetectSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    
+    MGImageData *imageData = [[MGImageData alloc] initWithSampleBuffer:sampleBuffer];
+    
+    [self.markManager beginDetectionFrame];
+    
+    NSArray *tempArray = [self.markManager detectWithImageData:imageData];
+    NSUInteger faceCount = tempArray.count;
+    NSLog(@"faceCount: %zd", faceCount);
+    
+    for (MGFaceInfo *faceInfo in tempArray) {
+        [self.markManager GetGetLandmark:faceInfo isSmooth:YES pointsNumber:106];
+        NSLog(@"landmark - %@", faceInfo.points);
+        if ([self.imageFilter isKindOfClass:[GPUImageCustomLandmarkFilter class]]) {
+            NSArray *pointsArr = faceInfo.points;
+            int count = (int)(pointsArr.count * 2);
+            GLfloat points[count];
+            
+            for (int i = 0; i < pointsArr.count; i++) {
+                NSValue *pointValue = pointsArr[i];
+                CGPoint point = [pointValue CGPointValue];
+                points[2 * i + 1] = point.x/(imageData.width * 1.0);
+                points[2 * i] = point.y/(imageData.height * 1.0);
+            }
+            
+            GPUImageCustomLandmarkFilter *filter = (GPUImageCustomLandmarkFilter *)self.imageFilter;
+            [filter renderCrosshairsFromArray:points count:pointsArr.count];
+        }
+    }
+    
+    [self.markManager endDetectionFrame];
+}
+
 #pragma mark - Image
 - (void)configFilter {
     NSString *filterClassNamed = self.item.title;
@@ -96,6 +192,9 @@
     else if ([self.imageFilter isKindOfClass:[GPUImageCustomAddPointsFilter class]]) {
         [self handleDetectResultForAddPointsFilter:tempImage];
     }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeFilter class]]) {
+        [self handleDetectResultForFaceChangeFilter:tempImage];
+    }
     
     [self render];
 }
@@ -115,11 +214,15 @@
 #pragma mark - GPUImageVideoCameraDelegate
 - (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     
-    [self detectBrightnessWithSampleBuffer:sampleBuffer];
+    if (self.faceServiceEnable && testFacepp) {
+        [self testFaceppDetectSampleBuffer:sampleBuffer];
+    }
     
     if (![self needHandleDetectResult]) {
         return;
     }
+    
+    [self detectBrightnessWithSampleBuffer:sampleBuffer];
     
     CMSampleBufferRef picCopy; // 避免内存问题产生，此处Copy一份Buffer用作处理；
     CMSampleBufferCreateCopy(CFAllocatorGetDefault(), sampleBuffer, &picCopy);
@@ -139,6 +242,10 @@
     
     else if ([self.imageFilter isKindOfClass:[GPUImageCustomAddPointsFilter class]]) {
         [self handleDetectResultForAddPointsFilter:tempImage];
+    }
+    
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeFilter class]]) {
+        [self handleDetectResultForFaceChangeFilter:tempImage];
     }
 }
 

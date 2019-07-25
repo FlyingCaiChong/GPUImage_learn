@@ -80,6 +80,11 @@
     filter.time = time;
 }
 
+- (void)configEyeParam:(CGFloat)eyeParam {
+    GPUImageCustomFaceChangeFilter *filter = (GPUImageCustomFaceChangeFilter *)self.imageFilter;
+    filter.eyeParam = eyeParam;
+}
+
 #pragma mark - Time Display
 - (void)configTimeDisplay {
     

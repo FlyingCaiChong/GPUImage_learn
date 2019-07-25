@@ -21,6 +21,7 @@
                      NSStringFromClass([GPUImageCustomFeaturePointsFilter class]),
                      NSStringFromClass([GPUImageCustomLandmarkFilter class]),
                      NSStringFromClass([GPUImageCustomAddPointsFilter class]),
+                     NSStringFromClass([GPUImageCustomFaceChangeFilter class]),
                      ];
     
     NSString *filterTitle = NSStringFromClass([self.imageFilter class]);
@@ -157,6 +158,23 @@
     
     GPUImageCustomAddPointsFilter *filter = (GPUImageCustomAddPointsFilter *)self.imageFilter;
     [filter renderPointsFromArray:points count:pointsArr.count];
+}
+
+- (void)handleDetectResultForFaceChangeFilter:(UIImage *)image {
+    if (![self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeFilter class]]) {
+        return;
+    }
+    
+    // 获取原图宽度
+    int imageWidth = (int)CGImageGetWidth(image.CGImage);
+    // 获取原图高度
+    int imageHeight = (int)CGImageGetHeight(image.CGImage);
+    
+    NSArray *pointsArray = [[self.detectTool resultForDetectWithImage:image] copy];
+    
+    GPUImageCustomFaceChangeFilter *filter = (GPUImageCustomFaceChangeFilter *)self.imageFilter;
+    filter.isHaveFace = YES;
+    [filter setFacePointArray:pointsArray width:imageWidth height:imageHeight];
 }
 
 @end

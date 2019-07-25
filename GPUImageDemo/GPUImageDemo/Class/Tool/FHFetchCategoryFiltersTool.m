@@ -998,10 +998,17 @@
                  },
              @{
                  @"title": @"GPUImageCustomAddPointsFilter",
-                 @"desc": @"landmark",
+                 @"desc": @"add points",
                  @"inherit": @"GPUImageFilterGroup",
                  @"parametersNum": @0,
                  @"translate": @"利用自定义的shader, 将127个特征点作为顶点坐标，使用顶点着色器，添加人脸特征点，在特征点位置点",
+                 },
+             @{
+                 @"title": @"GPUImageCustomFaceChangeFilter",
+                 @"desc": @"face change",
+                 @"inherit": @"GPUImageFilter",
+                 @"parametersNum": @1,
+                 @"translate": @"利用自定义的shader, 实现瘦脸大眼效果",
                  },
              ];
 }

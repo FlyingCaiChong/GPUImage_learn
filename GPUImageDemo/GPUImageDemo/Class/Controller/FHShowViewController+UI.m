@@ -217,6 +217,12 @@
         self.slider.value = 0.0;
         self.sliderHintLabel.text = [NSString stringWithFormat:@"time(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
     }
+    else if ([title isEqualToString:NSStringFromClass([GPUImageCustomFaceChangeFilter class])]) {
+        self.slider.minimumValue = -1.0;
+        self.slider.maximumValue = 1.0;
+        self.slider.value = 1.0;
+        self.sliderHintLabel.text = [NSString stringWithFormat:@"eye(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
+    }
 }
 
 - (void)sliderChanged:(UISlider *)slider {
@@ -274,6 +280,10 @@
     else if ([self.imageFilter isKindOfClass:[GPUImageCustomIllusionFilter class]]) {
         [self configIllusionTime:value];
         self.sliderHintLabel.text = [NSString stringWithFormat:@"time(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeFilter class]]) {
+        [self configEyeParam:value];
+        self.sliderHintLabel.text = [NSString stringWithFormat:@"eye(%.1f ~ %.1f): %.1f", self.slider.minimumValue, self.slider.maximumValue, self.slider.value];
     }
     if (self.type == ShowTypeImage) {
         
