@@ -177,6 +177,35 @@
     [filter setFacePointArray:pointsArray width:imageWidth height:imageHeight];
 }
 
+- (void)handleDetectResultForFaceChangeGroup:(UIImage *)image {
+    if (![self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeGroup class]]) {
+        return;
+    }
+    
+    // 获取原图宽度
+    int imageWidth = (int)CGImageGetWidth(image.CGImage);
+    // 获取原图高度
+    int imageHeight = (int)CGImageGetHeight(image.CGImage);
+    
+    NSArray *pointsArr = [[self.detectTool resultForDetectWithImage:image] copy];
+    int count = (int)(pointsArr.count * 2);
+    GLfloat points[count];
+    
+    for (int i = 0; i < pointsArr.count; i++) {
+        NSValue *pointValue = pointsArr[i];
+        CGPoint point = [pointValue CGPointValue];
+//        points[2 * i] = point.x/(imageWidth * 1.0);
+//        points[2 * i + 1] = point.y/(imageHeight * 1.0);
+        points[2 * i+1] =  (point.x / imageWidth * 1.0);
+        points[2 * i] = 1- (point.y / imageHeight * 1.0);
+    }
+    
+    
+    GPUImageCustomFaceChangeGroup *filter = (GPUImageCustomFaceChangeGroup *)self.imageFilter;
+    filter.isHaveFace = YES;
+    [filter setFacePointArray:pointsArr width:imageWidth height:imageHeight];
+}
+
 @end
 
 #pragma clang diagnostic pop

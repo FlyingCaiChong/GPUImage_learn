@@ -85,6 +85,11 @@
     filter.eyeParam = eyeParam;
 }
 
+- (void)configFaceChangeGroupEyeParam:(CGFloat)eyeParam {
+    GPUImageCustomFaceChangeGroup *filter = (GPUImageCustomFaceChangeGroup *)self.imageFilter;
+    filter.eyeParam = eyeParam;
+}
+
 #pragma mark - Time Display
 - (void)configTimeDisplay {
     

@@ -27,6 +27,8 @@
 		B660BEB422D6DA93009B58D0 /* FHShowBlendViewController+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEB322D6DA93009B58D0 /* FHShowBlendViewController+UI.m */; };
 		B660BEB722D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B660BEB622D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m */; };
 		B664FA4D22E93CA3004D2EF9 /* GPUImageCustomFaceChangeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B664FA4C22E93CA3004D2EF9 /* GPUImageCustomFaceChangeFilter.m */; };
+		B664FA5022E94E9C004D2EF9 /* GPUImageCustomFaceChangeGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = B664FA4F22E94E9C004D2EF9 /* GPUImageCustomFaceChangeGroup.m */; };
+		B664FA5322E95658004D2EF9 /* GPUImageCustomFaceDetectPointFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B664FA5222E95658004D2EF9 /* GPUImageCustomFaceDetectPointFilter.m */; };
 		B672A92622D42BDC0046BBFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B672A92522D42BDC0046BBFD /* AppDelegate.m */; };
 		B672A92C22D42BDC0046BBFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B672A92A22D42BDC0046BBFD /* Main.storyboard */; };
 		B672A92E22D42BE10046BBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B672A92D22D42BE10046BBFD /* Assets.xcassets */; };
@@ -170,6 +172,10 @@
 		B660BEB622D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FHShowBlendViewController+AdjustFilter.m"; sourceTree = "<group>"; };
 		B664FA4B22E93CA3004D2EF9 /* GPUImageCustomFaceChangeFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomFaceChangeFilter.h; sourceTree = "<group>"; };
 		B664FA4C22E93CA3004D2EF9 /* GPUImageCustomFaceChangeFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomFaceChangeFilter.m; sourceTree = "<group>"; };
+		B664FA4E22E94E9C004D2EF9 /* GPUImageCustomFaceChangeGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomFaceChangeGroup.h; sourceTree = "<group>"; };
+		B664FA4F22E94E9C004D2EF9 /* GPUImageCustomFaceChangeGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomFaceChangeGroup.m; sourceTree = "<group>"; };
+		B664FA5122E95658004D2EF9 /* GPUImageCustomFaceDetectPointFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageCustomFaceDetectPointFilter.h; sourceTree = "<group>"; };
+		B664FA5222E95658004D2EF9 /* GPUImageCustomFaceDetectPointFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageCustomFaceDetectPointFilter.m; sourceTree = "<group>"; };
 		B672A92122D42BDC0046BBFD /* GPUImageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B672A92422D42BDC0046BBFD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B672A92522D42BDC0046BBFD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -763,6 +769,10 @@
 				B6C9D02522E1654D0060B812 /* GPUImageCustomLipstickFilter.m */,
 				B664FA4B22E93CA3004D2EF9 /* GPUImageCustomFaceChangeFilter.h */,
 				B664FA4C22E93CA3004D2EF9 /* GPUImageCustomFaceChangeFilter.m */,
+				B664FA5122E95658004D2EF9 /* GPUImageCustomFaceDetectPointFilter.h */,
+				B664FA5222E95658004D2EF9 /* GPUImageCustomFaceDetectPointFilter.m */,
+				B664FA4E22E94E9C004D2EF9 /* GPUImageCustomFaceChangeGroup.h */,
+				B664FA4F22E94E9C004D2EF9 /* GPUImageCustomFaceChangeGroup.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -1872,6 +1882,7 @@
 				B6D8573122DD655D004AF34E /* smile_score.cpp in Sources */,
 				B6D8573F22DDAA3D004AF34E /* GPUImageCustomFeaturePointsFilter.m in Sources */,
 				B6F01D6622DEF460003F504A /* FHShowViewController+HandleDetectResult.m in Sources */,
+				B664FA5322E95658004D2EF9 /* GPUImageCustomFaceDetectPointFilter.m in Sources */,
 				B660BEB722D6E7E1009B58D0 /* FHShowBlendViewController+AdjustFilter.m in Sources */,
 				B650089522D8245C00D42CA5 /* GPUImageCustomGlitchFilter.m in Sources */,
 				B6AE226722E853F700FB2EC7 /* MGFaceLicenseHandle.m in Sources */,
@@ -1884,6 +1895,7 @@
 				B68F0AE222D572CA00675239 /* FHShowViewController+UI.m in Sources */,
 				B6F01D6922DEFAC7003F504A /* GPUImageCustomAddPointsFilter.m in Sources */,
 				B660BEB422D6DA93009B58D0 /* FHShowBlendViewController+UI.m in Sources */,
+				B664FA5022E94E9C004D2EF9 /* GPUImageCustomFaceChangeGroup.m in Sources */,
 				B672A98022D46DEE0046BBFD /* FHFetchCategoryFiltersTool.m in Sources */,
 				B6D8574422DDC526004AF34E /* GPUImageCustomLandmarkFilter.m in Sources */,
 				B65F114522D4890E007D6A05 /* FHFilterListItem.m in Sources */,

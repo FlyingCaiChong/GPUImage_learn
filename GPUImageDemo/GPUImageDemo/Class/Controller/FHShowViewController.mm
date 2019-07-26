@@ -195,6 +195,9 @@
     else if ([self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeFilter class]]) {
         [self handleDetectResultForFaceChangeFilter:tempImage];
     }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeGroup class]]) {
+        [self handleDetectResultForFaceChangeGroup:tempImage];
+    }
     
     [self render];
 }
@@ -246,6 +249,9 @@
     
     else if ([self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeFilter class]]) {
         [self handleDetectResultForFaceChangeFilter:tempImage];
+    }
+    else if ([self.imageFilter isKindOfClass:[GPUImageCustomFaceChangeGroup class]]) {
+        [self handleDetectResultForFaceChangeGroup:tempImage];
     }
 }
 

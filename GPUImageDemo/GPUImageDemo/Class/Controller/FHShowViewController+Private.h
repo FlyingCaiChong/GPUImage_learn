@@ -19,6 +19,7 @@
 #import "GPUImageCustomLandmarkFilter.h"
 #import "GPUImageCustomAddPointsFilter.h"
 #import "GPUImageCustomFaceChangeFilter.h"
+#import "GPUImageCustomFaceChangeGroup.h"
 #import "SXSenseDetectTool.h"
 #import "UIImage+SXExtension.h"
 #import "MGFaceLicenseHandle.h"
@@ -99,6 +100,7 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)configFlashWhiteTime:(CGFloat)time;
 - (void)configIllusionTime:(CGFloat)time;
 - (void)configEyeParam:(CGFloat)eyeParam;
+- (void)configFaceChangeGroupEyeParam:(CGFloat)eyeParam;
 
 #pragma mark - Handle Detect Result
 - (BOOL)needHandleDetectResult;
@@ -107,6 +109,7 @@ typedef NS_ENUM(NSUInteger, ShowType) {
 - (void)handleDetectResultForLandmarkFilter:(UIImage *)image;
 - (void)handleDetectResultForAddPointsFilter:(UIImage *)image;
 - (void)handleDetectResultForFaceChangeFilter:(UIImage *)image;
+- (void)handleDetectResultForFaceChangeGroup:(UIImage *)image;
 
 @end
 

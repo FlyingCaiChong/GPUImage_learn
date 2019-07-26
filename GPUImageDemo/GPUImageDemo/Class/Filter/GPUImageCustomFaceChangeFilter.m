@@ -67,12 +67,12 @@
     for (int index = 0; index < 127; index++) {
         CGPoint point = [pointArray[index] CGPointValue];
         // 图片
-//        facePoints[2 * index] = (point.x / width * 1.0);
-//        facePoints[2 * index + 1] = (point.y / height * 1.0);
+        facePoints[2 * index] = (point.x / width * 1.0);
+        facePoints[2 * index + 1] = (point.y / height * 1.0);
         
         // 视频
-        facePoints[2 * index+1] =  (point.x / width * 1.0);
-        facePoints[2 * index] = 1- (point.y / height * 1.0);
+//        facePoints[2 * index+1] =  (point.x / width * 1.0);
+//        facePoints[2 * index] = 1- (point.y / height * 1.0);
     }
     
     [self setFloatVec2Array:facePoints length:127*2 forUniform:faceArrayUniform program:filterProgram];

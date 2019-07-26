@@ -1010,6 +1010,13 @@
                  @"parametersNum": @1,
                  @"translate": @"利用自定义的shader, 实现瘦脸大眼效果",
                  },
+             @{
+                 @"title": @"GPUImageCustomFaceChangeGroup",
+                 @"desc": @"face change",
+                 @"inherit": @"GPUImageFilterGroup",
+                 @"parametersNum": @1,
+                 @"translate": @"利用自定义的shader, 实现瘦脸大眼效果",
+                 },
              ];
 }
 
