@@ -1,24 +1,30 @@
 PODS:
+  - CocoaLumberjack (3.5.3):
+    - CocoaLumberjack/Core (= 3.5.3)
+  - CocoaLumberjack/Core (3.5.3)
   - GPUImage (0.1.7)
   - Masonry (1.1.0)
   - MJExtension (3.0.17)
 
 DEPENDENCIES:
+  - CocoaLumberjack
   - GPUImage
   - Masonry
   - MJExtension
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CocoaLumberjack
     - GPUImage
     - Masonry
     - MJExtension
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
 
-PODFILE CHECKSUM: 9523fc49133f7195329fc44dbfbe7ada0dc85d1a
+PODFILE CHECKSUM: a7513ec402b204c78e1756ac9a34f8d6883635ba
 
 COCOAPODS: 1.5.3

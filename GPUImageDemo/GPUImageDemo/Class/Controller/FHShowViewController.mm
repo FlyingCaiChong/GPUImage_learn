@@ -11,6 +11,8 @@
 #import "FHShowViewController+Private.h"
 #import "FHShowViewController+UI.h"
 
+
+
 #define testFacepp 0
 
 #pragma clang diagnostic push
@@ -86,12 +88,13 @@
     if (needLicense) {
         [MGFaceLicenseHandle licenseForNetwokrFinish:^(bool License, NSDate *sdkDate) {
             if (!License) {
-                NSLog(@"联网授权失败 ！！！");
+                
+                DDLogError(@"联网授权失败 ！！");
                 if (block) {
                     block(NO);
                 }
             } else {
-                NSLog(@"联网授权成功");
+                DDLogVerbose(@"联网授权成功");
                 if (block) {
                     block(YES);
                 }
@@ -99,7 +102,7 @@
         }];
         
     } else {
-        NSLog(@"SDK 为非联网授权版本！");
+        DDLogError(@"SDK 为非联网授权版本！");
         if (block) {
             block(NO);
         }
@@ -138,11 +141,11 @@
     
     NSArray *tempArray = [self.markManager detectWithImageData:imageData];
     NSUInteger faceCount = tempArray.count;
-    NSLog(@"faceCount: %zd", faceCount);
+    DDLogInfo(@"faceCount: %zd", faceCount);
     
     for (MGFaceInfo *faceInfo in tempArray) {
         [self.markManager GetGetLandmark:faceInfo isSmooth:YES pointsNumber:106];
-        NSLog(@"landmark - %@", faceInfo.points);
+        DDLogInfo(@"landmark - %@", faceInfo.points);
         if ([self.imageFilter isKindOfClass:[GPUImageCustomLandmarkFilter class]]) {
             NSArray *pointsArr = faceInfo.points;
             int count = (int)(pointsArr.count * 2);
@@ -262,7 +265,7 @@
     CFRelease(metadataDict);
     NSDictionary *exifMetadata = [[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary] mutableCopy];
     float brightnessValue = [[exifMetadata objectForKey:(NSString *)kCGImagePropertyExifBrightnessValue] floatValue];
-    NSLog(@"brightness: %f", brightnessValue);
+    DDLogInfo(@"brightness: %f", brightnessValue);
 }
 
 #pragma mark - lazy

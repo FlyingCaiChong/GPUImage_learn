@@ -15,8 +15,15 @@
 #ifdef __OBJC__ // 引入了C文件，如果不加此ifdef，会报错
 
 #import "Masonry.h"
+#import "CocoaLumberjack.h"
 
 static NSString *const kImageNamed = @"img_test";
+
+#ifdef DEBUG
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static const DDLogLevel ddLogLevel = DDLogLevelWarning;
+#endif
 
 #endif
 
