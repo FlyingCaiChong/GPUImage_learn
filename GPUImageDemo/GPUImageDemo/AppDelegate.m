@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import "FHMainViewController.h"
 
+#ifdef DEBUG
+#import <DoraemonKit/DoraemonManager.h>
+#endif
+
 @interface AppDelegate ()
 
 @end
@@ -37,6 +41,11 @@
     DDLogInfo(@"Info");
     DDLogWarn(@"Warn");
     DDLogError(@"Error");
+    
+#ifdef DEBUG
+    [[DoraemonManager shareInstance] install];
+#endif
+    
     return YES;
 }
 

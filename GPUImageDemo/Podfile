@@ -10,6 +10,11 @@ target 'GPUImageDemo' do
   pod 'Masonry', :inhibit_warnings => true
   pod 'MJExtension', :inhibit_warnings => true
   pod 'CocoaLumberjack', :inhibit_warnings => true  
+
+  pod 'DoraemonKit/Core', '~> 1.2.1', :configurations => ['Debug'] 
+  pod 'DoraemonKit/WithLogger', '~> 1.2.1', :configurations => ['Debug'] 
+  pod 'DoraemonKit/WithGPS', '~> 1.2.1', :configurations => ['Debug'] 
+
   target 'GPUImageDemoTests' do
     inherit! :search_paths
     # Pods for testing
